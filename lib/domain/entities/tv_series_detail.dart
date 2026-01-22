@@ -1,18 +1,19 @@
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:equatable/equatable.dart';
 
-class MovieDetail extends Equatable {
-  const MovieDetail({
+class TvSeriesDetail extends Equatable {
+  const TvSeriesDetail({
     required this.adult,
     required this.backdropPath,
     required this.genres,
     required this.id,
-    required this.originalTitle,
+    required this.name,
+    required this.numberOfEpisodes,
+    required this.numberOfSeasons,
+    required this.originalLanguage,
+    required this.originalName,
     required this.overview,
     required this.posterPath,
-    required this.releaseDate,
-    required this.runtime,
-    required this.title,
     required this.voteAverage,
     required this.voteCount,
   });
@@ -21,12 +22,13 @@ class MovieDetail extends Equatable {
   final String? backdropPath;
   final List<Genre> genres;
   final int id;
-  final String originalTitle;
+  final String name;
+  final int numberOfEpisodes;
+  final int numberOfSeasons;
+  final String originalLanguage;
+  final String originalName;
   final String overview;
   final String posterPath;
-  final String releaseDate;
-  final int runtime;
-  final String title;
   final double voteAverage;
   final int voteCount;
 
@@ -36,11 +38,13 @@ class MovieDetail extends Equatable {
         backdropPath,
         genres,
         id,
-        originalTitle,
+        name,
+        numberOfEpisodes,
+        numberOfSeasons,
+        originalLanguage,
+        originalName,
         overview,
         posterPath,
-        releaseDate,
-        title,
         voteAverage,
         voteCount,
       ];
