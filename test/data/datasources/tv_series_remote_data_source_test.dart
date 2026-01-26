@@ -180,7 +180,7 @@ void main() {
         headers: null,
       )).thenAnswer((_) async => http.Response('Not Found', 404));
       // act
-      final call = dataSource.getTvSeriesDetail(tId);
+      final call = dataSource.getTvSeriesRecommendations(tId);
       // assert
       expect(() => call, throwsA(isA<ServerException>()));
     });

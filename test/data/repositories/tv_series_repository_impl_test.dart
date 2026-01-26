@@ -197,7 +197,7 @@ void main() {
       numberOfEpisodes: 1,
       id: 1,
       numberOfSeasons: 5,
-      originalLanguage: 'en',
+      originalLanguage: 'originalLanguage',
       originalName: 'originalName',
       overview: 'overview',
       posterPath: 'posterPath',

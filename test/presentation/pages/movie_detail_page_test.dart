@@ -3,7 +3,9 @@ import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +17,11 @@ import 'movie_detail_page_test.mocks.dart';
 void main() {
   late MockMovieDetailNotifier mockNotifier;
 
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    GoogleFonts.config.allowRuntimeFetching = false;
+  });
+
   setUp(() {
     mockNotifier = MockMovieDetailNotifier();
   });
@@ -22,8 +29,11 @@ void main() {
   Widget makeTestableWidget(Widget body) {
     return ChangeNotifierProvider<MovieDetailNotifier>.value(
       value: mockNotifier,
-      child: MaterialApp(
-        home: body,
+      child: DefaultAssetBundle(
+        bundle: FakeAssetBundle(),
+        child: MaterialApp(
+          home: body,
+        ),
       ),
     );
   }
@@ -105,4 +115,19 @@ void main() {
     expect(find.byType(AlertDialog), findsOneWidget);
     expect(find.text('Failed'), findsOneWidget);
   });
+}
+
+class FakeAssetBundle extends Fake implements AssetBundle {
+  @override
+  Future<String> loadString(String key, {bool cache = true}) async {
+    if (key == 'AssetManifest.json') {
+      return '{}';
+    }
+    return '';
+  }
+
+  @override
+  Future<ByteData> load(String key) async {
+    return ByteData(0);
+  }
 }

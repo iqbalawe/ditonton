@@ -74,7 +74,7 @@ void main() {
       // act
       final result = await dataSource.getTvSeriesById(tId);
       // assert
-      expect(result, testMovieTable);
+      expect(result, testTvSeriesTable);
     });
 
     test('should return null when data is not found', () async {
@@ -96,7 +96,7 @@ void main() {
       // act
       final result = await dataSource.getWatchlistTvSeries();
       // assert
-      expect(result, [testTvSeriesMap]);
+      expect(result, [testTvSeriesTable]);
     });
   });
 }

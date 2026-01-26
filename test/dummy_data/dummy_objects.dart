@@ -87,7 +87,7 @@ final testTvSeriesDetail = TvSeriesDetail(
   id: 1,
   name: 'name',
   numberOfEpisodes: 1,
-  numberOfSeasons: 1,
+  numberOfSeasons: 5,
   originalLanguage: 'originalLanguage',
   originalName: 'originalName',
   overview: 'overview',
