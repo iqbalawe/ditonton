@@ -10,24 +10,25 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 class MovieDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail';
+  static const routeName = '/detail';
 
   final int id;
   const MovieDetailPage({Key? key, required this.id}) : super(key: key);
 
   @override
-  _MovieDetailPageState createState() => _MovieDetailPageState();
+  State<MovieDetailPage> createState() => _MovieDetailPageState();
 }
 
 class _MovieDetailPageState extends State<MovieDetailPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      Provider.of<MovieDetailNotifier>(context, listen: false)
-          .fetchMovieDetail(widget.id);
-      Provider.of<MovieDetailNotifier>(context, listen: false)
-          .loadWatchlistStatus(widget.id);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        Provider.of<MovieDetailNotifier>(context, listen: false)
+          ..fetchMovieDetail(widget.id)
+          ..loadWatchlistStatus(widget.id);
+      }
     });
   }
 
@@ -36,11 +37,11 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     return Scaffold(
       body: Consumer<MovieDetailNotifier>(
         builder: (context, provider, child) {
-          if (provider.movieState == RequestState.Loading) {
+          if (provider.movieState == RequestState.loading) {
             return Center(
               child: CircularProgressIndicator(),
             );
-          } else if (provider.movieState == RequestState.Loaded) {
+          } else if (provider.movieState == RequestState.loaded) {
             final movie = provider.movie;
             return SafeArea(
               child: DetailContent(
@@ -121,6 +122,8 @@ class DetailContent extends StatelessWidget {
                                       .removeFromWatchlist(movie);
                                 }
 
+                                if (!context.mounted) return;
+
                                 final message =
                                     Provider.of<MovieDetailNotifier>(context,
                                             listen: false)
@@ -190,15 +193,15 @@ class DetailContent extends StatelessWidget {
                             Consumer<MovieDetailNotifier>(
                               builder: (context, data, child) {
                                 if (data.recommendationState ==
-                                    RequestState.Loading) {
+                                    RequestState.loading) {
                                   return Center(
                                     child: CircularProgressIndicator(),
                                   );
                                 } else if (data.recommendationState ==
-                                    RequestState.Error) {
+                                    RequestState.error) {
                                   return Text(data.message);
                                 } else if (data.recommendationState ==
-                                    RequestState.Loaded) {
+                                    RequestState.loaded) {
                                   return SizedBox(
                                     height: 150,
                                     child: ListView.builder(
@@ -211,7 +214,7 @@ class DetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                MovieDetailPage.ROUTE_NAME,
+                                                MovieDetailPage.routeName,
                                                 arguments: movie.id,
                                               );
                                             },

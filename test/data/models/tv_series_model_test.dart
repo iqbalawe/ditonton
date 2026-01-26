@@ -37,4 +37,48 @@ void main() {
     final result = tTvSeriesModel.toEntity();
     expect(result, tTvSeries);
   });
+
+  test('should return a valid model from JSON', () async {
+    // Arrange
+    final Map<String, dynamic> jsonMap = {
+      'adult': false,
+      'backdrop_path': 'backdropPath',
+      'genre_ids': [1, 2, 3],
+      'id': 1,
+      'overview': 'overview',
+      'popularity': 1.0,
+      'poster_path': 'posterPath',
+      'vote_average': 1.0,
+      'vote_count': 1,
+      'first_air_date': '2022-01-01',
+      'name': 'name',
+      'original_name': 'originalName',
+      'origin_country': ['US']
+    };
+    // Act
+    final result = TvSeriesModel.fromJson(jsonMap);
+    // Assert
+    expect(result, tTvSeriesModel);
+  });
+
+  test('should return a JSON map containing proper data', () async {
+    // Arrange
+    final result = tTvSeriesModel.toJson();
+    // Assert
+    final expectedJsonMap = {
+      'adult': false,
+      'backdrop_path': 'backdropPath',
+      'genre_ids': [1, 2, 3],
+      'id': 1,
+      'overview': 'overview',
+      'popularity': 1.0,
+      'poster_path': 'posterPath',
+      'vote_average': 1.0,
+      'vote_count': 1,
+      'first_air_date': 'firstAirDate',
+      'name': 'name',
+      'original_name': 'originalName',
+    };
+    expect(result, expectedJsonMap);
+  });
 }

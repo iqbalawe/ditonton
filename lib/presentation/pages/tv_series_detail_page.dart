@@ -10,24 +10,25 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 class TvSeriesDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail-tv-series';
+  static const routeName = '/detail-tv-series';
 
   final int id;
   const TvSeriesDetailPage({Key? key, required this.id}) : super(key: key);
 
   @override
-  _TvSeriesDetailPageState createState() => _TvSeriesDetailPageState();
+  State<TvSeriesDetailPage> createState() => _TvSeriesDetailPageState();
 }
 
 class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      Provider.of<TvSeriesDetailNotifier>(context, listen: false)
-          .fetchTvSeriesDetail(widget.id);
-      Provider.of<TvSeriesDetailNotifier>(context, listen: false)
-          .loadWatchlistStatus(widget.id);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        Provider.of<TvSeriesDetailNotifier>(context, listen: false)
+          ..fetchTvSeriesDetail(widget.id)
+          ..loadWatchlistStatus(widget.id);
+      }
     });
   }
 
@@ -36,11 +37,11 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
     return Scaffold(
       body: Consumer<TvSeriesDetailNotifier>(
         builder: (context, provider, child) {
-          if (provider.tvSeriesState == RequestState.Loading) {
+          if (provider.tvSeriesState == RequestState.loading) {
             return Center(
               child: CircularProgressIndicator(),
             );
-          } else if (provider.tvSeriesState == RequestState.Loaded) {
+          } else if (provider.tvSeriesState == RequestState.loaded) {
             final tvSeries = provider.tvSeries;
             return SafeArea(
               child: DetailContent(
@@ -122,6 +123,8 @@ class DetailContent extends StatelessWidget {
                                       .removeFromWatchlist(tvSeries);
                                 }
 
+                                if (!context.mounted) return;
+
                                 final message =
                                     Provider.of<TvSeriesDetailNotifier>(context,
                                             listen: false)
@@ -185,21 +188,97 @@ class DetailContent extends StatelessWidget {
                             ),
                             SizedBox(height: 16),
                             Text(
+                              'Seasons',
+                              style: kHeading6,
+                            ),
+                            SizedBox(height: 8),
+                            SizedBox(
+                              height: 150,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: tvSeries.seasons.length,
+                                itemBuilder: (context, index) {
+                                  final season = tvSeries.seasons[index];
+                                  return Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Card(
+                                      child: SizedBox(
+                                        width: 100,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(4),
+                                                  topRight: Radius.circular(4),
+                                                ),
+                                                child: CachedNetworkImage(
+                                                  imageUrl:
+                                                      '$baseImageUrl${season.posterPath}',
+                                                  fit: BoxFit.cover,
+                                                  placeholder: (context, url) =>
+                                                      Center(
+                                                    child:
+                                                        CircularProgressIndicator(),
+                                                  ),
+                                                  errorWidget:
+                                                      (context, url, error) =>
+                                                          Icon(Icons.error),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(4.0),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    season.name,
+                                                    maxLines: 1,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Text(
+                                                    '${season.episodeCount} Episodes',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                            SizedBox(height: 16),
+                            Text(
                               'Recommendations',
                               style: kHeading6,
                             ),
                             Consumer<TvSeriesDetailNotifier>(
                               builder: (context, data, child) {
                                 if (data.recommendationState ==
-                                    RequestState.Loading) {
+                                    RequestState.loading) {
                                   return Center(
                                     child: CircularProgressIndicator(),
                                   );
                                 } else if (data.recommendationState ==
-                                    RequestState.Error) {
+                                    RequestState.error) {
                                   return Text(data.message);
                                 } else if (data.recommendationState ==
-                                    RequestState.Loaded) {
+                                    RequestState.loaded) {
                                   return SizedBox(
                                     height: 150,
                                     child: ListView.builder(
@@ -212,7 +291,7 @@ class DetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                TvSeriesDetailPage.ROUTE_NAME,
+                                                TvSeriesDetailPage.routeName,
                                                 arguments: tvSeries.id,
                                               );
                                             },

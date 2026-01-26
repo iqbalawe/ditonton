@@ -30,13 +30,13 @@ class TvSeriesDetailNotifier extends ChangeNotifier {
   late TvSeriesDetail _tvSeries;
   TvSeriesDetail get tvSeries => _tvSeries;
 
-  RequestState _tvSeriesState = RequestState.Empty;
+  RequestState _tvSeriesState = RequestState.empty;
   RequestState get tvSeriesState => _tvSeriesState;
 
   List<TvSeries> _tvSeriesRecommendations = [];
   List<TvSeries> get tvSeriesRecommendations => _tvSeriesRecommendations;
 
-  RequestState _recommendationState = RequestState.Empty;
+  RequestState _recommendationState = RequestState.empty;
   RequestState get recommendationState => _recommendationState;
 
   String _message = '';
@@ -46,31 +46,31 @@ class TvSeriesDetailNotifier extends ChangeNotifier {
   bool get isAddedToWatchlist => _isAddedtoWatchlist;
 
   Future<void> fetchTvSeriesDetail(int id) async {
-    _tvSeriesState = RequestState.Loading;
+    _tvSeriesState = RequestState.loading;
     notifyListeners();
     final detailResult = await getTvSeriesDetail.execute(id);
     final recommendationResult = await getTvSeriesRecommendations.execute(id);
     detailResult.fold(
       (failure) {
-        _tvSeriesState = RequestState.Error;
+        _tvSeriesState = RequestState.error;
         _message = failure.message;
         notifyListeners();
       },
       (tvSeries) {
-        _recommendationState = RequestState.Loading;
+        _recommendationState = RequestState.loading;
         _tvSeries = tvSeries;
         notifyListeners();
         recommendationResult.fold(
           (failure) {
-            _recommendationState = RequestState.Error;
+            _recommendationState = RequestState.error;
             _message = failure.message;
           },
           (tvSeries) {
-            _recommendationState = RequestState.Loaded;
+            _recommendationState = RequestState.loaded;
             _tvSeriesRecommendations = tvSeries;
           },
         );
-        _tvSeriesState = RequestState.Loaded;
+        _tvSeriesState = RequestState.loaded;
         notifyListeners();
       },
     );

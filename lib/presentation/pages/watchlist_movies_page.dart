@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class WatchlistMoviesPage extends StatefulWidget {
-  static const ROUTE_NAME = '/watchlist-movie';
+  static const routeName = '/watchlist-movie';
 
   const WatchlistMoviesPage({Key? key}) : super(key: key);
 
   @override
-  _WatchlistMoviesPageState createState() => _WatchlistMoviesPageState();
+  State<WatchlistMoviesPage> createState() => _WatchlistMoviesPageState();
 }
 
 class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
@@ -19,9 +19,12 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
         Provider.of<WatchlistMovieNotifier>(context, listen: false)
-            .fetchWatchlistMovies());
+            .fetchWatchlistMovies();
+      }
+    });
   }
 
   @override
@@ -46,11 +49,11 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
         padding: const EdgeInsets.all(8.0),
         child: Consumer<WatchlistMovieNotifier>(
           builder: (context, data, child) {
-            if (data.watchlistState == RequestState.Loading) {
+            if (data.watchlistState == RequestState.loading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.watchlistState == RequestState.Loaded) {
+            } else if (data.watchlistState == RequestState.loaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final movie = data.watchlistMovies[index];

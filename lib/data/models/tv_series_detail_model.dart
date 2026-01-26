@@ -1,4 +1,5 @@
 import 'package:ditonton/data/models/genre_model.dart';
+import 'package:ditonton/data/models/season_model.dart';
 import 'package:ditonton/domain/entities/tv_series_detail.dart';
 import 'package:equatable/equatable.dart';
 
@@ -17,6 +18,7 @@ class TvSeriesDetailResponse extends Equatable {
     required this.posterPath,
     required this.voteAverage,
     required this.voteCount,
+    required this.seasons,
   });
 
   final bool adult;
@@ -32,6 +34,7 @@ class TvSeriesDetailResponse extends Equatable {
   final String posterPath;
   final double voteAverage;
   final int voteCount;
+  final List<SeasonModel> seasons;
 
   factory TvSeriesDetailResponse.fromJson(Map<String, dynamic> json) =>
       TvSeriesDetailResponse(
@@ -49,6 +52,8 @@ class TvSeriesDetailResponse extends Equatable {
         posterPath: json["poster_path"],
         voteAverage: json["vote_average"].toDouble(),
         voteCount: json["vote_count"],
+        seasons: List<SeasonModel>.from(
+            json["seasons"].map((x) => SeasonModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -65,6 +70,7 @@ class TvSeriesDetailResponse extends Equatable {
         "poster_path": posterPath,
         "vote_average": voteAverage,
         "vote_count": voteCount,
+        "seasons": List<dynamic>.from(seasons.map((x) => x.toJson())),
       };
 
   TvSeriesDetail toEntity() {
@@ -82,11 +88,11 @@ class TvSeriesDetailResponse extends Equatable {
       posterPath: posterPath,
       voteAverage: voteAverage,
       voteCount: voteCount,
+      seasons: seasons.map((season) => season.toEntity()).toList(),
     );
   }
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
         adult,
         backdropPath,
@@ -101,5 +107,6 @@ class TvSeriesDetailResponse extends Equatable {
         posterPath,
         voteAverage,
         voteCount,
+        seasons,
       ];
 }

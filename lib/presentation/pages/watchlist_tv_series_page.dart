@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class WatchlistTvSeriesPage extends StatefulWidget {
-  static const ROUTE_NAME = '/watchlist-tv-series';
+  static const routeName = '/watchlist-tv-series';
 
   const WatchlistTvSeriesPage({Key? key}) : super(key: key);
 
   @override
-  _WatchlistTvSeriesPageState createState() => _WatchlistTvSeriesPageState();
+  State<WatchlistTvSeriesPage> createState() => _WatchlistTvSeriesPageState();
 }
 
 class _WatchlistTvSeriesPageState extends State<WatchlistTvSeriesPage>
@@ -19,9 +19,12 @@ class _WatchlistTvSeriesPageState extends State<WatchlistTvSeriesPage>
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
         Provider.of<WatchlistTvSeriesNotifier>(context, listen: false)
-            .fetchWatchlistTvSeries());
+            .fetchWatchlistTvSeries();
+      }
+    });
   }
 
   @override
@@ -46,11 +49,11 @@ class _WatchlistTvSeriesPageState extends State<WatchlistTvSeriesPage>
         padding: const EdgeInsets.all(8.0),
         child: Consumer<WatchlistTvSeriesNotifier>(
           builder: (context, data, child) {
-            if (data.watchlistState == RequestState.Loading) {
+            if (data.watchlistState == RequestState.loading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.watchlistState == RequestState.Loaded) {
+            } else if (data.watchlistState == RequestState.loaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final tvSeries = data.watchlistTvSeries[index];
