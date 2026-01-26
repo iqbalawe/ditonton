@@ -56,7 +56,7 @@ class TvSeriesListNotifier extends ChangeNotifier {
     );
   }
 
-  Future<void> fetchpopularTvSeries() async {
+  Future<void> fetchPopularTvSeries() async {
     _popularTvSeriesState = RequestState.Loading;
     notifyListeners();
 
