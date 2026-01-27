@@ -1,1 +1,11 @@
 library;
+
+export 'get_on_the_air_tv_series.dart';
+export 'get_popular_tv_series.dart';
+export 'get_top_rated_tv_series.dart';
+export 'get_tv_series_detail.dart';
+export 'get_tv_series_recommendations.dart';
+export 'get_watchlist_status_tv_series.dart';
+export 'get_watchlist_tv_series.dart';
+export 'remove_watchlist_tv_series.dart';
+export 'save_watchlist_tv_series.dart';

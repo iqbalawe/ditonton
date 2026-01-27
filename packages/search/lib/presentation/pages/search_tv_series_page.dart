@@ -1,6 +1,6 @@
 import 'package:core/core.dart';
 import '../provider/tv_series_search_notifier.dart';
-import 'package:core/presentation/widgets/tv_series_card_list.dart';
+import '../../../../tv_series/lib/presentation.dart/widgets/tv_series_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

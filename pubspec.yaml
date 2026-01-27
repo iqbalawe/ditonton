@@ -17,11 +17,15 @@ dependencies:
   http: ^1.6.0
 
   about:
-    path: about
+    path: packages/about
   core:
-    path: core
+    path: packages/core
+  movies:
+    path: packages/movies
   search:
-    path: search
+    path: packages/search
+  tv_series:
+    path: packages/tv_series
 
 dev_dependencies:
   build_runner: ^2.10.5

@@ -1,5 +1,5 @@
 import 'package:core/core.dart';
-import 'package:core/domain/entities/tv_series.dart';
+import '../../../../tv_series/lib/domain/entities/tv_series.dart';
 import '../../domain/search_tv_series.dart';
 import 'package:flutter/foundation.dart';
 

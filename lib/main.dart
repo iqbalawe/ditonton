@@ -1,25 +1,5 @@
 import 'package:about/about_page.dart';
 import 'package:core/core.dart';
-import 'package:core/presentation/pages/home_movie_page.dart';
-import 'package:core/presentation/pages/home_tv_series_page.dart';
-import 'package:core/presentation/pages/movie_detail_page.dart';
-import 'package:core/presentation/pages/popular_movies_page.dart';
-import 'package:core/presentation/pages/popular_tv_series_page.dart';
-import 'package:core/presentation/pages/top_rated_movies_page.dart';
-import 'package:core/presentation/pages/top_rated_tv_series_page.dart';
-import 'package:core/presentation/pages/tv_series_detail_page.dart';
-import 'package:core/presentation/pages/watchlist_movies_page.dart';
-import 'package:core/presentation/pages/watchlist_tv_series_page.dart';
-import 'package:core/presentation/provider/movie_detail_notifier.dart';
-import 'package:core/presentation/provider/movie_list_notifier.dart';
-import 'package:core/presentation/provider/popular_movies_notifier.dart';
-import 'package:core/presentation/provider/popular_tv_series_notifier.dart';
-import 'package:core/presentation/provider/top_rated_movies_notifier.dart';
-import 'package:core/presentation/provider/top_rated_tv_series_notifier.dart';
-import 'package:core/presentation/provider/tv_series_detail_notifier.dart';
-import 'package:core/presentation/provider/tv_series_list_notifier.dart';
-import 'package:core/presentation/provider/watchlist_movie_notifier.dart';
-import 'package:core/presentation/provider/watchlist_tv_series_notifier.dart';
 import 'package:ditonton/injection.dart' as di;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +10,7 @@ import 'package:search/presentation/provider/movie_search_notifier.dart';
 import 'package:search/presentation/provider/tv_series_search_notifier.dart';
 
 void main() {
-  di.init();
+  // di.init();
   runApp(MyApp());
 }
 
