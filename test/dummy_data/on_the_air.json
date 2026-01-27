@@ -3,25 +3,21 @@
     "results": [
         {
             "adult": false,
-            "backdrop_path": "/7mkUu1F2hVUNgz24xO8HPx0D6mK.jpg",
+            "backdrop_path": "backdropPath",
             "genre_ids": [
-                18,
-                10765,
-                10759
+                1,
+                2,
+                3
             ],
-            "id": 224372,
-            "origin_country": [
-                "US"
-            ],
-            "original_language": "en",
-            "original_name": "A Knight of the Seven Kingdoms",
-            "overview": "A century before the events of Game of Thrones, two unlikely heroes wandered Westeros: a young, naive but courageous knight, Ser Duncan the Tall, and his diminutive squire, Egg. Set in an age when the Targaryen line still holds the Iron Throne and the last dragon has not yet passed from living memory, great destinies, powerful foes, and dangerous exploits await these improbable and incomparable friends.",
-            "popularity": 312.9456,
-            "poster_path": "/6igvNs5VJB4ryBLgjjXksDVs0Fm.jpg",
-            "first_air_date": "2026-01-18",
-            "name": "A Knight of the Seven Kingdoms",
-            "vote_average": 8.116,
-            "vote_count": 108
+            "id": 1,
+            "original_name": "originalName",
+            "overview": "overview",
+            "popularity": 1,
+            "poster_path": "posterPath",
+            "first_air_date": "firstAirDate",
+            "name": "name",
+            "vote_average": 1,
+            "vote_count": 1
         }
     ],
     "total_pages": 63,

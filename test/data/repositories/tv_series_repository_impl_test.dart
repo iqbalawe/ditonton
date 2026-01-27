@@ -148,7 +148,7 @@ void main() {
     });
   });
 
-  group('Top Rated Movies', () {
+  group('Top Rated TV Series', () {
     test('should return tv series list when call to data source is successful',
         () async {
       // arrange
@@ -303,8 +303,8 @@ void main() {
     });
   });
 
-  group('Seach Movies', () {
-    final tQuery = 'spiderman';
+  group('Seach TV Series', () {
+    final tQuery = 'ozark';
 
     test('should return tv series list when call to data source is successful',
         () async {
@@ -410,7 +410,7 @@ void main() {
       final result = await repository.getWatchlistTvSeries();
       // assert
       final resultList = result.getOrElse(() => []);
-      expect(resultList, [testWatchlistMovie]);
+      expect(resultList, [testWatchlistTvSeries]);
     });
   });
 }
