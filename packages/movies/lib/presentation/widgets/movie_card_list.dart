@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
-import '../../domain/entities/movie.dart';
-import '../pages/movie_detail_page.dart';
 import 'package:flutter/material.dart';
+
+import '../../domain/entities/movie.dart';
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
@@ -15,11 +15,7 @@ class MovieCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 4),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(
-            context,
-            MovieDetailPage.routeName,
-            arguments: movie.id,
-          );
+          Navigator.pushNamed(context, movieDetailRoute, arguments: movie.id);
         },
         child: Stack(
           alignment: Alignment.bottomLeft,
@@ -40,7 +36,7 @@ class MovieCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: kHeading6,
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Text(
                       movie.overview ?? '-',
                       maxLines: 2,
@@ -53,13 +49,13 @@ class MovieCard extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(left: 16, bottom: 16),
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(8)),
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 child: CachedNetworkImage(
                   imageUrl: '$baseImageUrl${movie.posterPath}',
                   width: 80,
                   placeholder: (context, url) =>
-                      Center(child: CircularProgressIndicator()),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                      const Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),

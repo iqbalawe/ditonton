@@ -1,9 +1,9 @@
-import '../../../lib/data/models/movie_model.dart';
-import '../../../lib/domain/entities/movie.dart';
+import 'package:movies/data/models/movie_model.dart';
+import 'package:movies/domain/entities/movie.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final tMovieModel = MovieModel(
+  final tMovieModel = const MovieModel(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -19,7 +19,7 @@ void main() {
     voteCount: 1,
   );
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],

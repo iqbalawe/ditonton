@@ -6,7 +6,7 @@ import 'package:movies/movies.dart';
 import '../../json_reader.dart';
 
 void main() {
-  final tMovieModel = MovieModel(
+  final tMovieModel = const MovieModel(
     adult: false,
     backdropPath: '/path.jpg',
     genreIds: [1, 2, 3, 4],

@@ -22,8 +22,6 @@ dependencies:
     path: packages/core
   movies:
     path: packages/movies
-  search:
-    path: packages/search
   tv_series:
     path: packages/tv_series
 
