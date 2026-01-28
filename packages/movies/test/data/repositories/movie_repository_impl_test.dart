@@ -29,6 +29,7 @@ void main() {
     genreIds: [14, 28],
     id: 557,
     originalTitle: 'Spider-Man',
+    originalLanguage: 'en',
     overview:
         'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
     popularity: 60.441,
@@ -224,6 +225,7 @@ void main() {
       imdbId: 'imdb1',
       originalLanguage: 'en',
       originalTitle: 'originalTitle',
+      originCountry: ['en'],
       overview: 'overview',
       popularity: 1,
       posterPath: 'posterPath',

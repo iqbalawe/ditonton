@@ -30,7 +30,7 @@ class TVSeriesRemoteDataSourceImpl implements TVSeriesRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return TVSeriesResponse.fromJson(json.decode(response.body)).tvSeriesList;
+      return TVSeriesResponse.fromJson(json.decode(response.body)).results;
     } else {
       throw ServerException();
     }
@@ -54,7 +54,7 @@ class TVSeriesRemoteDataSourceImpl implements TVSeriesRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return TVSeriesResponse.fromJson(json.decode(response.body)).tvSeriesList;
+      return TVSeriesResponse.fromJson(json.decode(response.body)).results;
     } else {
       throw ServerException();
     }
@@ -65,7 +65,7 @@ class TVSeriesRemoteDataSourceImpl implements TVSeriesRemoteDataSource {
     final response = await client.get(Uri.parse('$baseUrl/tv/popular?$apiKey'));
 
     if (response.statusCode == 200) {
-      return TVSeriesResponse.fromJson(json.decode(response.body)).tvSeriesList;
+      return TVSeriesResponse.fromJson(json.decode(response.body)).results;
     } else {
       throw ServerException();
     }
@@ -78,7 +78,7 @@ class TVSeriesRemoteDataSourceImpl implements TVSeriesRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return TVSeriesResponse.fromJson(json.decode(response.body)).tvSeriesList;
+      return TVSeriesResponse.fromJson(json.decode(response.body)).results;
     } else {
       throw ServerException();
     }
@@ -91,7 +91,7 @@ class TVSeriesRemoteDataSourceImpl implements TVSeriesRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return TVSeriesResponse.fromJson(json.decode(response.body)).tvSeriesList;
+      return TVSeriesResponse.fromJson(json.decode(response.body)).results;
     } else {
       throw ServerException();
     }

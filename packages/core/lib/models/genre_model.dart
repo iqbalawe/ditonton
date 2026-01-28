@@ -1,22 +1,20 @@
 import 'package:core/core.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class GenreModel extends Equatable {
-  const GenreModel({required this.id, required this.name});
+part 'genre_model.freezed.dart';
+part 'genre_model.g.dart';
 
-  final int id;
-  final String name;
+@freezed
+abstract class GenreModel with _$GenreModel {
+  const factory GenreModel({required int id, required String name}) =
+      _GenreModel;
 
-  factory GenreModel.fromJson(Map<String, dynamic> json) {
-    return GenreModel(id: json['id'], name: json['name']);
-  }
+  factory GenreModel.fromJson(Map<String, dynamic> json) =>
+      _$GenreModelFromJson(json);
+}
 
-  Map<String, dynamic> toJson() => {'id': id, 'name': name};
-
+extension GenreModelX on GenreModel {
   Genre toEntity() {
     return Genre(id: id, name: name);
   }
-
-  @override
-  List<Object?> get props => [id, name];
 }

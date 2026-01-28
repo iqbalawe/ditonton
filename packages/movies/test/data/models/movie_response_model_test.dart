@@ -12,6 +12,7 @@ void main() {
     genreIds: [1, 2, 3, 4],
     id: 1,
     originalTitle: 'Original Title',
+    originalLanguage: 'Original Language',
     overview: 'Overview',
     popularity: 1.0,
     posterPath: '/path.jpg',
@@ -21,9 +22,7 @@ void main() {
     voteAverage: 1.0,
     voteCount: 1,
   );
-  final tMovieResponseModel = MovieResponse(
-    movieList: <MovieModel>[tMovieModel],
-  );
+  final tMovieResponseModel = MovieResponse(results: <MovieModel>[tMovieModel]);
   group('fromJson', () {
     test('should return a valid model from JSON', () async {
       // arrange

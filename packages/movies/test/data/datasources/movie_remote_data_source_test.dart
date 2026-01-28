@@ -24,7 +24,7 @@ void main() {
   group('get Now Playing Movies', () {
     final tMovieList = MovieResponse.fromJson(
       json.decode(readJson('dummy_data/now_playing.json')),
-    ).movieList;
+    ).results;
 
     test(
       'should return list of Movie Model when the response code is 200',
@@ -61,7 +61,7 @@ void main() {
   group('get Popular Movies', () {
     final tMovieList = MovieResponse.fromJson(
       json.decode(readJson('dummy_data/popular.json')),
-    ).movieList;
+    ).results;
 
     test(
       'should return list of movies when response is success (200)',
@@ -97,7 +97,7 @@ void main() {
   group('get Top Rated Movies', () {
     final tMovieList = MovieResponse.fromJson(
       json.decode(readJson('dummy_data/top_rated.json')),
-    ).movieList;
+    ).results;
 
     test('should return list of movies when response code is 200 ', () async {
       // arrange
@@ -165,7 +165,7 @@ void main() {
   group('get movie recommendations', () {
     final tMovieList = MovieResponse.fromJson(
       json.decode(readJson('dummy_data/movie_recommendations.json')),
-    ).movieList;
+    ).results;
     final tId = 1;
 
     test(
@@ -209,7 +209,7 @@ void main() {
   group('search movies', () {
     final tSearchResult = MovieResponse.fromJson(
       json.decode(readJson('dummy_data/search_spiderman_movie.json')),
-    ).movieList;
+    ).results;
     final tQuery = 'Spiderman';
 
     test('should return list of movies when response code is 200', () async {

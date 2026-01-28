@@ -9,6 +9,7 @@ void main() {
     genreIds: [1, 2, 3],
     id: 1,
     originalTitle: 'originalTitle',
+    originalLanguage: 'originalLanguage',
     overview: 'overview',
     popularity: 1,
     posterPath: 'posterPath',

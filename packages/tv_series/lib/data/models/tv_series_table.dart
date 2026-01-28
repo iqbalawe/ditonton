@@ -1,19 +1,19 @@
-import '../../domain/entities/tv_series.dart';
-import '../../domain/entities/tv_series_detail.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tv_series/tv_series.dart';
 
-class TVSeriesTable extends Equatable {
-  final int id;
-  final String? name;
-  final String? posterPath;
-  final String? overview;
+part 'tv_series_table.freezed.dart';
+part 'tv_series_table.g.dart';
 
-  const TVSeriesTable({
-    required this.id,
-    required this.name,
-    required this.posterPath,
-    required this.overview,
-  });
+@freezed
+abstract class TVSeriesTable with _$TVSeriesTable {
+  const TVSeriesTable._();
+
+  const factory TVSeriesTable({
+    required int id,
+    String? name,
+    String? posterPath,
+    String? overview,
+  }) = _TVSeriesTable;
 
   factory TVSeriesTable.fromEntity(TVSeriesDetail tvSeries) => TVSeriesTable(
     id: tvSeries.id,
@@ -22,19 +22,8 @@ class TVSeriesTable extends Equatable {
     overview: tvSeries.overview,
   );
 
-  factory TVSeriesTable.fromMap(Map<String, dynamic> map) => TVSeriesTable(
-    id: map['id'],
-    name: map['name'],
-    posterPath: map['posterPath'],
-    overview: map['overview'],
-  );
-
-  Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'posterPath': posterPath,
-    'overview': overview,
-  };
+  factory TVSeriesTable.fromJson(Map<String, dynamic> json) =>
+      _$TVSeriesTableFromJson(json);
 
   TVSeries toEntity() => TVSeries.watchlist(
     id: id,
@@ -42,7 +31,4 @@ class TVSeriesTable extends Equatable {
     posterPath: posterPath,
     name: name,
   );
-
-  @override
-  List<Object?> get props => [id, name, posterPath, overview];
 }

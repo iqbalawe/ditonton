@@ -1,24 +1,14 @@
-import 'tv_series_model.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tv_series/tv_series.dart';
 
-class TVSeriesResponse extends Equatable {
-  final List<TVSeriesModel> tvSeriesList;
+part 'tv_series_response.freezed.dart';
+part 'tv_series_response.g.dart';
 
-  const TVSeriesResponse({required this.tvSeriesList});
+@freezed
+abstract class TVSeriesResponse with _$TVSeriesResponse {
+  const factory TVSeriesResponse({required List<TVSeriesModel> results}) =
+      _TVSeriesResponse;
 
   factory TVSeriesResponse.fromJson(Map<String, dynamic> json) =>
-      TVSeriesResponse(
-        tvSeriesList: List<TVSeriesModel>.from(
-          (json['results'] as List)
-              .map((x) => TVSeriesModel.fromJson(x))
-              .where((element) => element.posterPath != null),
-        ),
-      );
-
-  Map<String, dynamic> toJson() => {
-    'results': List<dynamic>.from(tvSeriesList.map((x) => x.toJson())),
-  };
-
-  @override
-  List<Object> get props => [tvSeriesList];
+      _$TVSeriesResponseFromJson(json);
 }

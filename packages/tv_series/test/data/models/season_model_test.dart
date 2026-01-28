@@ -11,6 +11,7 @@ void main() {
     overview: 'Overview',
     posterPath: '/path.jpg',
     seasonNumber: 1,
+    voteAverage: 1,
   );
 
   const tSeason = Season(

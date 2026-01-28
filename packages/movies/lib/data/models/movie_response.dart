@@ -1,23 +1,14 @@
-import 'movie_model.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:movies/movies.dart';
 
-class MovieResponse extends Equatable {
-  final List<MovieModel> movieList;
+part 'movie_response.freezed.dart';
+part 'movie_response.g.dart';
 
-  const MovieResponse({required this.movieList});
+@freezed
+abstract class MovieResponse with _$MovieResponse {
+  const factory MovieResponse({required List<MovieModel> results}) =
+      _MovieResponse;
 
-  factory MovieResponse.fromJson(Map<String, dynamic> json) => MovieResponse(
-    movieList: List<MovieModel>.from(
-      (json['results'] as List)
-          .map((x) => MovieModel.fromJson(x))
-          .where((element) => element.posterPath != null),
-    ),
-  );
-
-  Map<String, dynamic> toJson() => {
-    'results': List<dynamic>.from(movieList.map((x) => x.toJson())),
-  };
-
-  @override
-  List<Object> get props => [movieList];
+  factory MovieResponse.fromJson(Map<String, dynamic> json) =>
+      _$MovieResponseFromJson(json);
 }

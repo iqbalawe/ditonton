@@ -1,19 +1,19 @@
-import '../../domain/entities/movie.dart';
-import '../../domain/entities/movie_detail.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:movies/movies.dart';
 
-class MovieTable extends Equatable {
-  final int id;
-  final String? title;
-  final String? posterPath;
-  final String? overview;
+part 'movie_table.freezed.dart';
+part 'movie_table.g.dart';
 
-  const MovieTable({
-    required this.id,
-    required this.title,
-    required this.posterPath,
-    required this.overview,
-  });
+@freezed
+abstract class MovieTable with _$MovieTable {
+  const MovieTable._();
+
+  const factory MovieTable({
+    required int id,
+    String? title,
+    String? posterPath,
+    String? overview,
+  }) = _MovieTable;
 
   factory MovieTable.fromEntity(MovieDetail movie) => MovieTable(
     id: movie.id,
@@ -22,19 +22,8 @@ class MovieTable extends Equatable {
     overview: movie.overview,
   );
 
-  factory MovieTable.fromMap(Map<String, dynamic> map) => MovieTable(
-    id: map['id'],
-    title: map['title'],
-    posterPath: map['posterPath'],
-    overview: map['overview'],
-  );
-
-  Map<String, dynamic> toJson() => {
-    'id': id,
-    'title': title,
-    'posterPath': posterPath,
-    'overview': overview,
-  };
+  factory MovieTable.fromJson(Map<String, dynamic> json) =>
+      _$MovieTableFromJson(json);
 
   Movie toEntity() => Movie.watchlist(
     id: id,
@@ -42,7 +31,4 @@ class MovieTable extends Equatable {
     posterPath: posterPath,
     title: title,
   );
-
-  @override
-  List<Object?> get props => [id, title, posterPath, overview];
 }

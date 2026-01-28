@@ -37,7 +37,7 @@ class TVSeriesLocalDataSourceImpl implements TVSeriesLocalDataSource {
   Future<TVSeriesTable?> getTVSeriesById(int id) async {
     final result = await databaseHelper.getTVSeriesById(id);
     if (result != null) {
-      return TVSeriesTable.fromMap(result);
+      return TVSeriesTable.fromJson(result);
     } else {
       return null;
     }
@@ -46,6 +46,6 @@ class TVSeriesLocalDataSourceImpl implements TVSeriesLocalDataSource {
   @override
   Future<List<TVSeriesTable>> getWatchlistTVSeries() async {
     final result = await databaseHelper.getWatchlistTVSeries();
-    return result.map((data) => TVSeriesTable.fromMap(data)).toList();
+    return result.map((data) => TVSeriesTable.fromJson(data)).toList();
   }
 }

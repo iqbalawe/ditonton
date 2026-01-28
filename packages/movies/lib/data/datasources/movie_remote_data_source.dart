@@ -30,7 +30,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return MovieResponse.fromJson(json.decode(response.body)).movieList;
+      return MovieResponse.fromJson(json.decode(response.body)).results;
     } else {
       throw ServerException();
     }
@@ -54,7 +54,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return MovieResponse.fromJson(json.decode(response.body)).movieList;
+      return MovieResponse.fromJson(json.decode(response.body)).results;
     } else {
       throw ServerException();
     }
@@ -67,7 +67,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return MovieResponse.fromJson(json.decode(response.body)).movieList;
+      return MovieResponse.fromJson(json.decode(response.body)).results;
     } else {
       throw ServerException();
     }
@@ -80,7 +80,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return MovieResponse.fromJson(json.decode(response.body)).movieList;
+      return MovieResponse.fromJson(json.decode(response.body)).results;
     } else {
       throw ServerException();
     }
@@ -93,7 +93,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return MovieResponse.fromJson(json.decode(response.body)).movieList;
+      return MovieResponse.fromJson(json.decode(response.body)).results;
     } else {
       throw ServerException();
     }

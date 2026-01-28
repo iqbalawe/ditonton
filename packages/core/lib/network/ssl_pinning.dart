@@ -16,7 +16,9 @@ class SslPinning {
     final context = SecurityContext(withTrustedRoots: false);
 
     try {
-      final certificate = await rootBundle.load('assets/certificates/tmdb.pem');
+      final certificate = await rootBundle.load(
+        'assets/certificates/certificate.pem',
+      );
       context.setTrustedCertificatesBytes(certificate.buffer.asUint8List());
     } catch (e) {
       throw Exception(
