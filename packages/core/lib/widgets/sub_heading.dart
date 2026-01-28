@@ -12,7 +12,7 @@ class SubHeading extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: kHeading6),
+        Text(title, style: heading6),
         InkWell(
           onTap: onTap,
           child: const Padding(

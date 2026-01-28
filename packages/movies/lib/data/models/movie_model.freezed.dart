@@ -219,8 +219,8 @@ return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.ori
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _MovieModel implements MovieModel {
   const _MovieModel({required this.adult, required this.backdropPath, required final  List<int> genreIds, required this.id, required this.originalLanguage, required this.originalTitle, required this.overview, required this.popularity, required this.posterPath, required this.releaseDate, required this.title, required this.video, required this.voteAverage, required this.voteCount}): _genreIds = genreIds;
   factory _MovieModel.fromJson(Map<String, dynamic> json) => _$MovieModelFromJson(json);

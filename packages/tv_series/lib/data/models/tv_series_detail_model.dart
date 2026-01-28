@@ -7,6 +7,7 @@ part 'tv_series_detail_model.g.dart';
 
 @freezed
 abstract class TVSeriesDetailResponse with _$TVSeriesDetailResponse {
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TVSeriesDetailResponse({
     required bool adult,
     required String backdropPath,

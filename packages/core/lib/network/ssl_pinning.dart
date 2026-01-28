@@ -6,6 +6,7 @@ import 'package:http/io_client.dart';
 class SslPinning {
   static Future<http.Client> get client async =>
       _clientInstance ??= await _createLEClient();
+
   static http.Client? _clientInstance;
 
   static Future<void> init() async {
@@ -22,7 +23,7 @@ class SslPinning {
       context.setTrustedCertificatesBytes(certificate.buffer.asUint8List());
     } catch (e) {
       throw Exception(
-        "Core Package: Gagal load sertifikat. Pastikan file ada di Root assets! Error: $e",
+        'Core Package: Gagal load sertifikat. Pastikan file ada di Root assets! Error: $e',
       );
     }
 

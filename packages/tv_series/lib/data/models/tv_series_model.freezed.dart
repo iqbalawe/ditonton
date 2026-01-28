@@ -219,8 +219,8 @@ return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.ori
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _TVSeriesModel implements TVSeriesModel {
   const _TVSeriesModel({required this.adult, required this.backdropPath, required final  List<int> genreIds, required this.id, required final  List<String> originCountry, required this.originalLanguage, required this.originalName, required this.overview, required this.popularity, required this.posterPath, required this.firstAirDate, required this.name, required this.voteAverage, required this.voteCount}): _genreIds = genreIds,_originCountry = originCountry;
   factory _TVSeriesModel.fromJson(Map<String, dynamic> json) => _$TVSeriesModelFromJson(json);

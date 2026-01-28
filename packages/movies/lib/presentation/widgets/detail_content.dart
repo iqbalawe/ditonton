@@ -55,7 +55,7 @@ class DetailContent extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(title, style: kHeading5),
+                            Text(title, style: heading5),
                             FilledButton(
                               onPressed: () async {},
                               child: Row(
@@ -77,10 +77,10 @@ class DetailContent extends StatelessWidget {
                               ratingText: '$voteAverage',
                             ),
                             const SizedBox(height: 16),
-                            Text('Overview', style: kHeading6),
+                            Text('Overview', style: heading6),
                             Text(overview),
                             const SizedBox(height: 16),
-                            Text('Recommendations', style: kHeading6),
+                            Text('Recommendations', style: heading6),
                             // TODO: Call item list and show recommendations
                           ],
                         ),

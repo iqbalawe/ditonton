@@ -1,115 +1,55 @@
-// import 'package:http/http.dart' as http;
-// import 'package:get_it/get_it.dart';
+import 'package:core/network/ssl_pinning.dart';
+import 'package:http/http.dart' as http;
+import 'package:get_it/get_it.dart';
+import 'package:movies/movies.dart';
 
-// final locator = GetIt.instance;
+final locator = GetIt.instance;
 
-// void init() {
-//   // provider
-//   locator.registerFactory(
-//     () => MovieListNotifier(
-//       getNowPlayingMovies: locator(),
-//       getPopularMovies: locator(),
-//       getTopRatedMovies: locator(),
-//     ),
-//   );
-//   locator.registerFactory(
-//     () => MovieDetailNotifier(
-//       getMovieDetail: locator(),
-//       getMovieRecommendations: locator(),
-//       getWatchListStatus: locator(),
-//       saveWatchlist: locator(),
-//       removeWatchlist: locator(),
-//     ),
-//   );
-//   locator.registerFactory(() => MovieSearchNotifier(searchMovies: locator()));
-//   locator.registerFactory(() => PopularMoviesNotifier(locator()));
-//   locator.registerFactory(
-//     () => TopRatedMoviesNotifier(getTopRatedMovies: locator()),
-//   );
-//   locator.registerFactory(
-//     () => WatchlistMovieNotifier(getWatchlistMovies: locator()),
-//   );
-//   locator.registerFactory(
-//     () => TvSeriesListNotifier(
-//       getOnTheAirTvSeries: locator(),
-//       getPopularTvSeries: locator(),
-//       getTopRatedTvSeries: locator(),
-//     ),
-//   );
-//   locator.registerFactory(
-//     () => TvSeriesDetailNotifier(
-//       getTvSeriesDetail: locator(),
-//       getTvSeriesRecommendations: locator(),
-//       getWatchListStatusTvSeries: locator(),
-//       saveWatchlistTvSeries: locator(),
-//       removeWatchlistTvSeries: locator(),
-//     ),
-//   );
-//   locator.registerFactory(
-//     () => TvSeriesSearchNotifier(searchTvSeries: locator()),
-//   );
-//   locator.registerFactory(() => PopularTvSeriesNotifier(locator()));
-//   locator.registerFactory(
-//     () => TopRatedTvSeriesNotifier(getTopRatedTvSeries: locator()),
-//   );
-//   locator.registerFactory(
-//     () => WatchlistTvSeriesNotifier(getWatchlistTvSeries: locator()),
-//   );
+Future<void> init() async {
+  await SslPinning.init();
 
-//   // use case
-//   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
-//   locator.registerLazySingleton(() => GetPopularMovies(locator()));
-//   locator.registerLazySingleton(() => GetTopRatedMovies(locator()));
-//   locator.registerLazySingleton(() => GetMovieDetail(locator()));
-//   locator.registerLazySingleton(() => GetMovieRecommendations(locator()));
-//   locator.registerLazySingleton(() => SearchMovies(locator()));
-//   locator.registerLazySingleton(() => GetWatchListStatus(locator()));
-//   locator.registerLazySingleton(() => SaveWatchlist(locator()));
-//   locator.registerLazySingleton(() => RemoveWatchlist(locator()));
-//   locator.registerLazySingleton(() => GetWatchlistMovies(locator()));
+  final secureClient = await SslPinning.client;
 
-//   locator.registerLazySingleton(() => GetOnTheAirTvSeries(locator()));
-//   locator.registerLazySingleton(() => GetPopularTvSeries(locator()));
-//   locator.registerLazySingleton(() => GetTopRatedTvSeries(locator()));
-//   locator.registerLazySingleton(() => GetTvSeriesDetail(locator()));
-//   locator.registerLazySingleton(() => GetTvSeriesRecommendations(locator()));
-//   locator.registerLazySingleton(() => SearchTvSeries(locator()));
-//   locator.registerLazySingleton(() => GetWatchListStatusTvSeries(locator()));
-//   locator.registerLazySingleton(() => SaveWatchlistTvSeries(locator()));
-//   locator.registerLazySingleton(() => RemoveWatchlistTvSeries(locator()));
-//   locator.registerLazySingleton(() => GetWatchlistTvSeries(locator()));
+  locator.registerLazySingleton<http.Client>(() => secureClient);
 
-//   // repository
-//   locator.registerLazySingleton<MovieRepository>(
-//     () => MovieRepositoryImpl(
-//       remoteDataSource: locator(),
-//       localDataSource: locator(),
-//     ),
-//   );
-//   locator.registerLazySingleton<TvSeriesRepository>(
-//     () => TvSeriesRepositoryImpl(
-//       remoteDataSource: locator(),
-//       localDataSource: locator(),
-//     ),
-//   );
+  locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
-//   // data sources
-//   locator.registerLazySingleton<MovieRemoteDataSource>(
-//     () => MovieRemoteDataSourceImpl(client: locator()),
-//   );
-//   locator.registerLazySingleton<MovieLocalDataSource>(
-//     () => MovieLocalDataSourceImpl(databaseHelper: locator()),
-//   );
-//   locator.registerLazySingleton<TvSeriesRemoteDataSource>(
-//     () => TvSeriesRemoteDataSourceImpl(client: locator()),
-//   );
-//   locator.registerLazySingleton<TvSeriesLocalDataSource>(
-//     () => TvSeriesLocalDataSourceImpl(databaseHelper: locator()),
-//   );
+  locator.registerLazySingleton<MovieRemoteDataSource>(
+    () => MovieRemoteDataSourceImpl(client: locator()),
+  );
+  locator.registerLazySingleton<MovieLocalDataSource>(
+    () => MovieLocalDataSourceImpl(databaseHelper: locator()),
+  );
 
-//   // helper
-//   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
+  locator.registerLazySingleton<MovieRepository>(
+    () => MovieRepositoryImpl(
+      remoteDataSource: locator(),
+      localDataSource: locator(),
+    ),
+  );
 
-//   // external
-//   locator.registerLazySingleton(() => http.Client());
-// }
+  locator.registerLazySingleton(() => GetMovieDetail(locator()));
+  locator.registerLazySingleton(() => GetMovieRecommendations(locator()));
+  locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
+  locator.registerLazySingleton(() => GetPopularMovies(locator()));
+  locator.registerLazySingleton(() => GetTopRatedMovies(locator()));
+  locator.registerLazySingleton(() => GetWatchlistMovies(locator()));
+  locator.registerLazySingleton(() => GetWatchListStatus(locator()));
+  locator.registerLazySingleton(() => RemoveWatchlist(locator()));
+  locator.registerLazySingleton(() => SaveWatchlist(locator()));
+  locator.registerLazySingleton(() => SearchMovies(locator()));
+
+  locator.registerFactory(() => NowPlayingCubit(locator()));
+  locator.registerFactory(() => PopularCubit(locator()));
+  locator.registerFactory(() => TopRatedCubit(locator()));
+  locator.registerFactory(() => MovieDetailCubit(locator()));
+  locator.registerFactory(() => RecommendationsCubit(locator()));
+  locator.registerFactory(() => WatchlistMoviesCubit(locator()));
+  locator.registerFactory(
+    () => WatchlistStatusCubit(
+      getWatchListStatus: locator(),
+      saveWatchlist: locator(),
+      removeWatchlist: locator(),
+    ),
+  );
+}

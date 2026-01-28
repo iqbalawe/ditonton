@@ -30,7 +30,7 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('On The Air', style: kHeading6),
+              Text('On The Air', style: heading6),
               SubHeading(
                 title: 'Popular',
                 onTap: () => Navigator.pushNamed(context, popularTVSeriesRoute),

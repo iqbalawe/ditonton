@@ -9,3 +9,4 @@ export 'get_watchlist_movies.dart';
 export 'get_watchlist_status.dart';
 export 'remove_watchlist.dart';
 export 'save_watchlist.dart';
+export 'search_movies.dart';

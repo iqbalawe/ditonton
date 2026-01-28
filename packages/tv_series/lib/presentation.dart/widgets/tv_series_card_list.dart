@@ -37,7 +37,7 @@ class TvSeriesCard extends StatelessWidget {
                       tvSeries.name ?? '-',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: kHeading6,
+                      style: heading6,
                     ),
                     const SizedBox(height: 16),
                     Text(

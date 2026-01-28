@@ -1,5 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies/movies.dart';
 
 class HomeMoviePage extends StatefulWidget {
   const HomeMoviePage({super.key});
@@ -68,23 +70,38 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Now Playing', style: kHeading6),
-              // TODO: Show now playing movie from TMDB API
-              SubHeading(
-                title: 'Popular',
-                onTap: () => Navigator.pushNamed(context, popularMoviesRoute),
-              ),
-              // TODO: Show popular movie from TMDB API
-              SubHeading(
-                title: 'Top Rated',
-                onTap: () => Navigator.pushNamed(context, topRatedMoviesRoute),
-              ),
-              // TODO: Show top rated movie from TMDB API
-            ],
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (_) =>
+                  di.locator<NowPlayingCubit>()..fetchNowPlayingMovies(),
+            ),
+            BlocProvider(
+              create: (_) => di.locator<PopularCubit>()..fetchPopularMovies(),
+            ),
+            BlocProvider(
+              create: (_) => di.locator<TopRatedCubit>()..fetchTopRatedMovies(),
+            ),
+          ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Now Playing', style: heading6),
+                // TODO: Show now playing movie from TMDB API
+                SubHeading(
+                  title: 'Popular',
+                  onTap: () => Navigator.pushNamed(context, popularMoviesRoute),
+                ),
+                // TODO: Show popular movie from TMDB API
+                SubHeading(
+                  title: 'Top Rated',
+                  onTap: () =>
+                      Navigator.pushNamed(context, topRatedMoviesRoute),
+                ),
+                // TODO: Show top rated movie from TMDB API
+              ],
+            ),
           ),
         ),
       ),

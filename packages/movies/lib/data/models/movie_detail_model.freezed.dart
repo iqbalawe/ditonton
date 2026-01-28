@@ -227,8 +227,8 @@ return $default(_that.adult,_that.backdropPath,_that.budget,_that.genres,_that.h
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _MovieDetailResponse implements MovieDetailResponse {
   const _MovieDetailResponse({required this.adult, required this.backdropPath, required this.budget, required final  List<GenreModel> genres, required this.homepage, required this.id, required this.imdbId, required final  List<String> originCountry, required this.originalLanguage, required this.originalTitle, required this.overview, required this.popularity, required this.posterPath, required this.releaseDate, required this.revenue, required this.runtime, required this.status, required this.tagline, required this.title, required this.video, required this.voteAverage, required this.voteCount}): _genres = genres,_originCountry = originCountry;
   factory _MovieDetailResponse.fromJson(Map<String, dynamic> json) => _$MovieDetailResponseFromJson(json);

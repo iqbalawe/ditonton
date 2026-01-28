@@ -9,6 +9,7 @@ analyzer:
     avoid_print: error
     invalid_assignment: error
     missing_return: error
+    invalid_annotation_target: ignore
 
 linter:
   rules:

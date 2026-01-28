@@ -6,6 +6,7 @@ part 'season_model.g.dart';
 
 @freezed
 abstract class SeasonModel with _$SeasonModel {
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory SeasonModel({
     required String airDate,
     required int episodeCount,

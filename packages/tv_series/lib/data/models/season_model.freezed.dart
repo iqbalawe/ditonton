@@ -213,8 +213,8 @@ return $default(_that.airDate,_that.episodeCount,_that.id,_that.name,_that.overv
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _SeasonModel implements SeasonModel {
   const _SeasonModel({required this.airDate, required this.episodeCount, required this.id, required this.name, required this.overview, required this.posterPath, required this.seasonNumber, required this.voteAverage});
   factory _SeasonModel.fromJson(Map<String, dynamic> json) => _$SeasonModelFromJson(json);

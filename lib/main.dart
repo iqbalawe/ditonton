@@ -4,9 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/movies.dart';
 import 'package:tv_series/tv_series.dart';
+import 'injection.dart' as di;
 
 void main() {
-  // di.init();
+  di.init();
   runApp(const MyApp());
 }
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: kColorScheme,
         primaryColor: kRichBlack,
         scaffoldBackgroundColor: kRichBlack,
-        textTheme: kTextTheme,
+        textTheme: textTheme,
         drawerTheme: kDrawerTheme,
       ),
       home: const HomeMoviePage(),

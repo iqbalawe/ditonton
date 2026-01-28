@@ -6,6 +6,7 @@ part 'movie_model.g.dart';
 
 @freezed
 abstract class MovieModel with _$MovieModel {
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory MovieModel({
     required bool adult,
     required String backdropPath,

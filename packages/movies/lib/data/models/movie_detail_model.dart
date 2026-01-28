@@ -7,6 +7,7 @@ part 'movie_detail_model.g.dart';
 
 @freezed
 abstract class MovieDetailResponse with _$MovieDetailResponse {
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory MovieDetailResponse({
     required bool adult,
     required String backdropPath,

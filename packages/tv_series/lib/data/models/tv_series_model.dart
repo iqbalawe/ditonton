@@ -6,6 +6,7 @@ part 'tv_series_model.g.dart';
 
 @freezed
 abstract class TVSeriesModel with _$TVSeriesModel {
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TVSeriesModel({
     required bool adult,
     required String backdropPath,

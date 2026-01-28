@@ -40,6 +40,7 @@ class MovieDetail extends Equatable {
     overview,
     posterPath,
     releaseDate,
+    runtime,
     title,
     voteAverage,
     voteCount,

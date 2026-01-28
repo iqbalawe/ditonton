@@ -23,7 +23,7 @@ class SearchMoviePage extends StatelessWidget {
               textInputAction: TextInputAction.search,
             ),
             const SizedBox(height: 16),
-            Text('Search Result', style: kHeading6),
+            Text('Search Result', style: heading6),
             // TODO: Show search result
           ],
         ),

@@ -231,8 +231,8 @@ return $default(_that.adult,_that.backdropPath,_that.episodeRunTime,_that.firstA
 }
 
 /// @nodoc
-@JsonSerializable()
 
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _TVSeriesDetailResponse implements TVSeriesDetailResponse {
   const _TVSeriesDetailResponse({required this.adult, required this.backdropPath, required final  List<dynamic> episodeRunTime, required this.firstAirDate, required final  List<GenreModel> genres, required this.homepage, required this.id, required this.inProduction, required final  List<String> languages, required this.lastAirDate, required this.name, required this.nextEpisodeToAir, required this.numberOfEpisodes, required this.numberOfSeasons, required final  List<String> originCountry, required this.originalLanguage, required this.originalName, required this.overview, required this.popularity, required this.posterPath, required final  List<SeasonModel> seasons, required this.status, required this.tagline, required this.type, required this.voteAverage, required this.voteCount}): _episodeRunTime = episodeRunTime,_genres = genres,_languages = languages,_originCountry = originCountry,_seasons = seasons;
   factory _TVSeriesDetailResponse.fromJson(Map<String, dynamic> json) => _$TVSeriesDetailResponseFromJson(json);
