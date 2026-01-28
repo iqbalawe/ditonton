@@ -3,12 +3,12 @@ import 'package:dartz/dartz.dart';
 import '../entities/tv_series.dart';
 import '../repositories/tv_series_repository.dart';
 
-class GetWatchlistTvSeries {
-  final TvSeriesRepository _repository;
+class GetWatchlistTVSeries {
+  final TVSeriesRepository _repository;
 
-  GetWatchlistTvSeries(this._repository);
+  GetWatchlistTVSeries(this._repository);
 
-  Future<Either<Failure, List<TvSeries>>> execute() {
-    return _repository.getWatchlistTvSeries();
+  Future<Either<Failure, List<TVSeries>>> execute() {
+    return _repository.getWatchlistTVSeries();
   }
 }

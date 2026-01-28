@@ -1,5 +1,5 @@
-import '../../../lib/data/models/season_model.dart';
-import '../../../lib/domain/entities/seasons.dart';
+import 'package:tv_series/data/models/season_model.dart';
+import 'package:tv_series/domain/entities/seasons.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -2,27 +2,27 @@ import '../../domain/entities/tv_series.dart';
 import '../../domain/entities/tv_series_detail.dart';
 import 'package:equatable/equatable.dart';
 
-class TvSeriesTable extends Equatable {
+class TVSeriesTable extends Equatable {
   final int id;
   final String? name;
   final String? posterPath;
   final String? overview;
 
-  const TvSeriesTable({
+  const TVSeriesTable({
     required this.id,
     required this.name,
     required this.posterPath,
     required this.overview,
   });
 
-  factory TvSeriesTable.fromEntity(TvSeriesDetail tvSeries) => TvSeriesTable(
+  factory TVSeriesTable.fromEntity(TVSeriesDetail tvSeries) => TVSeriesTable(
     id: tvSeries.id,
     name: tvSeries.name,
     posterPath: tvSeries.posterPath,
     overview: tvSeries.overview,
   );
 
-  factory TvSeriesTable.fromMap(Map<String, dynamic> map) => TvSeriesTable(
+  factory TVSeriesTable.fromMap(Map<String, dynamic> map) => TVSeriesTable(
     id: map['id'],
     name: map['name'],
     posterPath: map['posterPath'],
@@ -36,7 +36,7 @@ class TvSeriesTable extends Equatable {
     'overview': overview,
   };
 
-  TvSeries toEntity() => TvSeries.watchlist(
+  TVSeries toEntity() => TVSeries.watchlist(
     id: id,
     overview: overview,
     posterPath: posterPath,

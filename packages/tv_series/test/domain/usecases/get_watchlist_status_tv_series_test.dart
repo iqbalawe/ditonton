@@ -1,22 +1,22 @@
-import '../../../lib/domain/usecases/get_watchlist_status_tv_series.dart';
+import 'package:tv_series/domain/usecases/get_watchlist_status_tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import '../../../../test/helpers/test_helper.mocks.dart';
+import '../../test_helper/test_helper.mocks.dart';
 
 void main() {
-  late GetWatchListStatusTvSeries usecase;
-  late MockTvSeriesRepository mockTvSeriesRepository;
+  late GetWatchListStatusTVSeries usecase;
+  late MockTVSeriesRepository mockTVSeriesRepository;
 
   setUp(() {
-    mockTvSeriesRepository = MockTvSeriesRepository();
-    usecase = GetWatchListStatusTvSeries(mockTvSeriesRepository);
+    mockTVSeriesRepository = MockTVSeriesRepository();
+    usecase = GetWatchListStatusTVSeries(mockTVSeriesRepository);
   });
 
   test('should get watchlist status from repository', () async {
     // arrange
     when(
-      mockTvSeriesRepository.isAddedToWatchlist(1),
+      mockTVSeriesRepository.isAddedToWatchlist(1),
     ).thenAnswer((_) async => true);
     // act
     final result = await usecase.execute(1);

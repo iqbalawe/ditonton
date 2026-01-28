@@ -3,12 +3,12 @@ import 'package:dartz/dartz.dart';
 import '../entities/tv_series_detail.dart';
 import '../repositories/tv_series_repository.dart';
 
-class RemoveWatchlistTvSeries {
-  final TvSeriesRepository repository;
+class RemoveWatchlistTVSeries {
+  final TVSeriesRepository repository;
 
-  RemoveWatchlistTvSeries(this.repository);
+  RemoveWatchlistTVSeries(this.repository);
 
-  Future<Either<Failure, String>> execute(TvSeriesDetail tvSeries) {
+  Future<Either<Failure, String>> execute(TVSeriesDetail tvSeries) {
     return repository.removeWatchlist(tvSeries);
   }
 }

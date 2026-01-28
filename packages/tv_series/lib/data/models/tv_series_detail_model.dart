@@ -1,10 +1,9 @@
-import '../../../../core/models/genre_model.dart';
-import 'season_model.dart';
-import '../../domain/entities/tv_series_detail.dart';
+import 'package:core/core.dart';
 import 'package:equatable/equatable.dart';
+import 'package:tv_series/tv_series.dart';
 
-class TvSeriesDetailResponse extends Equatable {
-  const TvSeriesDetailResponse({
+class TVSeriesDetailResponse extends Equatable {
+  const TVSeriesDetailResponse({
     required this.adult,
     required this.backdropPath,
     required this.genres,
@@ -36,8 +35,8 @@ class TvSeriesDetailResponse extends Equatable {
   final int voteCount;
   final List<SeasonModel> seasons;
 
-  factory TvSeriesDetailResponse.fromJson(Map<String, dynamic> json) =>
-      TvSeriesDetailResponse(
+  factory TVSeriesDetailResponse.fromJson(Map<String, dynamic> json) =>
+      TVSeriesDetailResponse(
         adult: json['adult'],
         backdropPath: json['backdrop_path'],
         genres: List<GenreModel>.from(
@@ -75,8 +74,8 @@ class TvSeriesDetailResponse extends Equatable {
     'seasons': List<dynamic>.from(seasons.map((x) => x.toJson())),
   };
 
-  TvSeriesDetail toEntity() {
-    return TvSeriesDetail(
+  TVSeriesDetail toEntity() {
+    return TVSeriesDetail(
       adult: adult,
       backdropPath: backdropPath,
       genres: genres.map((genre) => genre.toEntity()).toList(),

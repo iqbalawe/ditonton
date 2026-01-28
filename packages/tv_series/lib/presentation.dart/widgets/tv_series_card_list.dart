@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
-import '../../domain/entities/tv_series.dart';
-import '../pages/tv_series_detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:tv_series/tv_series.dart';
 
 class TvSeriesCard extends StatelessWidget {
-  final TvSeries tvSeries;
+  final TVSeries tvSeries;
 
   const TvSeriesCard(this.tvSeries, {super.key});
 
@@ -17,7 +16,7 @@ class TvSeriesCard extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(
             context,
-            TvSeriesDetailPage.routeName,
+            tvSeriesDetailRoute,
             arguments: tvSeries.id,
           );
         },
@@ -40,7 +39,7 @@ class TvSeriesCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: kHeading6,
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Text(
                       tvSeries.overview ?? '-',
                       maxLines: 2,
@@ -53,13 +52,13 @@ class TvSeriesCard extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(left: 16, bottom: 16),
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(8)),
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 child: CachedNetworkImage(
                   imageUrl: '$baseImageUrl${tvSeries.posterPath}',
                   width: 80,
                   placeholder: (context, url) =>
-                      Center(child: CircularProgressIndicator()),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                      const Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),

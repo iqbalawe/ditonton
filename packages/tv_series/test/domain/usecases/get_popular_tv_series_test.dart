@@ -1,21 +1,21 @@
 import 'package:dartz/dartz.dart';
-import '../../../lib/domain/entities/tv_series.dart';
-import '../../../lib/domain/usecases/get_popular_tv_series.dart';
+import 'package:tv_series/domain/entities/tv_series.dart';
+import 'package:tv_series/domain/usecases/get_popular_tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import '../../../../test/helpers/test_helper.mocks.dart';
+import '../../test_helper/test_helper.mocks.dart';
 
 void main() {
-  late GetPopularTvSeries usecase;
-  late MockTvSeriesRepository mockTvSeriesRepository;
+  late GetPopularTVSeries usecase;
+  late MockTVSeriesRepository mockTVSeriesRepository;
 
   setUp(() {
-    mockTvSeriesRepository = MockTvSeriesRepository();
-    usecase = GetPopularTvSeries(mockTvSeriesRepository);
+    mockTVSeriesRepository = MockTVSeriesRepository();
+    usecase = GetPopularTVSeries(mockTVSeriesRepository);
   });
 
-  final tTvSeries = <TvSeries>[];
+  final tTvSeries = <TVSeries>[];
 
   group('GetPopularTvSeries Tests', () {
     group('execute', () {
@@ -24,7 +24,7 @@ void main() {
         () async {
           // arrange
           when(
-            mockTvSeriesRepository.getPopularTvSeries(),
+            mockTVSeriesRepository.getPopularTVSeries(),
           ).thenAnswer((_) async => Right(tTvSeries));
           // act
           final result = await usecase.execute();

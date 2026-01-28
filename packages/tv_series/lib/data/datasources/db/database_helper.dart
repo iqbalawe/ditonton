@@ -18,19 +18,23 @@ class DatabaseHelper {
     return _database;
   }
 
-  static const String _tblWatchlistTvSeries = 'watchlist_tv_series';
+  static const String _tblWatchlistTVSeries = 'watchlist_tv_series';
 
   Future<Database> _initDb() async {
     final path = await getDatabasesPath();
     final databasePath = '$path/ditonton.db';
 
-    var db = await openDatabase(databasePath, version: 1, onCreate: _onCreate);
+    final db = await openDatabase(
+      databasePath,
+      version: 1,
+      onCreate: _onCreate,
+    );
     return db;
   }
 
   void _onCreate(Database db, int version) async {
     await db.execute('''
-      CREATE TABLE $_tblWatchlistTvSeries (
+      CREATE TABLE $_tblWatchlistTVSeries (
         id INTEGER PRIMARY KEY,
         name TEXT, 
         overview TEXT,
@@ -39,24 +43,24 @@ class DatabaseHelper {
     ''');
   }
 
-  Future<int> insertWatchlistTvSeries(TvSeriesTable tvSeries) async {
+  Future<int> insertWatchlistTVSeries(TVSeriesTable tvSeries) async {
     final db = await database;
-    return await db!.insert(_tblWatchlistTvSeries, tvSeries.toJson());
+    return await db!.insert(_tblWatchlistTVSeries, tvSeries.toJson());
   }
 
-  Future<int> removeWatchlistTvSeries(TvSeriesTable tvSeries) async {
+  Future<int> removeWatchlistTVSeries(TVSeriesTable tvSeries) async {
     final db = await database;
     return await db!.delete(
-      _tblWatchlistTvSeries,
+      _tblWatchlistTVSeries,
       where: 'id = ?',
       whereArgs: [tvSeries.id],
     );
   }
 
-  Future<Map<String, dynamic>?> getTvSeriesById(int id) async {
+  Future<Map<String, dynamic>?> getTVSeriesById(int id) async {
     final db = await database;
     final results = await db!.query(
-      _tblWatchlistTvSeries,
+      _tblWatchlistTVSeries,
       where: 'id = ?',
       whereArgs: [id],
     );
@@ -68,10 +72,10 @@ class DatabaseHelper {
     }
   }
 
-  Future<List<Map<String, dynamic>>> getWatchlistTvSeries() async {
+  Future<List<Map<String, dynamic>>> getWatchlistTVSeries() async {
     final db = await database;
     final List<Map<String, dynamic>> results = await db!.query(
-      _tblWatchlistTvSeries,
+      _tblWatchlistTVSeries,
     );
 
     return results;

@@ -3,12 +3,12 @@ import 'package:dartz/dartz.dart';
 import '../entities/tv_series.dart';
 import '../repositories/tv_series_repository.dart';
 
-class GetTopRatedTvSeries {
-  final TvSeriesRepository repository;
+class GetTopRatedTVSeries {
+  final TVSeriesRepository repository;
 
-  GetTopRatedTvSeries(this.repository);
+  GetTopRatedTVSeries(this.repository);
 
-  Future<Either<Failure, List<TvSeries>>> execute() {
-    return repository.getTopRatedTvSeries();
+  Future<Either<Failure, List<TVSeries>>> execute() {
+    return repository.getTopRatedTVSeries();
   }
 }

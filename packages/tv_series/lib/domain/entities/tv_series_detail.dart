@@ -1,9 +1,9 @@
-import '../../../../core/lib/entities/genre.dart';
-import 'seasons.dart';
+import 'package:core/core.dart';
 import 'package:equatable/equatable.dart';
+import 'package:tv_series/tv_series.dart';
 
-class TvSeriesDetail extends Equatable {
-  const TvSeriesDetail({
+class TVSeriesDetail extends Equatable {
+  const TVSeriesDetail({
     required this.adult,
     required this.backdropPath,
     required this.genres,

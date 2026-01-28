@@ -1,26 +1,26 @@
 import 'package:dartz/dartz.dart';
-import '../../../lib/domain/entities/tv_series.dart';
-import '../../../lib/domain/usecases/get_on_the_air_tv_series.dart';
+import 'package:tv_series/domain/entities/tv_series.dart';
+import 'package:tv_series/domain/usecases/get_on_the_air_tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import '../../../../test/helpers/test_helper.mocks.dart';
+import '../../test_helper/test_helper.mocks.dart';
 
 void main() {
-  late GetOnTheAirTvSeries usecase;
-  late MockTvSeriesRepository mockTvSeriesRepository;
+  late GetOnTheAirTVSeries usecase;
+  late MockTVSeriesRepository mockTVSeriesRepository;
 
   setUp(() {
-    mockTvSeriesRepository = MockTvSeriesRepository();
-    usecase = GetOnTheAirTvSeries(mockTvSeriesRepository);
+    mockTVSeriesRepository = MockTVSeriesRepository();
+    usecase = GetOnTheAirTVSeries(mockTVSeriesRepository);
   });
 
-  final tTvSeries = <TvSeries>[];
+  final tTvSeries = <TVSeries>[];
 
   test('should get list of tv series from the repository', () async {
     // arrange
     when(
-      mockTvSeriesRepository.getOnTheAirTvSeries(),
+      mockTVSeriesRepository.getOnTheAirTVSeries(),
     ).thenAnswer((_) async => Right(tTvSeries));
     // act
     final result = await usecase.execute();

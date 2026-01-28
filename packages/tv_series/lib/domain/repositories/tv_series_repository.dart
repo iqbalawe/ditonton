@@ -3,15 +3,15 @@ import 'package:dartz/dartz.dart';
 import '../entities/tv_series.dart';
 import '../entities/tv_series_detail.dart';
 
-abstract class TvSeriesRepository {
-  Future<Either<Failure, List<TvSeries>>> getOnTheAirTvSeries();
-  Future<Either<Failure, List<TvSeries>>> getPopularTvSeries();
-  Future<Either<Failure, List<TvSeries>>> getTopRatedTvSeries();
-  Future<Either<Failure, TvSeriesDetail>> getTvSeriesDetail(int id);
-  Future<Either<Failure, List<TvSeries>>> getTvSeriesRecommendations(int id);
-  Future<Either<Failure, List<TvSeries>>> searchTvSeries(String query);
-  Future<Either<Failure, String>> saveWatchlist(TvSeriesDetail tvSeries);
-  Future<Either<Failure, String>> removeWatchlist(TvSeriesDetail tvSeries);
+abstract class TVSeriesRepository {
+  Future<Either<Failure, List<TVSeries>>> getOnTheAirTVSeries();
+  Future<Either<Failure, List<TVSeries>>> getPopularTVSeries();
+  Future<Either<Failure, List<TVSeries>>> getTopRatedTVSeries();
+  Future<Either<Failure, TVSeriesDetail>> getTVSeriesDetail(int id);
+  Future<Either<Failure, List<TVSeries>>> getTVSeriesRecommendations(int id);
+  Future<Either<Failure, List<TVSeries>>> searchTVSeries(String query);
+  Future<Either<Failure, String>> saveWatchlist(TVSeriesDetail tvSeries);
+  Future<Either<Failure, String>> removeWatchlist(TVSeriesDetail tvSeries);
   Future<bool> isAddedToWatchlist(int id);
-  Future<Either<Failure, List<TvSeries>>> getWatchlistTvSeries();
+  Future<Either<Failure, List<TVSeries>>> getWatchlistTVSeries();
 }

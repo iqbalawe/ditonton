@@ -1,8 +1,8 @@
 import '../../domain/entities/tv_series.dart';
 import 'package:equatable/equatable.dart';
 
-class TvSeriesModel extends Equatable {
-  const TvSeriesModel({
+class TVSeriesModel extends Equatable {
+  const TVSeriesModel({
     required this.adult,
     required this.backdropPath,
     required this.firstAirDate,
@@ -30,7 +30,7 @@ class TvSeriesModel extends Equatable {
   final double voteAverage;
   final int voteCount;
 
-  factory TvSeriesModel.fromJson(Map<String, dynamic> json) => TvSeriesModel(
+  factory TVSeriesModel.fromJson(Map<String, dynamic> json) => TVSeriesModel(
     adult: json['adult'],
     backdropPath: json['backdrop_path'],
     firstAirDate: json['first_air_date'],
@@ -60,8 +60,8 @@ class TvSeriesModel extends Equatable {
     'vote_count': voteCount,
   };
 
-  TvSeries toEntity() {
-    return TvSeries(
+  TVSeries toEntity() {
+    return TVSeries(
       adult: adult,
       backdropPath: backdropPath,
       firstAirDate: firstAirDate,

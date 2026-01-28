@@ -1,9 +1,9 @@
-import '../../../lib/data/models/tv_series_model.dart';
-import '../../../lib/domain/entities/tv_series.dart';
+import 'package:tv_series/data/models/tv_series_model.dart';
+import 'package:tv_series/domain/entities/tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final tTvSeriesModel = TvSeriesModel(
+  final tTvSeriesModel = const TVSeriesModel(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -18,7 +18,7 @@ void main() {
     voteCount: 1,
   );
 
-  final tTvSeries = TvSeries(
+  final tTvSeries = const TVSeries(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
