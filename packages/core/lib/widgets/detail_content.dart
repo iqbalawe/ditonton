@@ -1,28 +1,31 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class DetailContent extends StatelessWidget {
-  const DetailContent({
-    required this.posterPath,
-    required this.title,
-    required this.genres,
-    required this.runtime,
-    required this.voteAverage,
-    required this.overview,
-    this.isAddedWatchlist = false,
-    this.isTVSeries = false,
-    super.key,
-  });
-
-  final String posterPath;
   final String title;
+  final String overview;
+  final String posterPath;
+  final double voteAverage;
   final List<Genre> genres;
   final int runtime;
-  final double voteAverage;
-  final String overview;
-  final bool isAddedWatchlist;
   final bool isTVSeries;
+  final Widget watchlistButton;
+  final Widget recommendations;
+
+  const DetailContent({
+    super.key,
+    required this.title,
+    required this.overview,
+    required this.posterPath,
+    required this.voteAverage,
+    required this.genres,
+    required this.runtime,
+    required this.watchlistButton,
+    required this.recommendations,
+    this.isTVSeries = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +45,7 @@ class DetailContent extends StatelessWidget {
             builder: (context, scrollController) {
               return Container(
                 decoration: const BoxDecoration(
-                  color: kRichBlack,
+                  color: richBlack,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                 ),
                 padding: const EdgeInsets.only(left: 16, top: 16, right: 16),
@@ -56,32 +59,31 @@ class DetailContent extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(title, style: heading5),
-                            FilledButton(
-                              onPressed: () async {},
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  isAddedWatchlist
-                                      ? const Icon(Icons.check)
-                                      : const Icon(Icons.add),
-                                  const Text('Watchlist'),
-                                ],
-                              ),
-                            ),
+                            watchlistButton,
                             Text(showGenres(genres)),
                             isTVSeries
                                 ? const SizedBox.shrink()
                                 : Text(_showDuration(runtime)),
-                            TmdbRatingBar(
-                              rating: voteAverage / 2,
-                              ratingText: '$voteAverage',
+                            Row(
+                              children: [
+                                RatingBarIndicator(
+                                  rating: voteAverage / 2,
+                                  itemCount: 5,
+                                  itemBuilder: (context, index) => const Icon(
+                                    Icons.star,
+                                    color: mikadoYellow,
+                                  ),
+                                  itemSize: 24,
+                                ),
+                                Text('$voteAverage'),
+                              ],
                             ),
                             const SizedBox(height: 16),
                             Text('Overview', style: heading6),
                             Text(overview),
                             const SizedBox(height: 16),
                             Text('Recommendations', style: heading6),
-                            // TODO: Call item list and show recommendations
+                            recommendations,
                           ],
                         ),
                       ),
@@ -101,7 +103,7 @@ class DetailContent extends StatelessWidget {
             minChildSize: 0.25,
           ),
         ),
-        const NavigateBackButton(),
+        NavigateBackButton(),
       ],
     );
   }
@@ -109,7 +111,6 @@ class DetailContent extends StatelessWidget {
   String _showDuration(int runtime) {
     final int hours = runtime ~/ 60;
     final int minutes = runtime % 60;
-
     if (hours > 0) {
       return '${hours}h ${minutes}m';
     } else {

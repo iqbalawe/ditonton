@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:movies/movies.dart';
 
 class HomeMoviePage extends StatefulWidget {
@@ -14,49 +15,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: Column(
-          children: [
-            UserAccountsDrawerHeader(
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: const AssetImage('assets/circle-g.png'),
-                backgroundColor: Colors.grey.shade900,
-              ),
-              accountName: const Text('Ditonton'),
-              accountEmail: const Text('ditonton@dicoding.com'),
-              decoration: BoxDecoration(color: Colors.grey.shade900),
-            ),
-            ListTile(
-              leading: const Icon(Icons.movie),
-              title: const Text('Movies'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.tv),
-              title: const Text('TV Series'),
-              onTap: () {
-                Navigator.pushNamed(context, homeMovieRoute);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.save_alt),
-              title: const Text('Watchlist'),
-              onTap: () {
-                Navigator.pushNamed(context, watchlistMoviesRoute);
-              },
-            ),
-            ListTile(
-              onTap: () {
-                Navigator.pushNamed(context, aboutRoute);
-              },
-              leading: const Icon(Icons.info_outline),
-              title: const Text('About'),
-            ),
-          ],
-        ),
-      ),
+      drawer: const AppDrawer(),
       appBar: AppBar(
         title: const Text('Ditonton'),
         actions: [
@@ -74,13 +33,15 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
           providers: [
             BlocProvider(
               create: (_) =>
-                  di.locator<NowPlayingCubit>()..fetchNowPlayingMovies(),
+                  GetIt.instance<NowPlayingCubit>()..fetchNowPlayingMovies(),
             ),
             BlocProvider(
-              create: (_) => di.locator<PopularCubit>()..fetchPopularMovies(),
+              create: (_) =>
+                  GetIt.instance<PopularCubit>()..fetchPopularMovies(),
             ),
             BlocProvider(
-              create: (_) => di.locator<TopRatedCubit>()..fetchTopRatedMovies(),
+              create: (_) =>
+                  GetIt.instance<TopRatedCubit>()..fetchTopRatedMovies(),
             ),
           ],
           child: SingleChildScrollView(
@@ -88,18 +49,48 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Now Playing', style: heading6),
-                // TODO: Show now playing movie from TMDB API
+                BlocBuilder<NowPlayingCubit, NowPlayingState>(
+                  builder: (context, state) {
+                    return state.when(
+                      initial: () => const SizedBox(),
+                      loading: () =>
+                          const Center(child: CircularProgressIndicator()),
+                      error: (msg) => const Text('Failed'),
+                      loaded: (movies) => MovieList(movies),
+                    );
+                  },
+                ),
                 SubHeading(
                   title: 'Popular',
                   onTap: () => Navigator.pushNamed(context, popularMoviesRoute),
                 ),
-                // TODO: Show popular movie from TMDB API
+                BlocBuilder<PopularCubit, PopularState>(
+                  builder: (context, state) {
+                    return state.when(
+                      initial: () => const SizedBox(),
+                      loading: () =>
+                          const Center(child: CircularProgressIndicator()),
+                      error: (msg) => const Text('Failed'),
+                      loaded: (movies) => MovieList(movies),
+                    );
+                  },
+                ),
                 SubHeading(
                   title: 'Top Rated',
                   onTap: () =>
                       Navigator.pushNamed(context, topRatedMoviesRoute),
                 ),
-                // TODO: Show top rated movie from TMDB API
+                BlocBuilder<TopRatedCubit, TopRatedState>(
+                  builder: (context, state) {
+                    return state.when(
+                      initial: () => const SizedBox(),
+                      loading: () =>
+                          const Center(child: CircularProgressIndicator()),
+                      error: (msg) => const Text('Failed'),
+                      loaded: (movies) => MovieList(movies),
+                    );
+                  },
+                ),
               ],
             ),
           ),

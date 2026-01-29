@@ -1,8 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/movies.dart';
 
-import 'top_rated_state.dart';
-
 class TopRatedCubit extends Cubit<TopRatedState> {
   final GetTopRatedMovies _getTopRatedMovies;
 

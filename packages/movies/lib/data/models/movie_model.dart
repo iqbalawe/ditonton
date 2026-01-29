@@ -8,20 +8,20 @@ part 'movie_model.g.dart';
 abstract class MovieModel with _$MovieModel {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory MovieModel({
-    required bool adult,
-    required String backdropPath,
-    required List<int> genreIds,
+    bool? adult,
+    String? backdropPath,
+    List<int>? genreIds,
     required int id,
-    required String originalLanguage,
-    required String originalTitle,
-    required String overview,
-    required double popularity,
-    required String posterPath,
-    required String releaseDate,
-    required String title,
-    required bool video,
-    required double voteAverage,
-    required int voteCount,
+    String? originalLanguage,
+    String? originalTitle,
+    String? overview,
+    double? popularity,
+    String? posterPath,
+    String? releaseDate,
+    String? title,
+    bool? video,
+    double? voteAverage,
+    int? voteCount,
   }) = _MovieModel;
 
   factory MovieModel.fromJson(Map<String, dynamic> json) =>

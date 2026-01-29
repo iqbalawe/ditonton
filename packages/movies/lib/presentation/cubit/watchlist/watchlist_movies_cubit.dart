@@ -1,8 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/movies.dart';
 
-import 'watchlist_movies_state.dart';
-
 class WatchlistMoviesCubit extends Cubit<WatchlistMoviesState> {
   final GetWatchlistMovies _getWatchlistMovies;
 

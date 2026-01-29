@@ -45,6 +45,7 @@ Future<void> init() async {
   locator.registerFactory(() => MovieDetailCubit(locator()));
   locator.registerFactory(() => RecommendationsCubit(locator()));
   locator.registerFactory(() => WatchlistMoviesCubit(locator()));
+  locator.registerFactory(() => SearchMoviesCubit(locator()));
   locator.registerFactory(
     () => WatchlistStatusCubit(
       getWatchListStatus: locator(),

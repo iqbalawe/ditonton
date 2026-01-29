@@ -1,8 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/movies.dart';
 
-import 'popular_state.dart';
-
 class PopularCubit extends Cubit<PopularState> {
   final GetPopularMovies _getPopularMovies;
 

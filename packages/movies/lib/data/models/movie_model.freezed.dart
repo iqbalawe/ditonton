@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MovieModel {
 
- bool get adult; String get backdropPath; List<int> get genreIds; int get id; String get originalLanguage; String get originalTitle; String get overview; double get popularity; String get posterPath; String get releaseDate; String get title; bool get video; double get voteAverage; int get voteCount;
+ bool? get adult; String? get backdropPath; List<int>? get genreIds; int get id; String? get originalLanguage; String? get originalTitle; String? get overview; double? get popularity; String? get posterPath; String? get releaseDate; String? get title; bool? get video; double? get voteAverage; int? get voteCount;
 /// Create a copy of MovieModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $MovieModelCopyWith<$Res>  {
   factory $MovieModelCopyWith(MovieModel value, $Res Function(MovieModel) _then) = _$MovieModelCopyWithImpl;
 @useResult
 $Res call({
- bool adult, String backdropPath, List<int> genreIds, int id, String originalLanguage, String originalTitle, String overview, double popularity, String posterPath, String releaseDate, String title, bool video, double voteAverage, int voteCount
+ bool? adult, String? backdropPath, List<int>? genreIds, int id, String? originalLanguage, String? originalTitle, String? overview, double? popularity, String? posterPath, String? releaseDate, String? title, bool? video, double? voteAverage, int? voteCount
 });
 
 
@@ -65,23 +65,23 @@ class _$MovieModelCopyWithImpl<$Res>
 
 /// Create a copy of MovieModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? adult = null,Object? backdropPath = null,Object? genreIds = null,Object? id = null,Object? originalLanguage = null,Object? originalTitle = null,Object? overview = null,Object? popularity = null,Object? posterPath = null,Object? releaseDate = null,Object? title = null,Object? video = null,Object? voteAverage = null,Object? voteCount = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? adult = freezed,Object? backdropPath = freezed,Object? genreIds = freezed,Object? id = null,Object? originalLanguage = freezed,Object? originalTitle = freezed,Object? overview = freezed,Object? popularity = freezed,Object? posterPath = freezed,Object? releaseDate = freezed,Object? title = freezed,Object? video = freezed,Object? voteAverage = freezed,Object? voteCount = freezed,}) {
   return _then(_self.copyWith(
-adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
-as bool,backdropPath: null == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
-as String,genreIds: null == genreIds ? _self.genreIds : genreIds // ignore: cast_nullable_to_non_nullable
-as List<int>,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,originalLanguage: null == originalLanguage ? _self.originalLanguage : originalLanguage // ignore: cast_nullable_to_non_nullable
-as String,originalTitle: null == originalTitle ? _self.originalTitle : originalTitle // ignore: cast_nullable_to_non_nullable
-as String,overview: null == overview ? _self.overview : overview // ignore: cast_nullable_to_non_nullable
-as String,popularity: null == popularity ? _self.popularity : popularity // ignore: cast_nullable_to_non_nullable
-as double,posterPath: null == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
-as String,releaseDate: null == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
-as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,video: null == video ? _self.video : video // ignore: cast_nullable_to_non_nullable
-as bool,voteAverage: null == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
-as double,voteCount: null == voteCount ? _self.voteCount : voteCount // ignore: cast_nullable_to_non_nullable
-as int,
+adult: freezed == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
+as bool?,backdropPath: freezed == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
+as String?,genreIds: freezed == genreIds ? _self.genreIds : genreIds // ignore: cast_nullable_to_non_nullable
+as List<int>?,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,originalLanguage: freezed == originalLanguage ? _self.originalLanguage : originalLanguage // ignore: cast_nullable_to_non_nullable
+as String?,originalTitle: freezed == originalTitle ? _self.originalTitle : originalTitle // ignore: cast_nullable_to_non_nullable
+as String?,overview: freezed == overview ? _self.overview : overview // ignore: cast_nullable_to_non_nullable
+as String?,popularity: freezed == popularity ? _self.popularity : popularity // ignore: cast_nullable_to_non_nullable
+as double?,posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
+as String?,releaseDate: freezed == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
+as String?,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String?,video: freezed == video ? _self.video : video // ignore: cast_nullable_to_non_nullable
+as bool?,voteAverage: freezed == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
+as double?,voteCount: freezed == voteCount ? _self.voteCount : voteCount // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool adult,  String backdropPath,  List<int> genreIds,  int id,  String originalLanguage,  String originalTitle,  String overview,  double popularity,  String posterPath,  String releaseDate,  String title,  bool video,  double voteAverage,  int voteCount)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool? adult,  String? backdropPath,  List<int>? genreIds,  int id,  String? originalLanguage,  String? originalTitle,  String? overview,  double? popularity,  String? posterPath,  String? releaseDate,  String? title,  bool? video,  double? voteAverage,  int? voteCount)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MovieModel() when $default != null:
 return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.originalLanguage,_that.originalTitle,_that.overview,_that.popularity,_that.posterPath,_that.releaseDate,_that.title,_that.video,_that.voteAverage,_that.voteCount);case _:
@@ -187,7 +187,7 @@ return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.ori
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool adult,  String backdropPath,  List<int> genreIds,  int id,  String originalLanguage,  String originalTitle,  String overview,  double popularity,  String posterPath,  String releaseDate,  String title,  bool video,  double voteAverage,  int voteCount)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool? adult,  String? backdropPath,  List<int>? genreIds,  int id,  String? originalLanguage,  String? originalTitle,  String? overview,  double? popularity,  String? posterPath,  String? releaseDate,  String? title,  bool? video,  double? voteAverage,  int? voteCount)  $default,) {final _that = this;
 switch (_that) {
 case _MovieModel():
 return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.originalLanguage,_that.originalTitle,_that.overview,_that.popularity,_that.posterPath,_that.releaseDate,_that.title,_that.video,_that.voteAverage,_that.voteCount);case _:
@@ -207,7 +207,7 @@ return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.ori
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool adult,  String backdropPath,  List<int> genreIds,  int id,  String originalLanguage,  String originalTitle,  String overview,  double popularity,  String posterPath,  String releaseDate,  String title,  bool video,  double voteAverage,  int voteCount)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool? adult,  String? backdropPath,  List<int>? genreIds,  int id,  String? originalLanguage,  String? originalTitle,  String? overview,  double? popularity,  String? posterPath,  String? releaseDate,  String? title,  bool? video,  double? voteAverage,  int? voteCount)?  $default,) {final _that = this;
 switch (_that) {
 case _MovieModel() when $default != null:
 return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.originalLanguage,_that.originalTitle,_that.overview,_that.popularity,_that.posterPath,_that.releaseDate,_that.title,_that.video,_that.voteAverage,_that.voteCount);case _:
@@ -222,29 +222,31 @@ return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.ori
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _MovieModel implements MovieModel {
-  const _MovieModel({required this.adult, required this.backdropPath, required final  List<int> genreIds, required this.id, required this.originalLanguage, required this.originalTitle, required this.overview, required this.popularity, required this.posterPath, required this.releaseDate, required this.title, required this.video, required this.voteAverage, required this.voteCount}): _genreIds = genreIds;
+  const _MovieModel({this.adult, this.backdropPath, final  List<int>? genreIds, required this.id, this.originalLanguage, this.originalTitle, this.overview, this.popularity, this.posterPath, this.releaseDate, this.title, this.video, this.voteAverage, this.voteCount}): _genreIds = genreIds;
   factory _MovieModel.fromJson(Map<String, dynamic> json) => _$MovieModelFromJson(json);
 
-@override final  bool adult;
-@override final  String backdropPath;
- final  List<int> _genreIds;
-@override List<int> get genreIds {
+@override final  bool? adult;
+@override final  String? backdropPath;
+ final  List<int>? _genreIds;
+@override List<int>? get genreIds {
+  final value = _genreIds;
+  if (value == null) return null;
   if (_genreIds is EqualUnmodifiableListView) return _genreIds;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_genreIds);
+  return EqualUnmodifiableListView(value);
 }
 
 @override final  int id;
-@override final  String originalLanguage;
-@override final  String originalTitle;
-@override final  String overview;
-@override final  double popularity;
-@override final  String posterPath;
-@override final  String releaseDate;
-@override final  String title;
-@override final  bool video;
-@override final  double voteAverage;
-@override final  int voteCount;
+@override final  String? originalLanguage;
+@override final  String? originalTitle;
+@override final  String? overview;
+@override final  double? popularity;
+@override final  String? posterPath;
+@override final  String? releaseDate;
+@override final  String? title;
+@override final  bool? video;
+@override final  double? voteAverage;
+@override final  int? voteCount;
 
 /// Create a copy of MovieModel
 /// with the given fields replaced by the non-null parameter values.
@@ -279,7 +281,7 @@ abstract mixin class _$MovieModelCopyWith<$Res> implements $MovieModelCopyWith<$
   factory _$MovieModelCopyWith(_MovieModel value, $Res Function(_MovieModel) _then) = __$MovieModelCopyWithImpl;
 @override @useResult
 $Res call({
- bool adult, String backdropPath, List<int> genreIds, int id, String originalLanguage, String originalTitle, String overview, double popularity, String posterPath, String releaseDate, String title, bool video, double voteAverage, int voteCount
+ bool? adult, String? backdropPath, List<int>? genreIds, int id, String? originalLanguage, String? originalTitle, String? overview, double? popularity, String? posterPath, String? releaseDate, String? title, bool? video, double? voteAverage, int? voteCount
 });
 
 
@@ -296,23 +298,23 @@ class __$MovieModelCopyWithImpl<$Res>
 
 /// Create a copy of MovieModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? adult = null,Object? backdropPath = null,Object? genreIds = null,Object? id = null,Object? originalLanguage = null,Object? originalTitle = null,Object? overview = null,Object? popularity = null,Object? posterPath = null,Object? releaseDate = null,Object? title = null,Object? video = null,Object? voteAverage = null,Object? voteCount = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? adult = freezed,Object? backdropPath = freezed,Object? genreIds = freezed,Object? id = null,Object? originalLanguage = freezed,Object? originalTitle = freezed,Object? overview = freezed,Object? popularity = freezed,Object? posterPath = freezed,Object? releaseDate = freezed,Object? title = freezed,Object? video = freezed,Object? voteAverage = freezed,Object? voteCount = freezed,}) {
   return _then(_MovieModel(
-adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
-as bool,backdropPath: null == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
-as String,genreIds: null == genreIds ? _self._genreIds : genreIds // ignore: cast_nullable_to_non_nullable
-as List<int>,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,originalLanguage: null == originalLanguage ? _self.originalLanguage : originalLanguage // ignore: cast_nullable_to_non_nullable
-as String,originalTitle: null == originalTitle ? _self.originalTitle : originalTitle // ignore: cast_nullable_to_non_nullable
-as String,overview: null == overview ? _self.overview : overview // ignore: cast_nullable_to_non_nullable
-as String,popularity: null == popularity ? _self.popularity : popularity // ignore: cast_nullable_to_non_nullable
-as double,posterPath: null == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
-as String,releaseDate: null == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
-as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,video: null == video ? _self.video : video // ignore: cast_nullable_to_non_nullable
-as bool,voteAverage: null == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
-as double,voteCount: null == voteCount ? _self.voteCount : voteCount // ignore: cast_nullable_to_non_nullable
-as int,
+adult: freezed == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
+as bool?,backdropPath: freezed == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
+as String?,genreIds: freezed == genreIds ? _self._genreIds : genreIds // ignore: cast_nullable_to_non_nullable
+as List<int>?,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,originalLanguage: freezed == originalLanguage ? _self.originalLanguage : originalLanguage // ignore: cast_nullable_to_non_nullable
+as String?,originalTitle: freezed == originalTitle ? _self.originalTitle : originalTitle // ignore: cast_nullable_to_non_nullable
+as String?,overview: freezed == overview ? _self.overview : overview // ignore: cast_nullable_to_non_nullable
+as String?,popularity: freezed == popularity ? _self.popularity : popularity // ignore: cast_nullable_to_non_nullable
+as double?,posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
+as String?,releaseDate: freezed == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
+as String?,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String?,video: freezed == video ? _self.video : video // ignore: cast_nullable_to_non_nullable
+as bool?,voteAverage: freezed == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
+as double?,voteCount: freezed == voteCount ? _self.voteCount : voteCount // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 

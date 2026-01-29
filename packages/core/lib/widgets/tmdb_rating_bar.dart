@@ -20,7 +20,7 @@ class TmdbRatingBar extends StatelessWidget {
           rating: rating,
           itemCount: 5,
           itemBuilder: (context, index) =>
-              const Icon(Icons.star, color: kMikadoYellow),
+              const Icon(Icons.star, color: mikadoYellow),
           itemSize: 24,
         ),
         Text(ratingText),

@@ -13,7 +13,6 @@ dependencies:
     sdk: flutter
   get_it: ^9.2.0
   path_provider: ^2.1.5
-  provider: ^6.1.5+1
   http: ^1.6.0
 
   about:
@@ -24,6 +23,7 @@ dependencies:
     path: packages/movies
   tv_series:
     path: packages/tv_series
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   build_runner: ^2.10.5
@@ -36,4 +36,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/
+    - assets/circle-g.png
+    - assets/certificates/certificate.pem

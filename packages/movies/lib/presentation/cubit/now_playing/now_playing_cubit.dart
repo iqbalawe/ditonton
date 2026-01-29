@@ -1,8 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/movies.dart';
 
-import 'now_playing_state.dart';
-
 class NowPlayingCubit extends Cubit<NowPlayingState> {
   final GetNowPlayingMovies _getNowPlayingMovies;
 

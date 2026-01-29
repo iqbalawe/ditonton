@@ -9,7 +9,7 @@ class NavigateBackButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: CircleAvatar(
-        backgroundColor: kRichBlack,
+        backgroundColor: richBlack,
         foregroundColor: Colors.white,
         child: IconButton(
           icon: const Icon(Icons.arrow_back),

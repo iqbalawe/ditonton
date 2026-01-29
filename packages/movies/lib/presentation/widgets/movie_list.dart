@@ -19,7 +19,13 @@ class MovieList extends StatelessWidget {
           return Container(
             padding: const EdgeInsets.all(8),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  movieDetailRoute,
+                  arguments: movie.id,
+                );
+              },
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(16)),
                 child: CachedNetworkImage(
