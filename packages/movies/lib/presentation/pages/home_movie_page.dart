@@ -56,7 +56,17 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                       loading: () =>
                           const Center(child: CircularProgressIndicator()),
                       error: (msg) => const Text('Failed'),
-                      loaded: (movies) => MovieList(movies),
+                      loaded: (movies) => HorizontalItemList(
+                        items: movies,
+                        onPosterUrl: (movie) => movie.posterPath ?? '',
+                        onTap: (movie) {
+                          Navigator.pushNamed(
+                            context,
+                            movieDetailRoute,
+                            arguments: movie.id,
+                          );
+                        },
+                      ),
                     );
                   },
                 ),
@@ -71,7 +81,17 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                       loading: () =>
                           const Center(child: CircularProgressIndicator()),
                       error: (msg) => const Text('Failed'),
-                      loaded: (movies) => MovieList(movies),
+                      loaded: (movies) => HorizontalItemList(
+                        items: movies,
+                        onPosterUrl: (movie) => movie.posterPath ?? '',
+                        onTap: (movie) {
+                          Navigator.pushNamed(
+                            context,
+                            movieDetailRoute,
+                            arguments: movie.id,
+                          );
+                        },
+                      ),
                     );
                   },
                 ),
@@ -87,7 +107,17 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                       loading: () =>
                           const Center(child: CircularProgressIndicator()),
                       error: (msg) => const Text('Failed'),
-                      loaded: (movies) => MovieList(movies),
+                      loaded: (movies) => HorizontalItemList(
+                        items: movies,
+                        onPosterUrl: (movie) => movie.posterPath ?? '',
+                        onTap: (movie) {
+                          Navigator.pushNamed(
+                            context,
+                            movieDetailRoute,
+                            arguments: movie.id,
+                          );
+                        },
+                      ),
                     );
                   },
                 ),

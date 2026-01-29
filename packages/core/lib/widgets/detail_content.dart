@@ -9,7 +9,7 @@ class DetailContent extends StatelessWidget {
   final String posterPath;
   final double voteAverage;
   final List<Genre> genres;
-  final int runtime;
+  final int? runtime;
   final bool isTVSeries;
   final Widget watchlistButton;
   final Widget recommendations;
@@ -21,9 +21,9 @@ class DetailContent extends StatelessWidget {
     required this.posterPath,
     required this.voteAverage,
     required this.genres,
-    required this.runtime,
     required this.watchlistButton,
     required this.recommendations,
+    this.runtime,
     this.isTVSeries = false,
   });
 
@@ -63,7 +63,7 @@ class DetailContent extends StatelessWidget {
                             Text(showGenres(genres)),
                             isTVSeries
                                 ? const SizedBox.shrink()
-                                : Text(_showDuration(runtime)),
+                                : Text(_showDuration(runtime ?? 0)),
                             Row(
                               children: [
                                 RatingBarIndicator(

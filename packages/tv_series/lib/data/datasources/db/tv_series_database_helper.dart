@@ -3,13 +3,14 @@ import 'dart:async';
 import 'package:sqflite/sqflite.dart';
 import 'package:tv_series/tv_series.dart';
 
-class DatabaseHelper {
-  static DatabaseHelper? _databaseHelper;
-  DatabaseHelper._instance() {
+class TVSeriesDatabaseHelper {
+  static TVSeriesDatabaseHelper? _databaseHelper;
+  TVSeriesDatabaseHelper._instance() {
     _databaseHelper = this;
   }
 
-  factory DatabaseHelper() => _databaseHelper ?? DatabaseHelper._instance();
+  factory TVSeriesDatabaseHelper() =>
+      _databaseHelper ?? TVSeriesDatabaseHelper._instance();
 
   static Database? _database;
 

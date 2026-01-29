@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SeasonModel {
 
- String get airDate; int get episodeCount; int get id; String get name; String get overview; String get posterPath; int get seasonNumber; int get voteAverage;
+ String? get airDate; int get episodeCount; int get id; String get name; String? get overview; String? get posterPath; int get seasonNumber; double? get voteAverage;
 /// Create a copy of SeasonModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SeasonModelCopyWith<$Res>  {
   factory $SeasonModelCopyWith(SeasonModel value, $Res Function(SeasonModel) _then) = _$SeasonModelCopyWithImpl;
 @useResult
 $Res call({
- String airDate, int episodeCount, int id, String name, String overview, String posterPath, int seasonNumber, int voteAverage
+ String? airDate, int episodeCount, int id, String name, String? overview, String? posterPath, int seasonNumber, double? voteAverage
 });
 
 
@@ -65,17 +65,17 @@ class _$SeasonModelCopyWithImpl<$Res>
 
 /// Create a copy of SeasonModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? airDate = null,Object? episodeCount = null,Object? id = null,Object? name = null,Object? overview = null,Object? posterPath = null,Object? seasonNumber = null,Object? voteAverage = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? airDate = freezed,Object? episodeCount = null,Object? id = null,Object? name = null,Object? overview = freezed,Object? posterPath = freezed,Object? seasonNumber = null,Object? voteAverage = freezed,}) {
   return _then(_self.copyWith(
-airDate: null == airDate ? _self.airDate : airDate // ignore: cast_nullable_to_non_nullable
-as String,episodeCount: null == episodeCount ? _self.episodeCount : episodeCount // ignore: cast_nullable_to_non_nullable
+airDate: freezed == airDate ? _self.airDate : airDate // ignore: cast_nullable_to_non_nullable
+as String?,episodeCount: null == episodeCount ? _self.episodeCount : episodeCount // ignore: cast_nullable_to_non_nullable
 as int,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,overview: null == overview ? _self.overview : overview // ignore: cast_nullable_to_non_nullable
-as String,posterPath: null == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
-as String,seasonNumber: null == seasonNumber ? _self.seasonNumber : seasonNumber // ignore: cast_nullable_to_non_nullable
-as int,voteAverage: null == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
-as int,
+as String,overview: freezed == overview ? _self.overview : overview // ignore: cast_nullable_to_non_nullable
+as String?,posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
+as String?,seasonNumber: null == seasonNumber ? _self.seasonNumber : seasonNumber // ignore: cast_nullable_to_non_nullable
+as int,voteAverage: freezed == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
+as double?,
   ));
 }
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String airDate,  int episodeCount,  int id,  String name,  String overview,  String posterPath,  int seasonNumber,  int voteAverage)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? airDate,  int episodeCount,  int id,  String name,  String? overview,  String? posterPath,  int seasonNumber,  double? voteAverage)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SeasonModel() when $default != null:
 return $default(_that.airDate,_that.episodeCount,_that.id,_that.name,_that.overview,_that.posterPath,_that.seasonNumber,_that.voteAverage);case _:
@@ -181,7 +181,7 @@ return $default(_that.airDate,_that.episodeCount,_that.id,_that.name,_that.overv
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String airDate,  int episodeCount,  int id,  String name,  String overview,  String posterPath,  int seasonNumber,  int voteAverage)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? airDate,  int episodeCount,  int id,  String name,  String? overview,  String? posterPath,  int seasonNumber,  double? voteAverage)  $default,) {final _that = this;
 switch (_that) {
 case _SeasonModel():
 return $default(_that.airDate,_that.episodeCount,_that.id,_that.name,_that.overview,_that.posterPath,_that.seasonNumber,_that.voteAverage);case _:
@@ -201,7 +201,7 @@ return $default(_that.airDate,_that.episodeCount,_that.id,_that.name,_that.overv
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String airDate,  int episodeCount,  int id,  String name,  String overview,  String posterPath,  int seasonNumber,  int voteAverage)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? airDate,  int episodeCount,  int id,  String name,  String? overview,  String? posterPath,  int seasonNumber,  double? voteAverage)?  $default,) {final _that = this;
 switch (_that) {
 case _SeasonModel() when $default != null:
 return $default(_that.airDate,_that.episodeCount,_that.id,_that.name,_that.overview,_that.posterPath,_that.seasonNumber,_that.voteAverage);case _:
@@ -216,17 +216,17 @@ return $default(_that.airDate,_that.episodeCount,_that.id,_that.name,_that.overv
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _SeasonModel implements SeasonModel {
-  const _SeasonModel({required this.airDate, required this.episodeCount, required this.id, required this.name, required this.overview, required this.posterPath, required this.seasonNumber, required this.voteAverage});
+  const _SeasonModel({this.airDate, required this.episodeCount, required this.id, required this.name, this.overview, this.posterPath, required this.seasonNumber, this.voteAverage});
   factory _SeasonModel.fromJson(Map<String, dynamic> json) => _$SeasonModelFromJson(json);
 
-@override final  String airDate;
+@override final  String? airDate;
 @override final  int episodeCount;
 @override final  int id;
 @override final  String name;
-@override final  String overview;
-@override final  String posterPath;
+@override final  String? overview;
+@override final  String? posterPath;
 @override final  int seasonNumber;
-@override final  int voteAverage;
+@override final  double? voteAverage;
 
 /// Create a copy of SeasonModel
 /// with the given fields replaced by the non-null parameter values.
@@ -261,7 +261,7 @@ abstract mixin class _$SeasonModelCopyWith<$Res> implements $SeasonModelCopyWith
   factory _$SeasonModelCopyWith(_SeasonModel value, $Res Function(_SeasonModel) _then) = __$SeasonModelCopyWithImpl;
 @override @useResult
 $Res call({
- String airDate, int episodeCount, int id, String name, String overview, String posterPath, int seasonNumber, int voteAverage
+ String? airDate, int episodeCount, int id, String name, String? overview, String? posterPath, int seasonNumber, double? voteAverage
 });
 
 
@@ -278,17 +278,17 @@ class __$SeasonModelCopyWithImpl<$Res>
 
 /// Create a copy of SeasonModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? airDate = null,Object? episodeCount = null,Object? id = null,Object? name = null,Object? overview = null,Object? posterPath = null,Object? seasonNumber = null,Object? voteAverage = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? airDate = freezed,Object? episodeCount = null,Object? id = null,Object? name = null,Object? overview = freezed,Object? posterPath = freezed,Object? seasonNumber = null,Object? voteAverage = freezed,}) {
   return _then(_SeasonModel(
-airDate: null == airDate ? _self.airDate : airDate // ignore: cast_nullable_to_non_nullable
-as String,episodeCount: null == episodeCount ? _self.episodeCount : episodeCount // ignore: cast_nullable_to_non_nullable
+airDate: freezed == airDate ? _self.airDate : airDate // ignore: cast_nullable_to_non_nullable
+as String?,episodeCount: null == episodeCount ? _self.episodeCount : episodeCount // ignore: cast_nullable_to_non_nullable
 as int,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,overview: null == overview ? _self.overview : overview // ignore: cast_nullable_to_non_nullable
-as String,posterPath: null == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
-as String,seasonNumber: null == seasonNumber ? _self.seasonNumber : seasonNumber // ignore: cast_nullable_to_non_nullable
-as int,voteAverage: null == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
-as int,
+as String,overview: freezed == overview ? _self.overview : overview // ignore: cast_nullable_to_non_nullable
+as String?,posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
+as String?,seasonNumber: null == seasonNumber ? _self.seasonNumber : seasonNumber // ignore: cast_nullable_to_non_nullable
+as int,voteAverage: freezed == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
+as double?,
   ));
 }
 

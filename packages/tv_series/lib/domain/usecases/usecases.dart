@@ -9,3 +9,4 @@ export 'get_watchlist_status_tv_series.dart';
 export 'get_watchlist_tv_series.dart';
 export 'remove_watchlist_tv_series.dart';
 export 'save_watchlist_tv_series.dart';
+export 'search_tv_series.dart';

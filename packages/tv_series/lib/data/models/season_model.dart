@@ -8,14 +8,14 @@ part 'season_model.g.dart';
 abstract class SeasonModel with _$SeasonModel {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory SeasonModel({
-    required String airDate,
+    String? airDate,
     required int episodeCount,
     required int id,
     required String name,
-    required String overview,
-    required String posterPath,
+    String? overview,
+    String? posterPath,
     required int seasonNumber,
-    required int voteAverage,
+    double? voteAverage,
   }) = _SeasonModel;
 
   factory SeasonModel.fromJson(Map<String, dynamic> json) =>
@@ -29,7 +29,7 @@ extension SeasonModelX on SeasonModel {
       episodeCount: episodeCount,
       id: id,
       name: name,
-      overview: overview,
+      overview: overview ?? '',
       posterPath: posterPath,
       seasonNumber: seasonNumber,
     );

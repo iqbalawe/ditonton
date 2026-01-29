@@ -1,9 +1,9 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:movies/movies.dart';
 import 'package:tv_series/tv_series.dart';
-// import 'package:tv_series/tv_series.dart';
 
 import '../../injection.dart' as di;
 
@@ -18,9 +18,11 @@ class WatchlistPage extends StatelessWidget {
           create: (_) =>
               di.locator<WatchlistMoviesCubit>()..fetchWatchlistMovies(),
         ),
-        // BlocProvider(
-        //   create: (_) => GetIt.instance<WatchlistTvCubit>()..fetchWatchlistTv(),
-        // ),
+        BlocProvider(
+          create: (_) =>
+              GetIt.instance<WatchlistTVSeriesCubit>()
+                ..fetchWatchlistTVSeries(),
+        ),
       ],
       child: const WatchlistView(),
     );
@@ -44,7 +46,7 @@ class _WatchlistViewState extends State<WatchlistView> with RouteAware {
   @override
   void didPopNext() {
     context.read<WatchlistMoviesCubit>().fetchWatchlistMovies();
-    // context.read<WatchlistTvCubit>().fetchWatchlistTv();
+    context.read<WatchlistTVSeriesCubit>().fetchWatchlistTVSeries();
   }
 
   @override
@@ -64,11 +66,7 @@ class _WatchlistViewState extends State<WatchlistView> with RouteAware {
             ),
             Expanded(
               child: TabBarView(
-                children: [
-                  WatchlistMoviesPage(),
-                  Center(child: Text('TV Series Coming Soon')),
-                  // WatchlistTVSeriesPage(),
-                ],
+                children: [WatchlistMoviesPage(), WatchlistTVSeriesPage()],
               ),
             ),
           ],

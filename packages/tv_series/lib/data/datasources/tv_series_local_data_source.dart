@@ -9,7 +9,7 @@ abstract class TVSeriesLocalDataSource {
 }
 
 class TVSeriesLocalDataSourceImpl implements TVSeriesLocalDataSource {
-  final DatabaseHelper databaseHelper;
+  final TVSeriesDatabaseHelper databaseHelper;
 
   TVSeriesLocalDataSourceImpl({required this.databaseHelper});
 

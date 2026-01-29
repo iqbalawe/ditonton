@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TVSeriesDetailResponse {
 
- bool get adult; String get backdropPath; List<dynamic> get episodeRunTime; DateTime get firstAirDate; List<GenreModel> get genres; String get homepage; int get id; bool get inProduction; List<String> get languages; DateTime get lastAirDate; String get name; dynamic get nextEpisodeToAir; int get numberOfEpisodes; int get numberOfSeasons; List<String> get originCountry; String get originalLanguage; String get originalName; String get overview; double get popularity; String get posterPath; List<SeasonModel> get seasons; String get status; String get tagline; String get type; double get voteAverage; int get voteCount;
+ bool get adult; String get backdropPath; List<dynamic> get episodeRunTime; String get firstAirDate; List<GenreModel> get genres; String get homepage; int get id; bool get inProduction; List<String> get languages; String get lastAirDate; String get name; dynamic get nextEpisodeToAir; int get numberOfEpisodes; int get numberOfSeasons; List<String> get originCountry; String get originalLanguage; String get originalName; String get overview; double get popularity; String get posterPath; List<SeasonModel> get seasons; String get status; String get tagline; String get type; double get voteAverage; int get voteCount;
 /// Create a copy of TVSeriesDetailResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TVSeriesDetailResponseCopyWith<$Res>  {
   factory $TVSeriesDetailResponseCopyWith(TVSeriesDetailResponse value, $Res Function(TVSeriesDetailResponse) _then) = _$TVSeriesDetailResponseCopyWithImpl;
 @useResult
 $Res call({
- bool adult, String backdropPath, List<dynamic> episodeRunTime, DateTime firstAirDate, List<GenreModel> genres, String homepage, int id, bool inProduction, List<String> languages, DateTime lastAirDate, String name, dynamic nextEpisodeToAir, int numberOfEpisodes, int numberOfSeasons, List<String> originCountry, String originalLanguage, String originalName, String overview, double popularity, String posterPath, List<SeasonModel> seasons, String status, String tagline, String type, double voteAverage, int voteCount
+ bool adult, String backdropPath, List<dynamic> episodeRunTime, String firstAirDate, List<GenreModel> genres, String homepage, int id, bool inProduction, List<String> languages, String lastAirDate, String name, dynamic nextEpisodeToAir, int numberOfEpisodes, int numberOfSeasons, List<String> originCountry, String originalLanguage, String originalName, String overview, double popularity, String posterPath, List<SeasonModel> seasons, String status, String tagline, String type, double voteAverage, int voteCount
 });
 
 
@@ -71,13 +71,13 @@ adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nulla
 as bool,backdropPath: null == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
 as String,episodeRunTime: null == episodeRunTime ? _self.episodeRunTime : episodeRunTime // ignore: cast_nullable_to_non_nullable
 as List<dynamic>,firstAirDate: null == firstAirDate ? _self.firstAirDate : firstAirDate // ignore: cast_nullable_to_non_nullable
-as DateTime,genres: null == genres ? _self.genres : genres // ignore: cast_nullable_to_non_nullable
+as String,genres: null == genres ? _self.genres : genres // ignore: cast_nullable_to_non_nullable
 as List<GenreModel>,homepage: null == homepage ? _self.homepage : homepage // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,inProduction: null == inProduction ? _self.inProduction : inProduction // ignore: cast_nullable_to_non_nullable
 as bool,languages: null == languages ? _self.languages : languages // ignore: cast_nullable_to_non_nullable
 as List<String>,lastAirDate: null == lastAirDate ? _self.lastAirDate : lastAirDate // ignore: cast_nullable_to_non_nullable
-as DateTime,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,nextEpisodeToAir: freezed == nextEpisodeToAir ? _self.nextEpisodeToAir : nextEpisodeToAir // ignore: cast_nullable_to_non_nullable
 as dynamic,numberOfEpisodes: null == numberOfEpisodes ? _self.numberOfEpisodes : numberOfEpisodes // ignore: cast_nullable_to_non_nullable
 as int,numberOfSeasons: null == numberOfSeasons ? _self.numberOfSeasons : numberOfSeasons // ignore: cast_nullable_to_non_nullable
@@ -178,7 +178,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool adult,  String backdropPath,  List<dynamic> episodeRunTime,  DateTime firstAirDate,  List<GenreModel> genres,  String homepage,  int id,  bool inProduction,  List<String> languages,  DateTime lastAirDate,  String name,  dynamic nextEpisodeToAir,  int numberOfEpisodes,  int numberOfSeasons,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String posterPath,  List<SeasonModel> seasons,  String status,  String tagline,  String type,  double voteAverage,  int voteCount)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool adult,  String backdropPath,  List<dynamic> episodeRunTime,  String firstAirDate,  List<GenreModel> genres,  String homepage,  int id,  bool inProduction,  List<String> languages,  String lastAirDate,  String name,  dynamic nextEpisodeToAir,  int numberOfEpisodes,  int numberOfSeasons,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String posterPath,  List<SeasonModel> seasons,  String status,  String tagline,  String type,  double voteAverage,  int voteCount)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TVSeriesDetailResponse() when $default != null:
 return $default(_that.adult,_that.backdropPath,_that.episodeRunTime,_that.firstAirDate,_that.genres,_that.homepage,_that.id,_that.inProduction,_that.languages,_that.lastAirDate,_that.name,_that.nextEpisodeToAir,_that.numberOfEpisodes,_that.numberOfSeasons,_that.originCountry,_that.originalLanguage,_that.originalName,_that.overview,_that.popularity,_that.posterPath,_that.seasons,_that.status,_that.tagline,_that.type,_that.voteAverage,_that.voteCount);case _:
@@ -199,7 +199,7 @@ return $default(_that.adult,_that.backdropPath,_that.episodeRunTime,_that.firstA
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool adult,  String backdropPath,  List<dynamic> episodeRunTime,  DateTime firstAirDate,  List<GenreModel> genres,  String homepage,  int id,  bool inProduction,  List<String> languages,  DateTime lastAirDate,  String name,  dynamic nextEpisodeToAir,  int numberOfEpisodes,  int numberOfSeasons,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String posterPath,  List<SeasonModel> seasons,  String status,  String tagline,  String type,  double voteAverage,  int voteCount)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool adult,  String backdropPath,  List<dynamic> episodeRunTime,  String firstAirDate,  List<GenreModel> genres,  String homepage,  int id,  bool inProduction,  List<String> languages,  String lastAirDate,  String name,  dynamic nextEpisodeToAir,  int numberOfEpisodes,  int numberOfSeasons,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String posterPath,  List<SeasonModel> seasons,  String status,  String tagline,  String type,  double voteAverage,  int voteCount)  $default,) {final _that = this;
 switch (_that) {
 case _TVSeriesDetailResponse():
 return $default(_that.adult,_that.backdropPath,_that.episodeRunTime,_that.firstAirDate,_that.genres,_that.homepage,_that.id,_that.inProduction,_that.languages,_that.lastAirDate,_that.name,_that.nextEpisodeToAir,_that.numberOfEpisodes,_that.numberOfSeasons,_that.originCountry,_that.originalLanguage,_that.originalName,_that.overview,_that.popularity,_that.posterPath,_that.seasons,_that.status,_that.tagline,_that.type,_that.voteAverage,_that.voteCount);case _:
@@ -219,7 +219,7 @@ return $default(_that.adult,_that.backdropPath,_that.episodeRunTime,_that.firstA
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool adult,  String backdropPath,  List<dynamic> episodeRunTime,  DateTime firstAirDate,  List<GenreModel> genres,  String homepage,  int id,  bool inProduction,  List<String> languages,  DateTime lastAirDate,  String name,  dynamic nextEpisodeToAir,  int numberOfEpisodes,  int numberOfSeasons,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String posterPath,  List<SeasonModel> seasons,  String status,  String tagline,  String type,  double voteAverage,  int voteCount)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool adult,  String backdropPath,  List<dynamic> episodeRunTime,  String firstAirDate,  List<GenreModel> genres,  String homepage,  int id,  bool inProduction,  List<String> languages,  String lastAirDate,  String name,  dynamic nextEpisodeToAir,  int numberOfEpisodes,  int numberOfSeasons,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String posterPath,  List<SeasonModel> seasons,  String status,  String tagline,  String type,  double voteAverage,  int voteCount)?  $default,) {final _that = this;
 switch (_that) {
 case _TVSeriesDetailResponse() when $default != null:
 return $default(_that.adult,_that.backdropPath,_that.episodeRunTime,_that.firstAirDate,_that.genres,_that.homepage,_that.id,_that.inProduction,_that.languages,_that.lastAirDate,_that.name,_that.nextEpisodeToAir,_that.numberOfEpisodes,_that.numberOfSeasons,_that.originCountry,_that.originalLanguage,_that.originalName,_that.overview,_that.popularity,_that.posterPath,_that.seasons,_that.status,_that.tagline,_that.type,_that.voteAverage,_that.voteCount);case _:
@@ -246,7 +246,7 @@ class _TVSeriesDetailResponse implements TVSeriesDetailResponse {
   return EqualUnmodifiableListView(_episodeRunTime);
 }
 
-@override final  DateTime firstAirDate;
+@override final  String firstAirDate;
  final  List<GenreModel> _genres;
 @override List<GenreModel> get genres {
   if (_genres is EqualUnmodifiableListView) return _genres;
@@ -264,7 +264,7 @@ class _TVSeriesDetailResponse implements TVSeriesDetailResponse {
   return EqualUnmodifiableListView(_languages);
 }
 
-@override final  DateTime lastAirDate;
+@override final  String lastAirDate;
 @override final  String name;
 @override final  dynamic nextEpisodeToAir;
 @override final  int numberOfEpisodes;
@@ -327,7 +327,7 @@ abstract mixin class _$TVSeriesDetailResponseCopyWith<$Res> implements $TVSeries
   factory _$TVSeriesDetailResponseCopyWith(_TVSeriesDetailResponse value, $Res Function(_TVSeriesDetailResponse) _then) = __$TVSeriesDetailResponseCopyWithImpl;
 @override @useResult
 $Res call({
- bool adult, String backdropPath, List<dynamic> episodeRunTime, DateTime firstAirDate, List<GenreModel> genres, String homepage, int id, bool inProduction, List<String> languages, DateTime lastAirDate, String name, dynamic nextEpisodeToAir, int numberOfEpisodes, int numberOfSeasons, List<String> originCountry, String originalLanguage, String originalName, String overview, double popularity, String posterPath, List<SeasonModel> seasons, String status, String tagline, String type, double voteAverage, int voteCount
+ bool adult, String backdropPath, List<dynamic> episodeRunTime, String firstAirDate, List<GenreModel> genres, String homepage, int id, bool inProduction, List<String> languages, String lastAirDate, String name, dynamic nextEpisodeToAir, int numberOfEpisodes, int numberOfSeasons, List<String> originCountry, String originalLanguage, String originalName, String overview, double popularity, String posterPath, List<SeasonModel> seasons, String status, String tagline, String type, double voteAverage, int voteCount
 });
 
 
@@ -350,13 +350,13 @@ adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nulla
 as bool,backdropPath: null == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
 as String,episodeRunTime: null == episodeRunTime ? _self._episodeRunTime : episodeRunTime // ignore: cast_nullable_to_non_nullable
 as List<dynamic>,firstAirDate: null == firstAirDate ? _self.firstAirDate : firstAirDate // ignore: cast_nullable_to_non_nullable
-as DateTime,genres: null == genres ? _self._genres : genres // ignore: cast_nullable_to_non_nullable
+as String,genres: null == genres ? _self._genres : genres // ignore: cast_nullable_to_non_nullable
 as List<GenreModel>,homepage: null == homepage ? _self.homepage : homepage // ignore: cast_nullable_to_non_nullable
 as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,inProduction: null == inProduction ? _self.inProduction : inProduction // ignore: cast_nullable_to_non_nullable
 as bool,languages: null == languages ? _self._languages : languages // ignore: cast_nullable_to_non_nullable
 as List<String>,lastAirDate: null == lastAirDate ? _self.lastAirDate : lastAirDate // ignore: cast_nullable_to_non_nullable
-as DateTime,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,nextEpisodeToAir: freezed == nextEpisodeToAir ? _self.nextEpisodeToAir : nextEpisodeToAir // ignore: cast_nullable_to_non_nullable
 as dynamic,numberOfEpisodes: null == numberOfEpisodes ? _self.numberOfEpisodes : numberOfEpisodes // ignore: cast_nullable_to_non_nullable
 as int,numberOfSeasons: null == numberOfSeasons ? _self.numberOfSeasons : numberOfSeasons // ignore: cast_nullable_to_non_nullable

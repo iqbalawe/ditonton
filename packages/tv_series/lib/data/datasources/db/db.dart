@@ -1,3 +1,3 @@
 library;
 
-export 'database_helper.dart';
+export 'tv_series_database_helper.dart';

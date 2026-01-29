@@ -336,11 +336,12 @@ class MockTVSeriesLocalDataSource extends _i1.Mock
           as _i5.Future<List<_i3.TVSeriesTable>>);
 }
 
-/// A class which mocks [DatabaseHelper].
+/// A class which mocks [TVSeriesDatabaseHelper].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDatabaseHelper extends _i1.Mock implements _i3.DatabaseHelper {
-  MockDatabaseHelper() {
+class MockTVSeriesDatabaseHelper extends _i1.Mock
+    implements _i3.TVSeriesDatabaseHelper {
+  MockTVSeriesDatabaseHelper() {
     _i1.throwOnMissingStub(this);
   }
 

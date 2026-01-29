@@ -7,7 +7,7 @@ import 'package:tv_series/tv_series.dart';
     TVSeriesRepository,
     TVSeriesRemoteDataSource,
     TVSeriesLocalDataSource,
-    DatabaseHelper,
+    TVSeriesDatabaseHelper,
   ],
   customMocks: [MockSpec<http.Client>(as: #MockHttpClient)],
 )
