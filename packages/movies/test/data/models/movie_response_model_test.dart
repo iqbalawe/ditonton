@@ -38,10 +38,14 @@ void main() {
 
   group('toJson', () {
     test('should return a JSON map containing proper data', () async {
-      // arrange
-
       // act
       final result = tMovieResponseModel.toJson();
+
+      final resultToCompare = {
+        ...result,
+        'results': (result['results'] as List).map((e) => e.toJson()).toList(),
+      };
+
       // assert
       final expectedJsonMap = {
         'results': [
@@ -50,6 +54,7 @@ void main() {
             'backdrop_path': '/path.jpg',
             'genre_ids': [1, 2, 3, 4],
             'id': 1,
+            'original_language': 'Original Language',
             'original_title': 'Original Title',
             'overview': 'Overview',
             'popularity': 1.0,
@@ -62,7 +67,8 @@ void main() {
           },
         ],
       };
-      expect(result, expectedJsonMap);
+
+      expect(resultToCompare, expectedJsonMap);
     });
   });
 }

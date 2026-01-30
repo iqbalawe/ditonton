@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,6 +49,85 @@ class _TVSeriesDetailPageState extends State<TVSeriesDetailPage> {
                     posterPath: tvSeries.posterPath,
                     voteAverage: tvSeries.voteAverage,
                     genres: tvSeries.genres,
+                    seasonsList: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Seasons', style: heading6), // Heading
+                        const SizedBox(height: 8),
+                        SizedBox(
+                          height: 150,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: tvSeries.seasons.length,
+                            itemBuilder: (context, index) {
+                              final season = tvSeries.seasons[index];
+                              return Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Card(
+                                  child: Container(
+                                    width: 100,
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        // Poster Season
+                                        Expanded(
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(
+                                              8,
+                                            ),
+                                            child: season.posterPath != null
+                                                ? CachedNetworkImage(
+                                                    imageUrl:
+                                                        'https://image.tmdb.org/t/p/w500${season.posterPath}',
+                                                    fit: BoxFit.cover,
+                                                    width: double.infinity,
+                                                    placeholder:
+                                                        (
+                                                          context,
+                                                          url,
+                                                        ) => const Center(
+                                                          child:
+                                                              CircularProgressIndicator(),
+                                                        ),
+                                                    errorWidget:
+                                                        (context, url, error) =>
+                                                            const Icon(
+                                                              Icons.movie,
+                                                            ),
+                                                  )
+                                                : const Center(
+                                                    child: Icon(
+                                                      Icons.image_not_supported,
+                                                    ),
+                                                  ),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 8),
+                                        Text(
+                                          season.name,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text(
+                                          '${season.episodeCount} Eps',
+                                          style: const TextStyle(fontSize: 12),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                      ],
+                    ),
                     watchlistButton:
                         BlocConsumer<
                           WatchlistTVSeriesStatusCubit,

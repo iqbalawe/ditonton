@@ -13,6 +13,7 @@ class DetailContent extends StatelessWidget {
   final bool isTVSeries;
   final Widget watchlistButton;
   final Widget recommendations;
+  final Widget seasonsList;
 
   const DetailContent({
     super.key,
@@ -25,6 +26,7 @@ class DetailContent extends StatelessWidget {
     required this.recommendations,
     this.runtime,
     this.isTVSeries = false,
+    this.seasonsList = const SizedBox.shrink(),
   });
 
   @override
@@ -82,6 +84,7 @@ class DetailContent extends StatelessWidget {
                             Text('Overview', style: heading6),
                             Text(overview),
                             const SizedBox(height: 16),
+                            seasonsList,
                             Text('Recommendations', style: heading6),
                             recommendations,
                           ],

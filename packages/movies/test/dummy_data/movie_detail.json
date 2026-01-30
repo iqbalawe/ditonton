@@ -1,6 +1,9 @@
 {
   "adult": false,
   "backdrop_path": "/path.jpg",
+  "origin_country": [
+    "US"
+  ],
   "belongs_to_collection": {
     "id": 11,
     "name": "Collection",
