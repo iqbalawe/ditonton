@@ -8,22 +8,23 @@ import 'package:movies/movies.dart';
 import '../../../helpers/test_helper.mocks.dart';
 
 void main() {
+  late WatchlistStatusCubit cubit;
   late MockGetWatchListStatus mockGetWatchListStatus;
   late MockSaveWatchlist mockSaveWatchlist;
   late MockRemoveWatchlist mockRemoveWatchlist;
-  late WatchlistStatusCubit watchlistStatusCubit;
 
   setUp(() {
     mockGetWatchListStatus = MockGetWatchListStatus();
     mockSaveWatchlist = MockSaveWatchlist();
     mockRemoveWatchlist = MockRemoveWatchlist();
-    watchlistStatusCubit = WatchlistStatusCubit(
+    cubit = WatchlistStatusCubit(
       getWatchListStatus: mockGetWatchListStatus,
       saveWatchlist: mockSaveWatchlist,
       removeWatchlist: mockRemoveWatchlist,
     );
   });
 
+  const tId = 1;
   final tMovieDetail = MovieDetail(
     adult: false,
     backdropPath: 'backdropPath',
@@ -40,49 +41,75 @@ void main() {
   );
 
   group('WatchlistStatusCubit', () {
-    const tId = 1;
-
     test('initial state should be initial', () {
-      expect(watchlistStatusCubit.state, const WatchlistStatusState.initial());
+      expect(cubit.state, const WatchlistStatusState.initial());
     });
 
     blocTest<WatchlistStatusCubit, WatchlistStatusState>(
-      'Should emit [IsAdded] when get watchlist status is true',
+      'Should emit [IsAdded] when get status is successful',
       build: () {
         when(mockGetWatchListStatus.execute(tId)).thenAnswer((_) async => true);
-        return watchlistStatusCubit;
+        return cubit;
       },
       act: (cubit) => cubit.loadWatchlistStatus(tId),
       expect: () => [const WatchlistStatusState.isAdded(true)],
     );
 
     blocTest<WatchlistStatusCubit, WatchlistStatusState>(
-      'Should emit [Message, IsAdded] when save watchlist is successful',
+      'Should emit [Message, IsAdded] when save is successful',
       build: () {
         when(
           mockSaveWatchlist.execute(tMovieDetail),
-        ).thenAnswer((_) async => const Right('Added to Watchlist'));
-        when(
-          mockGetWatchListStatus.execute(tMovieDetail.id),
-        ).thenAnswer((_) async => true);
-        return watchlistStatusCubit;
+        ).thenAnswer((_) async => const Right('Success'));
+        when(mockGetWatchListStatus.execute(tId)).thenAnswer((_) async => true);
+        return cubit;
       },
       act: (cubit) => cubit.addWatchlist(tMovieDetail),
       expect: () => [
-        const WatchlistStatusState.message('Added to Watchlist'),
+        const WatchlistStatusState.message('Success'),
         const WatchlistStatusState.isAdded(true),
       ],
     );
 
     blocTest<WatchlistStatusCubit, WatchlistStatusState>(
-      'Should emit [Message] only when save watchlist failed',
+      'Should emit [Message] when save fails',
       build: () {
         when(
           mockSaveWatchlist.execute(tMovieDetail),
         ).thenAnswer((_) async => const Left(DatabaseFailure('Failed')));
-        return watchlistStatusCubit;
+        return cubit;
       },
       act: (cubit) => cubit.addWatchlist(tMovieDetail),
+      expect: () => [const WatchlistStatusState.message('Failed')],
+    );
+
+    blocTest<WatchlistStatusCubit, WatchlistStatusState>(
+      'Should emit [Message, IsAdded] when remove is successful',
+      build: () {
+        when(
+          mockRemoveWatchlist.execute(tMovieDetail),
+        ).thenAnswer((_) async => const Right('Removed'));
+        when(
+          mockGetWatchListStatus.execute(tId),
+        ).thenAnswer((_) async => false);
+        return cubit;
+      },
+      act: (cubit) => cubit.removeFromWatchlist(tMovieDetail),
+      expect: () => [
+        const WatchlistStatusState.message('Removed'),
+        const WatchlistStatusState.isAdded(false),
+      ],
+    );
+
+    blocTest<WatchlistStatusCubit, WatchlistStatusState>(
+      'Should emit [Message] when remove fails',
+      build: () {
+        when(
+          mockRemoveWatchlist.execute(tMovieDetail),
+        ).thenAnswer((_) async => const Left(DatabaseFailure('Failed')));
+        return cubit;
+      },
+      act: (cubit) => cubit.removeFromWatchlist(tMovieDetail),
       expect: () => [const WatchlistStatusState.message('Failed')],
     );
   });

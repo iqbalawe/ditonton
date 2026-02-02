@@ -54,8 +54,23 @@ void main() {
     blocTest<SearchMoviesCubit, SearchMoviesState>(
       'Should return Initial when query is empty',
       build: () => searchMoviesCubit,
-      act: (cubit) => cubit.onQueryChanged(''), // Query kosong
+      act: (cubit) => cubit.onQueryChanged(''),
       expect: () => [const SearchMoviesState.initial()],
     );
   });
+
+  blocTest<SearchMoviesCubit, SearchMoviesState>(
+    'Should emit [Loading, Empty] when data is empty',
+    build: () {
+      when(
+        mockSearchMovies.execute('tQuery'),
+      ).thenAnswer((_) async => const Right([]));
+      return searchMoviesCubit;
+    },
+    act: (cubit) => cubit.onQueryChanged('tQuery'),
+    expect: () => [
+      const SearchMoviesState.loading(),
+      const SearchMoviesState.empty(),
+    ],
+  );
 }

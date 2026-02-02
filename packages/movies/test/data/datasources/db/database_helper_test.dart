@@ -34,11 +34,11 @@ void main() {
       expect(result?['overview'], testMovieTable.overview);
 
       final list = await databaseHelper.getWatchlistMovies();
-      expect(list.length, 1); // Harusnya ada 1 item
+      expect(list.length, 1);
       expect(list.first['id'], testMovieTable.id);
 
       final rowsAffected = await databaseHelper.removeWatchlist(testMovieTable);
-      expect(rowsAffected, 1); // 1 baris terhapus
+      expect(rowsAffected, 1);
 
       final resultAfterRemove = await databaseHelper.getMovieById(
         testMovieTable.id,

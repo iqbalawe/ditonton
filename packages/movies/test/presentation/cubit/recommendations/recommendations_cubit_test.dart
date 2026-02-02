@@ -65,5 +65,23 @@ void main() {
         const RecommendationsState.empty(),
       ],
     );
+
+    blocTest<RecommendationsCubit, RecommendationsState>(
+      'Should emit [Loading, Error] when get data is unsuccessful',
+      build: () {
+        when(
+          mockGetMovieRecommendations.execute(tId),
+        ).thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
+        return recommendationsCubit;
+      },
+      act: (cubit) => cubit.fetchMovieRecommendations(tId),
+      expect: () => [
+        const RecommendationsState.loading(),
+        const RecommendationsState.error('Server Failure'),
+      ],
+      verify: (cubit) {
+        verify(mockGetMovieRecommendations.execute(tId));
+      },
+    );
   });
 }
