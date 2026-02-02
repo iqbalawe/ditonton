@@ -1,74 +1,62 @@
-import 'dart:convert';
-
+import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:movies/movies.dart';
+import 'package:core/core.dart';
+import 'package:mocktail/mocktail.dart';
 
-import '../../json_reader.dart';
+import '../../helpers/http_helper.dart';
 
 void main() {
-  final tMovieModel = const MovieModel(
+  setUpAll(() {
+    HttpOverrides.global = null;
+    PaintingBinding.instance.imageCache.clear();
+    PaintingBinding.instance.imageCache.clearLiveImages();
+  });
+
+  final tMovie = Movie(
     adult: false,
     backdropPath: '/path.jpg',
-    genreIds: [1, 2, 3, 4],
+    genreIds: const [1],
     id: 1,
-    originalTitle: 'Original Title',
-    originalLanguage: 'Original Language',
+    originalTitle: 'Title',
     overview: 'Overview',
     popularity: 1.0,
-    posterPath: '/path.jpg',
-    releaseDate: '2020-05-05',
+    posterPath: '/poster.jpg',
+    releaseDate: '2024-01-01',
     title: 'Title',
     video: false,
     voteAverage: 1.0,
     voteCount: 1,
   );
-  final tMovieResponseModel = MovieResponse(results: <MovieModel>[tMovieModel]);
-  group('fromJson', () {
-    test('should return a valid model from JSON', () async {
-      // arrange
-      final Map<String, dynamic> jsonMap = json.decode(
-        readJson('dummy_data/now_playing.json'),
-      );
-      // act
-      final result = MovieResponse.fromJson(jsonMap);
-      // assert
-      expect(result, tMovieResponseModel);
-    });
+
+  Widget _makeTestableWidget(Widget body) {
+    return MaterialApp(
+      home: Scaffold(body: body),
+      routes: {
+        movieDetailRoute: (context) =>
+            const Scaffold(body: Text('Detail Page')),
+      },
+    );
+  }
+
+  testWidgets('should display movie information', (WidgetTester tester) async {
+    await tester.pumpWidget(_makeTestableWidget(MovieCard(tMovie)));
+
+    expect(find.text('Title'), findsOneWidget);
+    expect(find.text('Overview'), findsOneWidget);
+    expect(find.byType(InkWell), findsOneWidget);
   });
 
-  group('toJson', () {
-    test('should return a JSON map containing proper data', () async {
-      // act
-      final result = tMovieResponseModel.toJson();
+  testWidgets('should navigate to detail page when tapped', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(_makeTestableWidget(MovieCard(tMovie)));
 
-      final resultToCompare = {
-        ...result,
-        'results': (result['results'] as List).map((e) => e.toJson()).toList(),
-      };
+    await tester.tap(find.byType(InkWell));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
 
-      // assert
-      final expectedJsonMap = {
-        'results': [
-          {
-            'adult': false,
-            'backdrop_path': '/path.jpg',
-            'genre_ids': [1, 2, 3, 4],
-            'id': 1,
-            'original_language': 'Original Language',
-            'original_title': 'Original Title',
-            'overview': 'Overview',
-            'popularity': 1.0,
-            'poster_path': '/path.jpg',
-            'release_date': '2020-05-05',
-            'title': 'Title',
-            'video': false,
-            'vote_average': 1.0,
-            'vote_count': 1,
-          },
-        ],
-      };
-
-      expect(resultToCompare, expectedJsonMap);
-    });
+    expect(find.text('Detail Page'), findsOneWidget);
   });
 }

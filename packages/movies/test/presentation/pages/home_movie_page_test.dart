@@ -10,6 +10,7 @@ import 'package:mockito/mockito.dart';
 import 'package:movies/movies.dart';
 
 import '../../helpers/test_helper.mocks.dart';
+import '../../helpers/http_helper.dart';
 
 void main() {
   late MockNowPlayingCubit mockNowPlayingCubit;
@@ -17,7 +18,7 @@ void main() {
   late MockTopRatedCubit mockTopRatedCubit;
 
   setUpAll(() {
-    HttpOverrides.global = _MyHttpOverrides();
+    HttpOverrides.global = MyHttpOverrides();
   });
 
   setUp(() {
@@ -105,7 +106,6 @@ void main() {
         );
 
         await tester.pumpWidget(_createTestableWidget(const HomeMoviePage()));
-
         expect(find.byType(CircularProgressIndicator), findsNWidgets(3));
       },
     );
@@ -120,25 +120,21 @@ void main() {
       );
 
       await tester.pumpWidget(_createTestableWidget(const HomeMoviePage()));
-
       expect(find.text('Failed'), findsNWidgets(3));
     });
 
     testWidgets(
       'Page should display list of movies and handle interactions when loaded',
       (WidgetTester tester) async {
-        // Arrange
         _stubCubit(
           nowPlayingState: NowPlayingState.loaded(tMovies),
           popularState: PopularState.loaded(tMovies),
           topRatedState: TopRatedState.loaded(tMovies),
         );
 
-        // Act
         await tester.pumpWidget(_createTestableWidget(const HomeMoviePage()));
         await tester.pump();
 
-        // Assert
         expect(find.byType(ListView), findsWidgets);
 
         final mainScrollable = find.byType(Scrollable).first;
@@ -147,54 +143,91 @@ void main() {
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 800));
         expect(find.text('Search Page'), findsOneWidget);
-
         await tester.pageBack();
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 800));
 
         final seeMorePopular = find.text('See More').first;
-
         await tester.scrollUntilVisible(
           seeMorePopular,
           500,
           scrollable: mainScrollable,
         );
-
         await tester.tap(seeMorePopular);
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 800));
         expect(find.text('Popular Page'), findsOneWidget);
-
         await tester.pageBack();
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 800));
 
         final seeMoreTopRated = find.text('See More').at(1);
-
         await tester.scrollUntilVisible(
           seeMoreTopRated,
           500,
           scrollable: mainScrollable,
         );
-
         await tester.tap(seeMoreTopRated);
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 800));
         expect(find.text('Top Rated Page'), findsOneWidget);
-
         await tester.pageBack();
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 800));
 
-        final movieCard = find.byType(InkWell).first;
+        final nowPlayingCard = find
+            .descendant(
+              of: find.byType(ListView).first,
+              matching: find.byType(InkWell),
+            )
+            .first;
 
         await tester.scrollUntilVisible(
-          movieCard,
+          nowPlayingCard,
           500,
           scrollable: mainScrollable,
         );
+        await tester.tap(nowPlayingCard);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 800));
+        expect(find.text('Detail Page'), findsOneWidget);
+        await tester.pageBack();
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 800));
 
-        await tester.tap(movieCard);
+        final popularCard = find
+            .descendant(
+              of: find.byType(ListView).at(1),
+              matching: find.byType(InkWell),
+            )
+            .first;
+
+        await tester.scrollUntilVisible(
+          popularCard,
+          500,
+          scrollable: mainScrollable,
+        );
+        await tester.tap(popularCard);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 800));
+        expect(find.text('Detail Page'), findsOneWidget);
+        await tester.pageBack();
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 800));
+
+        final topRatedCard = find
+            .descendant(
+              of: find.byType(ListView).at(2),
+              matching: find.byType(InkWell),
+            )
+            .first;
+
+        await tester.scrollUntilVisible(
+          topRatedCard,
+          500,
+          scrollable: mainScrollable,
+        );
+        await tester.tap(topRatedCard);
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 800));
         expect(find.text('Detail Page'), findsOneWidget);
@@ -211,57 +244,8 @@ void main() {
       );
 
       await tester.pumpWidget(_createTestableWidget(const HomeMoviePage()));
-
       expect(find.byType(CircularProgressIndicator), findsNothing);
       expect(find.text('Failed'), findsNothing);
     });
   });
-}
-
-class _MyHttpOverrides extends HttpOverrides {
-  @override
-  HttpClient createHttpClient(SecurityContext? context) {
-    return _MyHttpClient();
-  }
-}
-
-class _MyHttpClient extends Mock implements HttpClient {
-  @override
-  Future<HttpClientRequest> getUrl(Uri url) {
-    return Future.value(_MyHttpClientRequest());
-  }
-}
-
-class _MyHttpClientRequest extends Mock implements HttpClientRequest {
-  @override
-  Future<HttpClientResponse> close() {
-    return Future.value(_MyHttpClientResponse());
-  }
-}
-
-class _MyHttpClientResponse extends Mock implements HttpClientResponse {
-  @override
-  int get statusCode => 200;
-
-  @override
-  int get contentLength => 0;
-
-  @override
-  HttpClientResponseCompressionState get compressionState =>
-      HttpClientResponseCompressionState.notCompressed;
-
-  @override
-  StreamSubscription<List<int>> listen(
-    void Function(List<int> event)? onData, {
-    Function? onError,
-    void Function()? onDone,
-    bool? cancelOnError,
-  }) {
-    return Stream.value(<int>[]).listen(
-      onData,
-      onError: onError,
-      onDone: onDone,
-      cancelOnError: cancelOnError,
-    );
-  }
 }
