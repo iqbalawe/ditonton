@@ -1,3 +1,5 @@
+[![Flutter CI](https://github.com/iqbalawe/ditonton/actions/workflows/flutter_ci.yml/badge.svg)](https://github.com/iqbalawe/ditonton/actions/workflows/flutter_ci.yml)
+
 # a199-flutter-expert-project
 
 Repository ini merupakan starter project submission kelas Flutter Expert Dicoding Indonesia.
