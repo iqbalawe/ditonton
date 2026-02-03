@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TVSeriesModel {
 
- bool get adult; String get backdropPath; List<int> get genreIds; int get id; List<String> get originCountry; String get originalLanguage; String get originalName; String get overview; double get popularity; String get posterPath; String get firstAirDate; String get name; double get voteAverage; int get voteCount;
+ bool get adult; String? get backdropPath; List<int> get genreIds; int get id; List<String> get originCountry; String get originalLanguage; String get originalName; String get overview; double get popularity; String? get posterPath; String? get firstAirDate; String get name; double get voteAverage; int get voteCount;
 /// Create a copy of TVSeriesModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TVSeriesModelCopyWith<$Res>  {
   factory $TVSeriesModelCopyWith(TVSeriesModel value, $Res Function(TVSeriesModel) _then) = _$TVSeriesModelCopyWithImpl;
 @useResult
 $Res call({
- bool adult, String backdropPath, List<int> genreIds, int id, List<String> originCountry, String originalLanguage, String originalName, String overview, double popularity, String posterPath, String firstAirDate, String name, double voteAverage, int voteCount
+ bool adult, String? backdropPath, List<int> genreIds, int id, List<String> originCountry, String originalLanguage, String originalName, String overview, double popularity, String? posterPath, String? firstAirDate, String name, double voteAverage, int voteCount
 });
 
 
@@ -65,20 +65,20 @@ class _$TVSeriesModelCopyWithImpl<$Res>
 
 /// Create a copy of TVSeriesModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? adult = null,Object? backdropPath = null,Object? genreIds = null,Object? id = null,Object? originCountry = null,Object? originalLanguage = null,Object? originalName = null,Object? overview = null,Object? popularity = null,Object? posterPath = null,Object? firstAirDate = null,Object? name = null,Object? voteAverage = null,Object? voteCount = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? adult = null,Object? backdropPath = freezed,Object? genreIds = null,Object? id = null,Object? originCountry = null,Object? originalLanguage = null,Object? originalName = null,Object? overview = null,Object? popularity = null,Object? posterPath = freezed,Object? firstAirDate = freezed,Object? name = null,Object? voteAverage = null,Object? voteCount = null,}) {
   return _then(_self.copyWith(
 adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
-as bool,backdropPath: null == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
-as String,genreIds: null == genreIds ? _self.genreIds : genreIds // ignore: cast_nullable_to_non_nullable
+as bool,backdropPath: freezed == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
+as String?,genreIds: null == genreIds ? _self.genreIds : genreIds // ignore: cast_nullable_to_non_nullable
 as List<int>,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,originCountry: null == originCountry ? _self.originCountry : originCountry // ignore: cast_nullable_to_non_nullable
 as List<String>,originalLanguage: null == originalLanguage ? _self.originalLanguage : originalLanguage // ignore: cast_nullable_to_non_nullable
 as String,originalName: null == originalName ? _self.originalName : originalName // ignore: cast_nullable_to_non_nullable
 as String,overview: null == overview ? _self.overview : overview // ignore: cast_nullable_to_non_nullable
 as String,popularity: null == popularity ? _self.popularity : popularity // ignore: cast_nullable_to_non_nullable
-as double,posterPath: null == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
-as String,firstAirDate: null == firstAirDate ? _self.firstAirDate : firstAirDate // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as double,posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
+as String?,firstAirDate: freezed == firstAirDate ? _self.firstAirDate : firstAirDate // ignore: cast_nullable_to_non_nullable
+as String?,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,voteAverage: null == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
 as double,voteCount: null == voteCount ? _self.voteCount : voteCount // ignore: cast_nullable_to_non_nullable
 as int,
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool adult,  String backdropPath,  List<int> genreIds,  int id,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String posterPath,  String firstAirDate,  String name,  double voteAverage,  int voteCount)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool adult,  String? backdropPath,  List<int> genreIds,  int id,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String? posterPath,  String? firstAirDate,  String name,  double voteAverage,  int voteCount)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TVSeriesModel() when $default != null:
 return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.originCountry,_that.originalLanguage,_that.originalName,_that.overview,_that.popularity,_that.posterPath,_that.firstAirDate,_that.name,_that.voteAverage,_that.voteCount);case _:
@@ -187,7 +187,7 @@ return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.ori
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool adult,  String backdropPath,  List<int> genreIds,  int id,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String posterPath,  String firstAirDate,  String name,  double voteAverage,  int voteCount)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool adult,  String? backdropPath,  List<int> genreIds,  int id,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String? posterPath,  String? firstAirDate,  String name,  double voteAverage,  int voteCount)  $default,) {final _that = this;
 switch (_that) {
 case _TVSeriesModel():
 return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.originCountry,_that.originalLanguage,_that.originalName,_that.overview,_that.popularity,_that.posterPath,_that.firstAirDate,_that.name,_that.voteAverage,_that.voteCount);case _:
@@ -207,7 +207,7 @@ return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.ori
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool adult,  String backdropPath,  List<int> genreIds,  int id,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String posterPath,  String firstAirDate,  String name,  double voteAverage,  int voteCount)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool adult,  String? backdropPath,  List<int> genreIds,  int id,  List<String> originCountry,  String originalLanguage,  String originalName,  String overview,  double popularity,  String? posterPath,  String? firstAirDate,  String name,  double voteAverage,  int voteCount)?  $default,) {final _that = this;
 switch (_that) {
 case _TVSeriesModel() when $default != null:
 return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.originCountry,_that.originalLanguage,_that.originalName,_that.overview,_that.popularity,_that.posterPath,_that.firstAirDate,_that.name,_that.voteAverage,_that.voteCount);case _:
@@ -222,11 +222,11 @@ return $default(_that.adult,_that.backdropPath,_that.genreIds,_that.id,_that.ori
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _TVSeriesModel implements TVSeriesModel {
-  const _TVSeriesModel({required this.adult, required this.backdropPath, required final  List<int> genreIds, required this.id, required final  List<String> originCountry, required this.originalLanguage, required this.originalName, required this.overview, required this.popularity, required this.posterPath, required this.firstAirDate, required this.name, required this.voteAverage, required this.voteCount}): _genreIds = genreIds,_originCountry = originCountry;
+  const _TVSeriesModel({this.adult = false, this.backdropPath, required final  List<int> genreIds, required this.id, required final  List<String> originCountry, required this.originalLanguage, required this.originalName, required this.overview, required this.popularity, this.posterPath, this.firstAirDate, required this.name, required this.voteAverage, required this.voteCount}): _genreIds = genreIds,_originCountry = originCountry;
   factory _TVSeriesModel.fromJson(Map<String, dynamic> json) => _$TVSeriesModelFromJson(json);
 
-@override final  bool adult;
-@override final  String backdropPath;
+@override@JsonKey() final  bool adult;
+@override final  String? backdropPath;
  final  List<int> _genreIds;
 @override List<int> get genreIds {
   if (_genreIds is EqualUnmodifiableListView) return _genreIds;
@@ -246,8 +246,8 @@ class _TVSeriesModel implements TVSeriesModel {
 @override final  String originalName;
 @override final  String overview;
 @override final  double popularity;
-@override final  String posterPath;
-@override final  String firstAirDate;
+@override final  String? posterPath;
+@override final  String? firstAirDate;
 @override final  String name;
 @override final  double voteAverage;
 @override final  int voteCount;
@@ -285,7 +285,7 @@ abstract mixin class _$TVSeriesModelCopyWith<$Res> implements $TVSeriesModelCopy
   factory _$TVSeriesModelCopyWith(_TVSeriesModel value, $Res Function(_TVSeriesModel) _then) = __$TVSeriesModelCopyWithImpl;
 @override @useResult
 $Res call({
- bool adult, String backdropPath, List<int> genreIds, int id, List<String> originCountry, String originalLanguage, String originalName, String overview, double popularity, String posterPath, String firstAirDate, String name, double voteAverage, int voteCount
+ bool adult, String? backdropPath, List<int> genreIds, int id, List<String> originCountry, String originalLanguage, String originalName, String overview, double popularity, String? posterPath, String? firstAirDate, String name, double voteAverage, int voteCount
 });
 
 
@@ -302,20 +302,20 @@ class __$TVSeriesModelCopyWithImpl<$Res>
 
 /// Create a copy of TVSeriesModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? adult = null,Object? backdropPath = null,Object? genreIds = null,Object? id = null,Object? originCountry = null,Object? originalLanguage = null,Object? originalName = null,Object? overview = null,Object? popularity = null,Object? posterPath = null,Object? firstAirDate = null,Object? name = null,Object? voteAverage = null,Object? voteCount = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? adult = null,Object? backdropPath = freezed,Object? genreIds = null,Object? id = null,Object? originCountry = null,Object? originalLanguage = null,Object? originalName = null,Object? overview = null,Object? popularity = null,Object? posterPath = freezed,Object? firstAirDate = freezed,Object? name = null,Object? voteAverage = null,Object? voteCount = null,}) {
   return _then(_TVSeriesModel(
 adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
-as bool,backdropPath: null == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
-as String,genreIds: null == genreIds ? _self._genreIds : genreIds // ignore: cast_nullable_to_non_nullable
+as bool,backdropPath: freezed == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
+as String?,genreIds: null == genreIds ? _self._genreIds : genreIds // ignore: cast_nullable_to_non_nullable
 as List<int>,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,originCountry: null == originCountry ? _self._originCountry : originCountry // ignore: cast_nullable_to_non_nullable
 as List<String>,originalLanguage: null == originalLanguage ? _self.originalLanguage : originalLanguage // ignore: cast_nullable_to_non_nullable
 as String,originalName: null == originalName ? _self.originalName : originalName // ignore: cast_nullable_to_non_nullable
 as String,overview: null == overview ? _self.overview : overview // ignore: cast_nullable_to_non_nullable
 as String,popularity: null == popularity ? _self.popularity : popularity // ignore: cast_nullable_to_non_nullable
-as double,posterPath: null == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
-as String,firstAirDate: null == firstAirDate ? _self.firstAirDate : firstAirDate // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as double,posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
+as String?,firstAirDate: freezed == firstAirDate ? _self.firstAirDate : firstAirDate // ignore: cast_nullable_to_non_nullable
+as String?,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,voteAverage: null == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
 as double,voteCount: null == voteCount ? _self.voteCount : voteCount // ignore: cast_nullable_to_non_nullable
 as int,

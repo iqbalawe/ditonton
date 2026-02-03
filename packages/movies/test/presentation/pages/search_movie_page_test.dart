@@ -1,14 +1,13 @@
 import 'dart:io';
 
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movies/movies.dart';
 
-import '../../helpers/test_helper.mocks.dart';
 import '../../helpers/http_helper.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockSearchMoviesCubit mockSearchMoviesCubit;
@@ -20,19 +19,20 @@ void main() {
   setUp(() {
     mockSearchMoviesCubit = MockSearchMoviesCubit();
     final di = GetIt.instance;
-    if (di.isRegistered<SearchMoviesCubit>())
+    if (di.isRegistered<SearchMoviesCubit>()) {
       di.unregister<SearchMoviesCubit>();
+    }
     di.registerFactory<SearchMoviesCubit>(() => mockSearchMoviesCubit);
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return MaterialApp(home: body);
   }
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: '/path.jpg',
-    genreIds: const [1],
+    genreIds: [1],
     id: 1,
     originalTitle: 'Title',
     overview: 'Overview',
@@ -56,7 +56,7 @@ void main() {
     ).thenReturn(const SearchMoviesState.initial());
     when(mockSearchMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const SearchMoviePage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchMoviePage()));
 
     expect(find.text('Start searching...'), findsOneWidget);
   });
@@ -73,7 +73,7 @@ void main() {
     when(mockSearchMoviesCubit.onQueryChanged(any)).thenAnswer((_) async {});
     when(mockSearchMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const SearchMoviePage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchMoviePage()));
 
     await tester.enterText(find.byType(TextField), 'spiderman');
     await tester.testTextInput.receiveAction(TextInputAction.search);
@@ -93,7 +93,7 @@ void main() {
     ).thenReturn(const SearchMoviesState.loading());
     when(mockSearchMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const SearchMoviePage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchMoviePage()));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
@@ -109,7 +109,7 @@ void main() {
     ).thenReturn(const SearchMoviesState.error('Error'));
     when(mockSearchMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const SearchMoviePage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchMoviePage()));
 
     expect(find.text('Error'), findsOneWidget);
   });
@@ -125,7 +125,7 @@ void main() {
     ).thenReturn(const SearchMoviesState.empty());
     when(mockSearchMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const SearchMoviePage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchMoviePage()));
 
     expect(find.text('Movie not found'), findsOneWidget);
   });
@@ -141,7 +141,7 @@ void main() {
     ).thenReturn(SearchMoviesState.loaded([tMovie]));
     when(mockSearchMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const SearchMoviePage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchMoviePage()));
 
     expect(find.byType(ListView), findsOneWidget);
     expect(find.byType(MovieCard), findsOneWidget);

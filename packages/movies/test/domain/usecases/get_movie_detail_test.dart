@@ -18,13 +18,12 @@ void main() {
   final tId = 1;
 
   test('should get movie detail from the repository', () async {
-    // arrange
     when(
       mockMovieRepository.getMovieDetail(tId),
     ).thenAnswer((_) async => Right(testMovieDetail));
-    // act
+
     final result = await usecase.execute(tId);
-    // assert
+
     expect(result, Right(testMovieDetail));
   });
 }

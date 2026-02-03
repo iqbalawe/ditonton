@@ -1,15 +1,13 @@
 import 'dart:io';
 
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movies/movies.dart';
 
-import '../../helpers/test_helper.mocks.dart';
 import '../../helpers/http_helper.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockPopularCubit mockPopularCubit;
@@ -26,14 +24,14 @@ void main() {
     di.registerFactory<PopularCubit>(() => mockPopularCubit);
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return MaterialApp(home: body);
   }
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: '/path.jpg',
-    genreIds: const [1],
+    genreIds: [1],
     id: 1,
     originalTitle: 'Title',
     overview: 'Overview',
@@ -56,7 +54,7 @@ void main() {
     when(mockPopularCubit.fetchPopularMovies()).thenAnswer((_) async {});
     when(mockPopularCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const PopularMoviesPage()));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
     expect(find.byType(Center), findsWidgets);
@@ -72,7 +70,7 @@ void main() {
     when(mockPopularCubit.fetchPopularMovies()).thenAnswer((_) async {});
     when(mockPopularCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const PopularMoviesPage()));
 
     expect(find.byType(ListView), findsOneWidget);
     expect(find.byType(MovieCard), findsOneWidget);
@@ -90,7 +88,7 @@ void main() {
     when(mockPopularCubit.fetchPopularMovies()).thenAnswer((_) async {});
     when(mockPopularCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const PopularMoviesPage()));
 
     expect(find.text('Error message'), findsOneWidget);
   });
@@ -105,7 +103,7 @@ void main() {
     when(mockPopularCubit.fetchPopularMovies()).thenAnswer((_) async {});
     when(mockPopularCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const PopularMoviesPage()));
 
     expect(find.byType(SizedBox), findsOneWidget);
   });

@@ -8,8 +8,8 @@ part 'tv_series_model.g.dart';
 abstract class TVSeriesModel with _$TVSeriesModel {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TVSeriesModel({
-    required bool adult,
-    required String backdropPath,
+    @Default(false) bool adult,
+    String? backdropPath,
     required List<int> genreIds,
     required int id,
     required List<String> originCountry,
@@ -17,8 +17,8 @@ abstract class TVSeriesModel with _$TVSeriesModel {
     required String originalName,
     required String overview,
     required double popularity,
-    required String posterPath,
-    required String firstAirDate,
+    String? posterPath,
+    String? firstAirDate,
     required String name,
     required double voteAverage,
     required int voteCount,

@@ -49,10 +49,20 @@ runTests() {
 
 runReport() {
   if [ -f "coverage/test.info" ] && ! [ "$TRAVIS" ]; then
+    echo "Filtering generated files from coverage..."
+
+    lcov --remove coverage/test.info \
+      '*.g.dart' \
+      '*.freezed.dart' \
+      '*/test/*' \
+      -o coverage/test.info
+    
     genhtml coverage/test.info -o coverage --no-function-coverage --prefix $(pwd)
 
     if [ "$(uname)" == "Darwin" ]; then
       open coverage/index.html
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+      xdg-open coverage/index.html
     else
       start coverage/index.html
     fi
@@ -75,12 +85,15 @@ case $1 in
     if [ -d "coverage" ]; then
       rm -r coverage
     fi
+    mkdir -p coverage
+
     dirs=($(find . -maxdepth 2 -type d))
     for dir in "${dirs[@]}"; do
       runTests $dir $currentDir
     done
   else
     if [[ -d "$1" ]]; then
+      mkdir -p coverage
       runTests $1 $currentDir
     else
       printf "\nError: not a directory: $1"

@@ -3,14 +3,13 @@ import 'dart:io';
 
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movies/movies.dart';
 
-import '../../helpers/test_helper.mocks.dart';
 import '../../helpers/http_helper.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockNowPlayingCubit mockNowPlayingCubit;
@@ -36,7 +35,7 @@ void main() {
     di.registerFactory<TopRatedCubit>(() => mockTopRatedCubit);
   });
 
-  void _stubCubit({
+  void stubCubit({
     required NowPlayingState nowPlayingState,
     required PopularState popularState,
     required TopRatedState topRatedState,
@@ -61,7 +60,7 @@ void main() {
     when(mockTopRatedCubit.close()).thenAnswer((_) async {});
   }
 
-  Widget _createTestableWidget(Widget body) {
+  Widget createTestableWidget(Widget body) {
     return MaterialApp(
       home: body,
       routes: {
@@ -78,10 +77,10 @@ void main() {
   }
 
   final tMovies = <Movie>[
-    Movie(
+    const Movie(
       adult: false,
       backdropPath: '/muthafazh.jpg',
-      genreIds: const [1, 2],
+      genreIds: [1, 2],
       id: 1,
       originalTitle: 'Original Title',
       overview: 'Overview',
@@ -99,13 +98,13 @@ void main() {
     testWidgets(
       'Page should display loading indicators when all cubits are loading',
       (WidgetTester tester) async {
-        _stubCubit(
+        stubCubit(
           nowPlayingState: const NowPlayingState.loading(),
           popularState: const PopularState.loading(),
           topRatedState: const TopRatedState.loading(),
         );
 
-        await tester.pumpWidget(_createTestableWidget(const HomeMoviePage()));
+        await tester.pumpWidget(createTestableWidget(const HomeMoviePage()));
         expect(find.byType(CircularProgressIndicator), findsNWidgets(3));
       },
     );
@@ -113,26 +112,26 @@ void main() {
     testWidgets('Page should display error text when all cubits are error', (
       WidgetTester tester,
     ) async {
-      _stubCubit(
+      stubCubit(
         nowPlayingState: const NowPlayingState.error('Error'),
         popularState: const PopularState.error('Error'),
         topRatedState: const TopRatedState.error('Error'),
       );
 
-      await tester.pumpWidget(_createTestableWidget(const HomeMoviePage()));
+      await tester.pumpWidget(createTestableWidget(const HomeMoviePage()));
       expect(find.text('Failed'), findsNWidgets(3));
     });
 
     testWidgets(
       'Page should display list of movies and handle interactions when loaded',
       (WidgetTester tester) async {
-        _stubCubit(
+        stubCubit(
           nowPlayingState: NowPlayingState.loaded(tMovies),
           popularState: PopularState.loaded(tMovies),
           topRatedState: TopRatedState.loaded(tMovies),
         );
 
-        await tester.pumpWidget(_createTestableWidget(const HomeMoviePage()));
+        await tester.pumpWidget(createTestableWidget(const HomeMoviePage()));
         await tester.pump();
 
         expect(find.byType(ListView), findsWidgets);
@@ -237,13 +236,13 @@ void main() {
     testWidgets('Page should display SizedBox when state is initial', (
       tester,
     ) async {
-      _stubCubit(
+      stubCubit(
         nowPlayingState: const NowPlayingState.initial(),
         popularState: const PopularState.initial(),
         topRatedState: const TopRatedState.initial(),
       );
 
-      await tester.pumpWidget(_createTestableWidget(const HomeMoviePage()));
+      await tester.pumpWidget(createTestableWidget(const HomeMoviePage()));
       expect(find.byType(CircularProgressIndicator), findsNothing);
       expect(find.text('Failed'), findsNothing);
     });

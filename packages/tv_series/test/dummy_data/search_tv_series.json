@@ -1,0 +1,422 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/8zbAoryWbtH0DKdev8abFAjdufy.jpg",
+      "genre_ids": [
+        10765,
+        9648,
+        10759
+      ],
+      "id": 66732,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Stranger Things",
+      "overview": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.",
+      "popularity": 346.8269,
+      "poster_path": "/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg",
+      "first_air_date": "2016-07-15",
+      "name": "Stranger Things",
+      "vote_average": 8.581,
+      "vote_count": 20505
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xuf7G4srLSFcC7Q8YbX7HHEmXG2.jpg",
+      "genre_ids": [
+        80,
+        18,
+        9648
+      ],
+      "id": 70626,
+      "origin_country": [
+        "KR"
+      ],
+      "original_language": "ko",
+      "original_name": "비밀의 숲",
+      "overview": "Hwang Shi Mok underwent brain surgery as a child to curb his violent temper, which left him devoid of emotions. Hwang becomes a prosecutor known for his piercing intelligence and logic, but he is ostracized because he lacks empathy and social skills. He is also one of only a handful of upright prosecutors who have refused to take bribes. One day, he encounters a stabbing victim while investigating corruption. He meets Lieutenant Han Yeo Jin at the crime scene. They join forces to root out corruption at the prosecutors’ office and solve a serial murder case.",
+      "popularity": 8.5991,
+      "poster_path": "/blbbtx7DyvZ3JTGyc9MCArDL79b.jpg",
+      "first_air_date": "2017-06-10",
+      "name": "Stranger",
+      "vote_average": 8.269,
+      "vote_count": 197
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/y1k8KhifyLJxZUK3ObviZiQREPJ.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 263219,
+      "origin_country": [
+        "CN"
+      ],
+      "original_language": "zh",
+      "original_name": "秋雪漫过的冬天",
+      "overview": "Jiang Jiaqi, nearing forty, struggles with a failing marriage and workplace oppression. His life becomes more complicated when he is implicated in a bribery case with his subordinate, Liang Zhi'an, a twenty-year-old woman burdened by her parents' death and caring for her paralyzed grandmother. Despite their different lives, Liang’s presence reignites Jiang's spirit, and as they connect with supportive figures around them, they find warmth, encouragement, and healing in each other amidst their struggles.",
+      "popularity": 9.63,
+      "poster_path": "/3RaNQQsUl0eArTVIjHhqCGmMJd1.jpg",
+      "first_air_date": "2026-01-10",
+      "name": "Loving Strangers",
+      "vote_average": 7.0,
+      "vote_count": 3
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6PSKZoab1sczGuh8hY5v2BZB3H.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 301373,
+      "origin_country": [
+        "TR"
+      ],
+      "original_language": "tr",
+      "original_name": "Aynadaki Yabancı",
+      "overview": "Azra's story begins like a fairytale, but her life quickly turns into a nightmare. As the daughter-in-law of the Karaaslan family, she lives a seemingly perfect life, but behind this splendor lurks dark secrets. Forced to pay a heavy price while trying to escape with her daughter, Azra finds only one way to reunite with her: to change her face and return to that house as someone else. On this journey, she meets the successful plastic surgeon Barış Saygıner, and on the operating table, he rewrites not only her face but also her destiny. However, the shadows of the past and an impossible love will be Azra's greatest test.",
+      "popularity": 5.914,
+      "poster_path": "/5HkjNXxhYNDsrJDPd9DEjk7wDqT.jpg",
+      "first_air_date": "2025-10-04",
+      "name": "Stranger in the Mirror",
+      "vote_average": 8.0,
+      "vote_count": 2
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4898llKyD4FT5PjFW8yiXPBWiXs.jpg",
+      "genre_ids": [
+        35,
+        18
+      ],
+      "id": 53452,
+      "origin_country": [
+        "GR"
+      ],
+      "original_language": "el",
+      "original_name": "Δύο Ξένοι",
+      "overview": "",
+      "popularity": 4.9971,
+      "poster_path": "/njTRh9jseIZG3KsbtsaAp10HRKG.jpg",
+      "first_air_date": "1997-10-09",
+      "name": "Two Strangers",
+      "vote_average": 7.154,
+      "vote_count": 13
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ww8zqxd2zQg7Wfy782lh7ePRj0.jpg",
+      "genre_ids": [
+        18,
+        10765,
+        9648
+      ],
+      "id": 204589,
+      "origin_country": [
+        "KR"
+      ],
+      "original_language": "ko",
+      "original_name": "어쩌다 마주친, 그대",
+      "overview": "Yun Hae Jun is the youngest anchor to ever work at his broadcasting station. He is calm and straightforward as a journalist and kind in his personal life. On the other hand, Baek Yun Yeong dreamed of becoming a writer but wound up working at a publishing company.\n\nThe two somehow travel back in time to the year 1987. There, Yun Hae Jun tries to find the truth behind a serial murder case, while Baek Yun Yeong attempts to prevent her parents from marrying. They soon realize that their objectives are connected.",
+      "popularity": 2.7004,
+      "poster_path": "/gYJBz6NMvP4oc2mf181bjPJSgxJ.jpg",
+      "first_air_date": "2023-05-01",
+      "name": "My Perfect Stranger",
+      "vote_average": 8.1,
+      "vote_count": 27
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/d607EV6DKTPv9QajQ3sSRJhG3dJ.jpg",
+      "genre_ids": [
+        9648,
+        18
+      ],
+      "id": 89959,
+      "origin_country": [
+        "KR"
+      ],
+      "original_language": "ko",
+      "original_name": "타인은 지옥이다",
+      "overview": "Unpleasant events disturb the life of an aspiring crime fiction writer when he becomes a resident of an apartment building teeming with shady neighbors.",
+      "popularity": 5.1837,
+      "poster_path": "/o66rEzPzZZWxSrcus2f46CedHhq.jpg",
+      "first_air_date": "2019-08-31",
+      "name": "Strangers from Hell",
+      "vote_average": 8.1,
+      "vote_count": 132
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/RzCw9LQyAcoa9mn4xkEAyuvhgr.jpg",
+      "genre_ids": [
+        18,
+        9648
+      ],
+      "id": 88989,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Nine Perfect Strangers",
+      "overview": "At a boutique health-and-wellness resort that promises healing and transformation, nine stressed city dwellers try to get on a path to a better way of living. Watching over them during this 10-day retreat is the resort's director, Masha, a woman on a mission to reinvigorate their tired minds and bodies. However, these nine \"perfect\" strangers have no idea what is about to hit them.",
+      "popularity": 8.4485,
+      "poster_path": "/oPcqsZIFHrv7HoGgFQnsGDiPulD.jpg",
+      "first_air_date": "2021-08-18",
+      "name": "Nine Perfect Strangers",
+      "vote_average": 6.935,
+      "vote_count": 563
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/aaVo10ILoUSoZqaxEvQhRuMjSdw.jpg",
+      "genre_ids": [
+        35,
+        18
+      ],
+      "id": 105024,
+      "origin_country": [
+        "PH"
+      ],
+      "original_language": "tl",
+      "original_name": "Hello, Stranger",
+      "overview": "Mico’s online quiz night takes an unexpected turn when Xavier, the popular basketball player, joins and insults him and his friends. What starts as a rocky encounter leads to circumstances that change both their lives forever.",
+      "popularity": 0.6973,
+      "poster_path": "/uu8yWT64FP0W39whxIcs2aMv1Wb.jpg",
+      "first_air_date": "2020-06-24",
+      "name": "Hello, Stranger",
+      "vote_average": 5.778,
+      "vote_count": 9
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/vvvwefAwrJ9xaVrFOuk8BKQfvIK.jpg",
+      "genre_ids": [
+        18,
+        80
+      ],
+      "id": 60956,
+      "origin_country": [
+        "KR"
+      ],
+      "original_language": "ko",
+      "original_name": "닥터 이방인",
+      "overview": "As a child, Park Hoon and his dad were kidnapped and taken to North Korea. He grew up there, learning to be a doctor just like his father. When Park Hoon escapes back to South Korea and begins work at a prestigious hospital, he makes it his goal to earn enough money to go back to North Korea to rescue his true love. He'll do anything to find her, but then he meets and falls for a mysterious woman who looks exactly like her.",
+      "popularity": 3.587,
+      "poster_path": "/odH9cebqUNHKh1p6BKVSs0gsD34.jpg",
+      "first_air_date": "2014-05-05",
+      "name": "Doctor Stranger",
+      "vote_average": 8.1,
+      "vote_count": 294
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        18
+      ],
+      "id": 292942,
+      "origin_country": [
+        "CN"
+      ],
+      "original_language": "zh",
+      "original_name": "镜中陌生人",
+      "overview": "",
+      "popularity": 0.6967,
+      "poster_path": "/nLyfXnPBG5VG8LhfmkN8o6YDK75.jpg",
+      "first_air_date": "2025-04-28",
+      "name": "The Stranger in the Mirror",
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/c841YfQpZg91vi1lNZmcf1XANqv.jpg",
+      "genre_ids": [
+        18,
+        9648
+      ],
+      "id": 262957,
+      "origin_country": [
+        "CN"
+      ],
+      "original_language": "zh",
+      "original_name": "暗恋者的救赎",
+      "overview": "Detective Song Cheng discovers a link between a current case and an unsolved crime from four years ago, both tied to key witness Yu Xiao. As he digs deeper, Yu Xiao’s hidden past comes to light. She joins the investigation with Song Cheng’s support, but mounting obstacles threaten their pursuit of the truth. Together, they fight to uncover the real culprit and bring justice to light.",
+      "popularity": 3.6346,
+      "poster_path": "/8wSEvsH1UWUIqacz9ZBCbU7i5LH.jpg",
+      "first_air_date": "2026-01-23",
+      "name": "My Dearest Stranger",
+      "vote_average": 8.0,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/gFxpqn6LsvzqKzYjlQ61RuaiM8j.jpg",
+      "genre_ids": [
+        99,
+        16,
+        10768
+      ],
+      "id": 61317,
+      "origin_country": [
+        "FR"
+      ],
+      "original_language": "fr",
+      "original_name": "Juifs et musulmans : si loin, si proches",
+      "overview": "This journey through time retraces fourteen centuries of a rich shared history between Jews and Muslims. A story of great historical rigor, without concessions or bias, driven by fluid and inspired realization.",
+      "popularity": 1.3337,
+      "poster_path": "/92P2bpmtXoBN75vDqR9cL36e4zR.jpg",
+      "first_air_date": "2013-10-22",
+      "name": "Jews and Muslims: Intimate Strangers",
+      "vote_average": 6.5,
+      "vote_count": 2
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/mNQffWSL4YNSyoWiGQcYZLRSBDt.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 118599,
+      "origin_country": [
+        "PH"
+      ],
+      "original_language": "tl",
+      "original_name": "Stranger’s Kiss: The Series",
+      "overview": "What if a stranger’s kiss made you fall in love?",
+      "popularity": 0.2824,
+      "poster_path": "/ymu0ht94ATmwYz5lCVbWsNPsrkx.jpg",
+      "first_air_date": "2021-02-08",
+      "name": "Stranger’s Kiss: The Series",
+      "vote_average": 9.0,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        99
+      ],
+      "id": 235096,
+      "origin_country": [
+        "GB",
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Strangers Making Babies",
+      "overview": "People are finding it increasingly difficult to meet \"the right one\" to start a family with, so some are turning to co-parenting, which is when two people have a baby together outside a conventional romantic relationship.",
+      "popularity": 0.474,
+      "poster_path": "/tOxpcEJFPci104rqGzMufPvIK2u.jpg",
+      "first_air_date": "2021-03-23",
+      "name": "Strangers Making Babies",
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/o76eZkTfIAtcGsN3MCVtKDfDTNf.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 1786,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Perfect Strangers",
+      "overview": "The chronicles of the rocky coexistence of midwestern American Larry Appleton and his distant cousin from eastern Mediterranean Europe, Balki Bartokomous.",
+      "popularity": 5.4903,
+      "poster_path": "/wZ7RomWxcrdMwK63XzVeQGFK6Dy.jpg",
+      "first_air_date": "1986-03-25",
+      "name": "Perfect Strangers",
+      "vote_average": 6.638,
+      "vote_count": 105
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/tPO5I7BEzFLavtrd6ASeLT1x8GE.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 67856,
+      "origin_country": [
+        "KR"
+      ],
+      "original_language": "ko",
+      "original_name": "우리집에 사는 남자",
+      "overview": "A 30-year-old woman suddenly has a new father who is three years younger than her. With time, she accepts him as a family; he always takes her side and loves her unconditionally. What would happen to them?",
+      "popularity": 1.6045,
+      "poster_path": "/1ON43Foz15rWlVD4zaQVWSbJeZX.jpg",
+      "first_air_date": "2016-10-24",
+      "name": "Sweet Stranger and Me",
+      "vote_average": 5.7,
+      "vote_count": 17
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/h05fQlDe832zk9VKtEBb6ivtp5t.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 277901,
+      "origin_country": [
+        "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "五十嵐夫妻は偽装他人",
+      "overview": "Mahiro Aizawa starts fresh at a new job, only to find her estranged husband, Naoto Igarashi, working at the same company. To avoid awkwardness, they pretend to be strangers, but this complicates their relationship further.",
+      "popularity": 1.2242,
+      "poster_path": "/byqrcJMRfyMdWHfWxG4DySGLvnU.jpg",
+      "first_air_date": "2025-01-09",
+      "name": "Mr. and Mrs. Igarashi Are Strangers in Disguise",
+      "vote_average": 7.0,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        35
+      ],
+      "id": 49846,
+      "origin_country": [
+        "TR"
+      ],
+      "original_language": "tr",
+      "original_name": "Evdeki Yabancı",
+      "overview": "",
+      "popularity": 0.7497,
+      "poster_path": "/lRDWkzj0VM2IsqKo7aurAhj9nPR.jpg",
+      "first_air_date": "2000-09-01",
+      "name": "Stranger at Home",
+      "vote_average": 6.75,
+      "vote_count": 4
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/AlV5G8ys964apQl8VHK6AXNXPgw.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 213655,
+      "origin_country": [
+        "KR"
+      ],
+      "original_language": "ko",
+      "original_name": "남이 될 수 있을까",
+      "overview": "It follows an ex-married couple who are both lawyers that specialize in divorce. They find themselves working together as colleagues dealing with cases related to divorce and relationships.",
+      "popularity": 1.2109,
+      "poster_path": "/yGAXxkAa1XFCA9PF5y8R9iNxC04.jpg",
+      "first_air_date": "2023-01-18",
+      "name": "Strangers Again",
+      "vote_average": 7.5,
+      "vote_count": 11
+    }
+  ],
+  "total_pages": 6,
+  "total_results": 112
+}

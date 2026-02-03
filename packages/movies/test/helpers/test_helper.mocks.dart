@@ -4,12 +4,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i6;
-import 'dart:convert' as _i13;
-import 'dart:typed_data' as _i14;
+import 'dart:convert' as _i14;
+import 'dart:typed_data' as _i15;
 
 import 'package:core/core.dart' as _i7;
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:flutter_bloc/flutter_bloc.dart' as _i15;
+import 'package:flutter/src/widgets/navigator.dart' as _i13;
+import 'package:flutter_bloc/flutter_bloc.dart' as _i16;
 import 'package:http/http.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i11;
@@ -780,6 +781,76 @@ class MockGetWatchlistMovies extends _i1.Mock
           as _i6.Future<_i2.Either<_i7.Failure, List<_i8.Movie>>>);
 }
 
+/// A class which mocks [NavigatorObserver].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNavigatorObserver extends _i1.Mock implements _i13.NavigatorObserver {
+  MockNavigatorObserver() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  void didPush(
+    _i13.Route<dynamic>? route,
+    _i13.Route<dynamic>? previousRoute,
+  ) => super.noSuchMethod(
+    Invocation.method(#didPush, [route, previousRoute]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void didPop(_i13.Route<dynamic>? route, _i13.Route<dynamic>? previousRoute) =>
+      super.noSuchMethod(
+        Invocation.method(#didPop, [route, previousRoute]),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void didRemove(
+    _i13.Route<dynamic>? route,
+    _i13.Route<dynamic>? previousRoute,
+  ) => super.noSuchMethod(
+    Invocation.method(#didRemove, [route, previousRoute]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void didReplace({
+    _i13.Route<dynamic>? newRoute,
+    _i13.Route<dynamic>? oldRoute,
+  }) => super.noSuchMethod(
+    Invocation.method(#didReplace, [], {
+      #newRoute: newRoute,
+      #oldRoute: oldRoute,
+    }),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void didChangeTop(
+    _i13.Route<dynamic>? topRoute,
+    _i13.Route<dynamic>? previousTopRoute,
+  ) => super.noSuchMethod(
+    Invocation.method(#didChangeTop, [topRoute, previousTopRoute]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void didStartUserGesture(
+    _i13.Route<dynamic>? route,
+    _i13.Route<dynamic>? previousRoute,
+  ) => super.noSuchMethod(
+    Invocation.method(#didStartUserGesture, [route, previousRoute]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void didStopUserGesture() => super.noSuchMethod(
+    Invocation.method(#didStopUserGesture, []),
+    returnValueForMissingStub: null,
+  );
+}
+
 /// A class which mocks [Client].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -819,7 +890,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i13.Encoding? encoding,
+    _i14.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
             Invocation.method(
@@ -845,7 +916,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i13.Encoding? encoding,
+    _i14.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
             Invocation.method(
@@ -871,7 +942,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i13.Encoding? encoding,
+    _i14.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
             Invocation.method(
@@ -897,7 +968,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i13.Encoding? encoding,
+    _i14.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
             Invocation.method(
@@ -932,15 +1003,15 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
           as _i6.Future<String>);
 
   @override
-  _i6.Future<_i14.Uint8List> readBytes(
+  _i6.Future<_i15.Uint8List> readBytes(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
       (super.noSuchMethod(
             Invocation.method(#readBytes, [url], {#headers: headers}),
-            returnValue: _i6.Future<_i14.Uint8List>.value(_i14.Uint8List(0)),
+            returnValue: _i6.Future<_i15.Uint8List>.value(_i15.Uint8List(0)),
           )
-          as _i6.Future<_i14.Uint8List>);
+          as _i6.Future<_i15.Uint8List>);
 
   @override
   _i6.Future<_i5.StreamedResponse> send(_i5.BaseRequest? request) =>
@@ -1010,7 +1081,7 @@ class MockNowPlayingCubit extends _i1.Mock implements _i4.NowPlayingCubit {
   );
 
   @override
-  void onChange(_i15.Change<_i4.NowPlayingState>? change) => super.noSuchMethod(
+  void onChange(_i16.Change<_i4.NowPlayingState>? change) => super.noSuchMethod(
     Invocation.method(#onChange, [change]),
     returnValueForMissingStub: null,
   );
@@ -1082,7 +1153,7 @@ class MockPopularCubit extends _i1.Mock implements _i4.PopularCubit {
   );
 
   @override
-  void onChange(_i15.Change<_i4.PopularState>? change) => super.noSuchMethod(
+  void onChange(_i16.Change<_i4.PopularState>? change) => super.noSuchMethod(
     Invocation.method(#onChange, [change]),
     returnValueForMissingStub: null,
   );
@@ -1154,7 +1225,7 @@ class MockTopRatedCubit extends _i1.Mock implements _i4.TopRatedCubit {
   );
 
   @override
-  void onChange(_i15.Change<_i4.TopRatedState>? change) => super.noSuchMethod(
+  void onChange(_i16.Change<_i4.TopRatedState>? change) => super.noSuchMethod(
     Invocation.method(#onChange, [change]),
     returnValueForMissingStub: null,
   );
@@ -1229,7 +1300,7 @@ class MockMovieDetailCubit extends _i1.Mock implements _i4.MovieDetailCubit {
   );
 
   @override
-  void onChange(_i15.Change<_i4.MovieDetailState>? change) =>
+  void onChange(_i16.Change<_i4.MovieDetailState>? change) =>
       super.noSuchMethod(
         Invocation.method(#onChange, [change]),
         returnValueForMissingStub: null,
@@ -1306,7 +1377,7 @@ class MockRecommendationsCubit extends _i1.Mock
   );
 
   @override
-  void onChange(_i15.Change<_i4.RecommendationsState>? change) =>
+  void onChange(_i16.Change<_i4.RecommendationsState>? change) =>
       super.noSuchMethod(
         Invocation.method(#onChange, [change]),
         returnValueForMissingStub: null,
@@ -1431,7 +1502,7 @@ class MockWatchlistStatusCubit extends _i1.Mock
   );
 
   @override
-  void onChange(_i15.Change<_i4.WatchlistStatusState>? change) =>
+  void onChange(_i16.Change<_i4.WatchlistStatusState>? change) =>
       super.noSuchMethod(
         Invocation.method(#onChange, [change]),
         returnValueForMissingStub: null,
@@ -1507,7 +1578,7 @@ class MockSearchMoviesCubit extends _i1.Mock implements _i4.SearchMoviesCubit {
   );
 
   @override
-  void onChange(_i15.Change<_i4.SearchMoviesState>? change) =>
+  void onChange(_i16.Change<_i4.SearchMoviesState>? change) =>
       super.noSuchMethod(
         Invocation.method(#onChange, [change]),
         returnValueForMissingStub: null,
@@ -1584,7 +1655,7 @@ class MockWatchlistMoviesCubit extends _i1.Mock
   );
 
   @override
-  void onChange(_i15.Change<_i4.WatchlistMoviesState>? change) =>
+  void onChange(_i16.Change<_i4.WatchlistMoviesState>? change) =>
       super.noSuchMethod(
         Invocation.method(#onChange, [change]),
         returnValueForMissingStub: null,

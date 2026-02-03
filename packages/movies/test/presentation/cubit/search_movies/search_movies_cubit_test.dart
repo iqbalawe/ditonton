@@ -1,5 +1,4 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/core.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -16,7 +15,7 @@ void main() {
     searchMoviesCubit = SearchMoviesCubit(mockSearchMovies);
   });
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],

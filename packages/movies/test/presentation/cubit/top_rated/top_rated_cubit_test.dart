@@ -16,7 +16,7 @@ void main() {
     topRatedCubit = TopRatedCubit(mockGetTopRatedMovies);
   });
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],

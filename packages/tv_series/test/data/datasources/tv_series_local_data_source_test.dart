@@ -1,118 +1,124 @@
-// import 'package:core/core.dart';
-// import 'package:tv_series/data/datasources/tv_series_local_data_source.dart';
-// import 'package:flutter_test/flutter_test.dart';
-// import 'package:mockito/mockito.dart';
+import 'package:core/core.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
+import 'package:tv_series/tv_series.dart';
 
-// import '../../../../test/helpers/test_helper.mocks.dart';
-// import '../../../../movies/lib/test/dummy_data/dummy_objects.dart';
+import '../../test_helper/test_helper.mocks.dart';
 
-// void main() {
-//   late TvSeriesLocalDataSourceImpl dataSource;
-//   late MockDatabaseHelper mockDatabaseHelper;
+void main() {
+  late TVSeriesLocalDataSourceImpl dataSource;
+  late MockTVSeriesDatabaseHelper mockDatabaseHelper;
 
-//   setUp(() {
-//     mockDatabaseHelper = MockDatabaseHelper();
-//     dataSource = TvSeriesLocalDataSourceImpl(
-//       databaseHelper: mockDatabaseHelper,
-//     );
-//   });
+  setUp(() {
+    mockDatabaseHelper = MockTVSeriesDatabaseHelper();
+    dataSource = TVSeriesLocalDataSourceImpl(
+      databaseHelper: mockDatabaseHelper,
+    );
+  });
 
-//   group('save watchlist', () {
-//     test(
-//       'should return success message when insert to database is success',
-//       () async {
-//         // arrange
-//         when(
-//           mockDatabaseHelper.insertWatchlistTvSeries(testTvSeriesTable),
-//         ).thenAnswer((_) async => 1);
-//         // act
-//         final result = await dataSource.insertWatchlist(testTvSeriesTable);
-//         // assert
-//         expect(result, 'Added to Watchlist');
-//       },
-//     );
+  final tTVSeriesTable = const TVSeriesTable(
+    id: 1,
+    name: 'Test TV',
+    posterPath: '/path.jpg',
+    overview: 'Overview',
+  );
 
-//     test(
-//       'should throw DatabaseException when insert to database is failed',
-//       () async {
-//         // arrange
-//         when(
-//           mockDatabaseHelper.insertWatchlistTvSeries(testTvSeriesTable),
-//         ).thenThrow(Exception());
-//         // act
-//         final call = dataSource.insertWatchlist(testTvSeriesTable);
-//         // assert
-//         expect(() => call, throwsA(isA<DatabaseException>()));
-//       },
-//     );
-//   });
+  final tTVSeriesMap = {
+    'id': 1,
+    'name': 'Test TV',
+    'posterPath': '/path.jpg',
+    'overview': 'Overview',
+  };
 
-//   group('remove watchlist', () {
-//     test(
-//       'should return success message when remove from database is success',
-//       () async {
-//         // arrange
-//         when(
-//           mockDatabaseHelper.removeWatchlistTvSeries(testTvSeriesTable),
-//         ).thenAnswer((_) async => 1);
-//         // act
-//         final result = await dataSource.removeWatchlist(testTvSeriesTable);
-//         // assert
-//         expect(result, 'Removed from Watchlist');
-//       },
-//     );
+  group('save watchlist', () {
+    test(
+      'should return success message when insertion to database is successful',
+      () async {
+        when(
+          mockDatabaseHelper.insertWatchlistTVSeries(tTVSeriesTable),
+        ).thenAnswer((_) async => 1);
 
-//     test(
-//       'should throw DatabaseException when remove from database is failed',
-//       () async {
-//         // arrange
-//         when(
-//           mockDatabaseHelper.removeWatchlistTvSeries(testTvSeriesTable),
-//         ).thenThrow(Exception());
-//         // act
-//         final call = dataSource.removeWatchlist(testTvSeriesTable);
-//         // assert
-//         expect(() => call, throwsA(isA<DatabaseException>()));
-//       },
-//     );
-//   });
+        final result = await dataSource.insertWatchlist(tTVSeriesTable);
 
-//   group('Get TV Series Detail By Id', () {
-//     final tId = 1;
+        expect(result, 'Added to Watchlist');
+      },
+    );
 
-//     test('should return TV Series Detail Table when data is found', () async {
-//       // arrange
-//       when(
-//         mockDatabaseHelper.getTvSeriesById(tId),
-//       ).thenAnswer((_) async => testTvSeriesMap);
-//       // act
-//       final result = await dataSource.getTvSeriesById(tId);
-//       // assert
-//       expect(result, testTvSeriesTable);
-//     });
+    test(
+      'should throw DatabaseException when insertion to database is unsuccessful',
+      () async {
+        when(
+          mockDatabaseHelper.insertWatchlistTVSeries(tTVSeriesTable),
+        ).thenThrow(Exception());
 
-//     test('should return null when data is not found', () async {
-//       // arrange
-//       when(
-//         mockDatabaseHelper.getTvSeriesById(tId),
-//       ).thenAnswer((_) async => null);
-//       // act
-//       final result = await dataSource.getTvSeriesById(tId);
-//       // assert
-//       expect(result, null);
-//     });
-//   });
+        final call = dataSource.insertWatchlist(tTVSeriesTable);
 
-//   group('get watchlist tv series', () {
-//     test('should return list of TvSeriesTable from database', () async {
-//       // arrange
-//       when(
-//         mockDatabaseHelper.getWatchlistTvSeries(),
-//       ).thenAnswer((_) async => [testTvSeriesMap]);
-//       // act
-//       final result = await dataSource.getWatchlistTvSeries();
-//       // assert
-//       expect(result, [testTvSeriesTable]);
-//     });
-//   });
-// }
+        expect(() => call, throwsA(isA<DatabaseException>()));
+      },
+    );
+  });
+
+  group('remove watchlist', () {
+    test(
+      'should return success message when remove from database is successful',
+      () async {
+        when(
+          mockDatabaseHelper.removeWatchlistTVSeries(tTVSeriesTable),
+        ).thenAnswer((_) async => 1);
+
+        final result = await dataSource.removeWatchlist(tTVSeriesTable);
+
+        expect(result, 'Removed from Watchlist');
+      },
+    );
+
+    test(
+      'should throw DatabaseException when remove from database is unsuccessful',
+      () async {
+        when(
+          mockDatabaseHelper.removeWatchlistTVSeries(tTVSeriesTable),
+        ).thenThrow(Exception());
+
+        final call = dataSource.removeWatchlist(tTVSeriesTable);
+
+        expect(() => call, throwsA(isA<DatabaseException>()));
+      },
+    );
+  });
+
+  group('Get TV Series Detail By Id', () {
+    final tId = 1;
+
+    test('should return TV Series Detail Table when data is found', () async {
+      when(
+        mockDatabaseHelper.getTVSeriesById(tId),
+      ).thenAnswer((_) async => tTVSeriesMap);
+
+      final result = await dataSource.getTVSeriesById(tId);
+
+      expect(result, tTVSeriesTable);
+    });
+
+    test('should return null when data is not found', () async {
+      when(
+        mockDatabaseHelper.getTVSeriesById(tId),
+      ).thenAnswer((_) async => null);
+
+      final result = await dataSource.getTVSeriesById(tId);
+
+      expect(result, null);
+    });
+  });
+
+  group('get watchlist tv series', () {
+    test('should return list of TVSeriesTable from database', () async {
+      when(
+        mockDatabaseHelper.getWatchlistTVSeries(),
+      ).thenAnswer((_) async => [tTVSeriesMap]);
+
+      final result = await dataSource.getWatchlistTVSeries();
+
+      expect(result, [tTVSeriesTable]);
+    });
+  });
+}

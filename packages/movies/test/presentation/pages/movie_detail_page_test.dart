@@ -3,14 +3,13 @@ import 'dart:io';
 
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movies/movies.dart';
 
-import '../../helpers/test_helper.mocks.dart';
 import '../../helpers/http_helper.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockMovieDetailCubit mockMovieDetailCubit;
@@ -28,17 +27,19 @@ void main() {
 
     final di = GetIt.instance;
     if (di.isRegistered<MovieDetailCubit>()) di.unregister<MovieDetailCubit>();
-    if (di.isRegistered<RecommendationsCubit>())
+    if (di.isRegistered<RecommendationsCubit>()) {
       di.unregister<RecommendationsCubit>();
-    if (di.isRegistered<WatchlistStatusCubit>())
+    }
+    if (di.isRegistered<WatchlistStatusCubit>()) {
       di.unregister<WatchlistStatusCubit>();
+    }
 
     di.registerFactory<MovieDetailCubit>(() => mockMovieDetailCubit);
     di.registerFactory<RecommendationsCubit>(() => mockRecommendationsCubit);
     di.registerFactory<WatchlistStatusCubit>(() => mockWatchlistStatusCubit);
   });
 
-  void _stubCubit({
+  void stubCubit({
     required MovieDetailState detailState,
     required RecommendationsState recommendState,
     required WatchlistStatusState watchlistState,
@@ -69,7 +70,7 @@ void main() {
     when(mockWatchlistStatusCubit.close()).thenAnswer((_) async {});
   }
 
-  Widget _createTestableWidget(Widget body) {
+  Widget createTestableWidget(Widget body) {
     return MaterialApp(
       home: body,
       routes: {
@@ -80,7 +81,7 @@ void main() {
   }
 
   const tId = 1;
-  final tMovieDetail = MovieDetail(
+  final tMovieDetail = const MovieDetail(
     adult: false,
     backdropPath: 'backdropPath',
     genres: [Genre(id: 1, name: 'Action')],
@@ -95,7 +96,7 @@ void main() {
     voteCount: 1,
   );
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1],
@@ -115,14 +116,14 @@ void main() {
     testWidgets(
       'should display loading indicator when movie detail is loading',
       (WidgetTester tester) async {
-        _stubCubit(
+        stubCubit(
           detailState: const MovieDetailState.loading(),
           recommendState: const RecommendationsState.loading(),
           watchlistState: const WatchlistStatusState.initial(),
         );
 
         await tester.pumpWidget(
-          _createTestableWidget(const MovieDetailPage(id: tId)),
+          createTestableWidget(const MovieDetailPage(id: tId)),
         );
 
         expect(find.byType(CircularProgressIndicator), findsOneWidget);
@@ -132,14 +133,14 @@ void main() {
     testWidgets('should display error message when movie detail error', (
       WidgetTester tester,
     ) async {
-      _stubCubit(
+      stubCubit(
         detailState: const MovieDetailState.error('Error'),
         recommendState: const RecommendationsState.initial(),
         watchlistState: const WatchlistStatusState.initial(),
       );
 
       await tester.pumpWidget(
-        _createTestableWidget(const MovieDetailPage(id: tId)),
+        createTestableWidget(const MovieDetailPage(id: tId)),
       );
 
       expect(find.text('Error'), findsOneWidget);
@@ -148,7 +149,7 @@ void main() {
     testWidgets(
       'should display movie detail, recommendations, and handle add watchlist',
       (WidgetTester tester) async {
-        _stubCubit(
+        stubCubit(
           detailState: MovieDetailState.loaded(tMovieDetail),
           recommendState: RecommendationsState.loaded([tMovie]),
           watchlistState: const WatchlistStatusState.isAdded(false),
@@ -159,7 +160,7 @@ void main() {
         ).thenAnswer((_) async {});
 
         await tester.pumpWidget(
-          _createTestableWidget(const MovieDetailPage(id: tId)),
+          createTestableWidget(const MovieDetailPage(id: tId)),
         );
         await tester.pump();
 
@@ -177,7 +178,7 @@ void main() {
     testWidgets('should handle remove watchlist interaction', (
       WidgetTester tester,
     ) async {
-      _stubCubit(
+      stubCubit(
         detailState: MovieDetailState.loaded(tMovieDetail),
         recommendState: const RecommendationsState.loaded([]),
         watchlistState: const WatchlistStatusState.isAdded(true),
@@ -188,7 +189,7 @@ void main() {
       ).thenAnswer((_) async {});
 
       await tester.pumpWidget(
-        _createTestableWidget(const MovieDetailPage(id: tId)),
+        createTestableWidget(const MovieDetailPage(id: tId)),
       );
       await tester.pump();
 
@@ -238,7 +239,7 @@ void main() {
       when(mockWatchlistStatusCubit.close()).thenAnswer((_) async {});
 
       await tester.pumpWidget(
-        _createTestableWidget(const MovieDetailPage(id: tId)),
+        createTestableWidget(const MovieDetailPage(id: tId)),
       );
       await tester.pump();
       await tester.pump();
@@ -250,14 +251,14 @@ void main() {
     testWidgets('should handle recommendation error and empty state', (
       tester,
     ) async {
-      _stubCubit(
+      stubCubit(
         detailState: MovieDetailState.loaded(tMovieDetail),
         recommendState: const RecommendationsState.error('Error Rec'),
         watchlistState: const WatchlistStatusState.isAdded(false),
       );
 
       await tester.pumpWidget(
-        _createTestableWidget(const MovieDetailPage(id: tId)),
+        createTestableWidget(const MovieDetailPage(id: tId)),
       );
       await tester.pump();
 
@@ -267,14 +268,14 @@ void main() {
     testWidgets('should display text when recommendations empty', (
       tester,
     ) async {
-      _stubCubit(
+      stubCubit(
         detailState: MovieDetailState.loaded(tMovieDetail),
         recommendState: const RecommendationsState.empty(),
         watchlistState: const WatchlistStatusState.isAdded(false),
       );
 
       await tester.pumpWidget(
-        _createTestableWidget(const MovieDetailPage(id: tId)),
+        createTestableWidget(const MovieDetailPage(id: tId)),
       );
       await tester.pump();
 
@@ -284,14 +285,14 @@ void main() {
     testWidgets(
       'should navigate to new detail page when recommendation tapped',
       (tester) async {
-        _stubCubit(
+        stubCubit(
           detailState: MovieDetailState.loaded(tMovieDetail),
           recommendState: RecommendationsState.loaded([tMovie]),
           watchlistState: const WatchlistStatusState.isAdded(false),
         );
 
         await tester.pumpWidget(
-          _createTestableWidget(const MovieDetailPage(id: tId)),
+          createTestableWidget(const MovieDetailPage(id: tId)),
         );
         await tester.pump();
 

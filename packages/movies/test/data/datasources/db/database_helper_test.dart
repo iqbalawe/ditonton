@@ -1,8 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:movies/data/datasources/db/database_helper.dart'; // Sesuaikan path
-import 'package:movies/data/models/movie_table.dart'; // Sesuaikan path
+import 'package:movies/data/datasources/db/database_helper.dart';
+import 'package:movies/data/models/movie_table.dart';
 
 void main() {
   late DatabaseHelper databaseHelper;
@@ -16,7 +15,7 @@ void main() {
     databaseHelper = DatabaseHelper();
   });
 
-  final testMovieTable = MovieTable(
+  final testMovieTable = const MovieTable(
     id: 1,
     title: 'Test Movie',
     overview: 'Test Overview',

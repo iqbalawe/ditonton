@@ -17,7 +17,7 @@ void main() {
   });
 
   const tId = 1;
-  final tMovieDetail = MovieDetail(
+  final tMovieDetail = const MovieDetail(
     adult: false,
     backdropPath: 'backdropPath',
     genres: [Genre(id: 1, name: 'Action')],

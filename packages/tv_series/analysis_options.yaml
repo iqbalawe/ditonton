@@ -5,5 +5,4 @@ analyzer:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "**/*.mocks.dart"
-    - "test/**"
     - "lib/generated_plugin_registrant.dart"

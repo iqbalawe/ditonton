@@ -1,14 +1,13 @@
 import 'dart:io';
 
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movies/movies.dart';
 
-import '../../helpers/test_helper.mocks.dart';
 import '../../helpers/http_helper.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockWatchlistMoviesCubit mockWatchlistMoviesCubit;
@@ -21,7 +20,7 @@ void main() {
     mockWatchlistMoviesCubit = MockWatchlistMoviesCubit();
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return MaterialApp(
       home: BlocProvider<WatchlistMoviesCubit>(
         create: (context) => mockWatchlistMoviesCubit,
@@ -31,10 +30,10 @@ void main() {
     );
   }
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: '/path.jpg',
-    genreIds: const [1],
+    genreIds: [1],
     id: 1,
     originalTitle: 'Title',
     overview: 'Overview',
@@ -58,7 +57,7 @@ void main() {
     ).thenReturn(const WatchlistMoviesState.loading());
     when(mockWatchlistMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const WatchlistMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const WatchlistMoviesPage()));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
@@ -74,7 +73,7 @@ void main() {
     ).thenReturn(const WatchlistMoviesState.empty());
     when(mockWatchlistMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const WatchlistMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const WatchlistMoviesPage()));
 
     expect(find.text("You don't have watchlist yet"), findsOneWidget);
   });
@@ -88,7 +87,7 @@ void main() {
     ).thenReturn(const WatchlistMoviesState.error("Failed"));
     when(mockWatchlistMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const WatchlistMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const WatchlistMoviesPage()));
 
     expect(find.text('Failed'), findsOneWidget);
   });
@@ -104,7 +103,7 @@ void main() {
     ).thenReturn(WatchlistMoviesState.loaded([tMovie]));
     when(mockWatchlistMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const WatchlistMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const WatchlistMoviesPage()));
 
     expect(find.byType(ListView), findsOneWidget);
     expect(find.byType(MovieCard), findsOneWidget);
@@ -121,7 +120,7 @@ void main() {
     ).thenReturn(const WatchlistMoviesState.initial());
     when(mockWatchlistMoviesCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const WatchlistMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const WatchlistMoviesPage()));
 
     expect(find.byType(SizedBox), findsOneWidget);
   });

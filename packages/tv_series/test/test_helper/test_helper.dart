@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:mockito/annotations.dart';
 import 'package:http/http.dart' as http;
 import 'package:tv_series/tv_series.dart';
@@ -8,7 +9,28 @@ import 'package:tv_series/tv_series.dart';
     TVSeriesRemoteDataSource,
     TVSeriesLocalDataSource,
     TVSeriesDatabaseHelper,
+    GetOnTheAirTVSeries,
+    GetPopularTVSeries,
+    GetTVSeriesDetail,
+    GetTVSeriesRecommendations,
+    GetTopRatedTVSeries,
+    GetWatchListStatusTVSeries,
+    GetWatchlistTVSeries,
+    SaveWatchlistTVSeries,
+    RemoveWatchlistTVSeries,
+    SearchTVSeries,
+    NavigatorObserver,
   ],
-  customMocks: [MockSpec<http.Client>(as: #MockHttpClient)],
+  customMocks: [
+    MockSpec<http.Client>(as: #MockHttpClient),
+    MockSpec<OnTheAirCubit>(),
+    MockSpec<PopularTVSeriesCubit>(),
+    MockSpec<TopRatedTVSeriesCubit>(),
+    MockSpec<TVSeriesDetailCubit>(),
+    MockSpec<TVSeriesRecommendationsCubit>(),
+    MockSpec<WatchlistTVSeriesStatusCubit>(),
+    MockSpec<WatchlistTVSeriesCubit>(),
+    MockSpec<SearchTVSeriesCubit>(),
+  ],
 )
 void main() {}

@@ -20,15 +20,12 @@ void main() {
   test(
     'should get list of movies from the repository when execute is successful',
     () async {
-      // arrange
       when(
         mockMovieRepository.searchMovies(tQuery),
       ).thenAnswer((_) async => Right(tMovies));
 
-      // act
       final result = await usecase.execute(tQuery);
 
-      // assert
       expect(result, Right(tMovies));
       verify(mockMovieRepository.searchMovies(tQuery));
       verifyNoMoreInteractions(mockMovieRepository);

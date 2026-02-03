@@ -16,7 +16,7 @@ void main() {
     nowPlayingCubit = NowPlayingCubit(mockGetNowPlayingMovies);
   });
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],

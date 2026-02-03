@@ -16,7 +16,7 @@ void main() {
     popularCubit = PopularCubit(mockGetPopularMovies);
   });
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],

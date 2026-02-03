@@ -16,7 +16,7 @@ void main() {
     cubit = WatchlistMoviesCubit(mockGetWatchlistMovies);
   });
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -35,7 +35,7 @@ void main() {
 
   group('WatchlistMoviesCubit', () {
     test('initial state should be initial', () {
-      expect(cubit.state, WatchlistMoviesState.initial());
+      expect(cubit.state, const WatchlistMoviesState.initial());
     });
 
     blocTest<WatchlistMoviesCubit, WatchlistMoviesState>(

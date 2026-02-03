@@ -1,0 +1,432 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
+      "genre_ids": [
+        80,
+        18,
+        35
+      ],
+      "id": 79744,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "The Rookie",
+      "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he’s met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
+      "popularity": 219.2596,
+      "poster_path": "/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+      "first_air_date": "2018-10-16",
+      "name": "The Rookie",
+      "vote_average": 8.529,
+      "vote_count": 2930
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7mkUu1F2hVUNgz24xO8HPx0D6mK.jpg",
+      "genre_ids": [
+        18,
+        10765,
+        10759
+      ],
+      "id": 224372,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "A Knight of the Seven Kingdoms",
+      "overview": "A century before the events of Game of Thrones, two unlikely heroes wandered Westeros: a young, naive but courageous knight, Ser Duncan the Tall, and his diminutive squire, Egg. Set in an age when the Targaryen line still holds the Iron Throne and the last dragon has not yet passed from living memory, great destinies, powerful foes, and dangerous exploits await these improbable and incomparable friends.",
+      "popularity": 248.0993,
+      "poster_path": "/3Ra3Wm6pyuyv7IDmJEBAgYJGlNF.jpg",
+      "first_air_date": "2026-01-18",
+      "name": "A Knight of the Seven Kingdoms",
+      "vote_average": 8.061,
+      "vote_count": 157
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/gmECX1DvFgdUPjtio2zaL8BPYPu.jpg",
+      "genre_ids": [
+        16,
+        10759,
+        10765
+      ],
+      "id": 95479,
+      "origin_country": [
+        "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "呪術廻戦",
+      "overview": "Yuji Itadori is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to save a classmate who has been attacked by curses, he eats the finger of Ryomen Sukuna, taking the curse into his own soul. From then on, he shares one body with Ryomen Sukuna. Guided by the most powerful of sorcerers, Satoru Gojo, Itadori is admitted to Tokyo Jujutsu High School, an organization that fights the curses... and thus begins the heroic tale of a boy who became a curse to exorcise a curse, a life from which he could never turn back.",
+      "popularity": 184.2611,
+      "poster_path": "/fHpKWq9ayzSk8nSwqRuaAUemRKh.jpg",
+      "first_air_date": "2020-10-03",
+      "name": "JUJUTSU KAISEN",
+      "vote_average": 8.566,
+      "vote_count": 4159
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/lDmFwAaHL1kXnAfZeUTieAdUTko.jpg",
+      "genre_ids": [
+        10765,
+        10759,
+        10751,
+        18
+      ],
+      "id": 235685,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "The Pendragon Cycle: Rise of the Merlin",
+      "overview": "Merlin, the immortal son of the bard Taliesin and Atlantean Princess Charis, is followed through his tragic upbringing, descent into madness, and shocking disappearance, leading to the legend that surrounds him. Set before King Arthur's birth, Merlin, assumed dead or a myth, reemerges in sub-Roman Britain to unite the fractured kingdoms under threat from Saxon invaders.",
+      "popularity": 160.1117,
+      "poster_path": "/jJfk8NXauN4UgFQ1qn9lFzEk7ib.jpg",
+      "first_air_date": "2026-01-22",
+      "name": "The Pendragon Cycle: Rise of the Merlin",
+      "vote_average": 8.3,
+      "vote_count": 20
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kh6nOfQ6fmYyzHep2NHvdDaaIMb.jpg",
+      "genre_ids": [
+        10759,
+        10765
+      ],
+      "id": 106379,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Fallout",
+      "overview": "The story of haves and have-nots in a world in which there's almost nothing left to have. 200 years after the apocalypse, the gentle denizens of luxury fallout shelters are forced to return to the irradiated hellscape their ancestors left behind — and are shocked to discover an incredibly complex, gleefully weird, and highly violent universe waiting for them.",
+      "popularity": 141.7875,
+      "poster_path": "/c15BtJxCXMrISLVmysdsnZUPQft.jpg",
+      "first_air_date": "2024-04-10",
+      "name": "Fallout",
+      "vote_average": 8.1,
+      "vote_count": 2477
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/wIysQFRoro0DsNRMjFUoiTxbt5.jpg",
+      "genre_ids": [
+        18,
+        10759
+      ],
+      "id": 240459,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Spartacus: House of Ashur",
+      "overview": "In a world where he survived the events of Spartacus (2010), Ashur clawed his way to power, owning the same ludus that once owned him. Allying with a fierce gladiatrix, Ashur ignites a new kind of spectacle that offends the elite.",
+      "popularity": 122.6415,
+      "poster_path": "/uYlq9Ii0CCWXGAzTRvHR99lyvwh.jpg",
+      "first_air_date": "2025-12-05",
+      "name": "Spartacus: House of Ashur",
+      "vote_average": 6.372,
+      "vote_count": 148
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/usLRh1bcbL0Q9X8zf6rL4OV1qrA.jpg",
+      "genre_ids": [
+        10759,
+        10765,
+        18
+      ],
+      "id": 2661,
+      "origin_country": [
+        "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "仮面ライダー",
+      "overview": "Takeshi Hongo is a promising young man with a passion for motorcycle racing. However, his dreams are suddenly ruined when he gets kidnapped by Shocker, the evil secret organization planning to dominate the world. After being remodeled into a cyborg, Takeshi escapes and swears to protect the world from the inhuman monsters.",
+      "popularity": 98.8524,
+      "poster_path": "/lv3OlrXyTNg4Dz0JrtopOmMziNs.jpg",
+      "first_air_date": "1971-04-03",
+      "name": "Kamen Rider",
+      "vote_average": 6.5,
+      "vote_count": 94
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/butPVWgcbtAjL9Z7jU7Xj1KA8KD.jpg",
+      "genre_ids": [
+        10767,
+        35
+      ],
+      "id": 22980,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Watch What Happens Live with Andy Cohen",
+      "overview": "Bravo network executive Andy Cohen discusses pop culture topics with celebrities and reality show personalities.",
+      "popularity": 102.2756,
+      "poster_path": "/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
+      "first_air_date": "2009-07-16",
+      "name": "Watch What Happens Live with Andy Cohen",
+      "vote_average": 5.0,
+      "vote_count": 81
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qLMfcvdCcCGD2BNLH8b6ZCBuO7D.jpg",
+      "genre_ids": [
+        10763,
+        35
+      ],
+      "id": 2224,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "The Daily Show",
+      "overview": "The World's Fakest News Team tackle the biggest stories in news, politics and pop culture.",
+      "popularity": 80.649,
+      "poster_path": "/ixcfyK7it6FjRM36Te4OdblAq4X.jpg",
+      "first_air_date": "1996-07-22",
+      "name": "The Daily Show",
+      "vote_average": 6.398,
+      "vote_count": 615
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rBOnrVlck7BIlGeWVlzYiZeg4l2.jpg",
+      "genre_ids": [
+        16,
+        10759,
+        18,
+        10765
+      ],
+      "id": 209867,
+      "origin_country": [
+        "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "葬送のフリーレン",
+      "overview": "Decades after her party defeated the Demon King, an old friend's funeral launches the elf wizard Frieren on a journey of self-discovery.",
+      "popularity": 78.4177,
+      "poster_path": "/dqZENchTd7lp5zht7BdlqM7RBhD.jpg",
+      "first_air_date": "2023-09-29",
+      "name": "Frieren: Beyond Journey's End",
+      "vote_average": 8.759,
+      "vote_count": 660
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/opxjwbFSadDgVmZtrLTlWJsUxrB.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 283123,
+      "origin_country": [
+        "TR"
+      ],
+      "original_language": "tr",
+      "original_name": "Eşref Rüya",
+      "overview": "As a child, Eşref fell in love from afar with a girl he called “Rüya” and spent years searching for her, only to become a powerful mafia figure along the way. Meanwhile, Nisan, an idealistic musician, finds herself in grave danger after performing at a wedding held at Eşref’s hotel. Eşref falls for Nisan, unaware that she is both the long-lost Rüya he has been chasing for years and a police informant. Trapped in a whirlwind of love, betrayal, and power struggles, Eşref is forced into a brutal reckoning—both with his criminal empire and his own emotions.",
+      "popularity": 84.0975,
+      "poster_path": "/jwrN5QA07dm8sKuUFInP2MRLPfb.jpg",
+      "first_air_date": "2025-03-19",
+      "name": "Esref's Dream",
+      "vote_average": 7.174,
+      "vote_count": 23
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/a8a8z4aJr40zYgRMfmSESppX2eO.jpg",
+      "genre_ids": [
+        10764,
+        35
+      ],
+      "id": 70672,
+      "origin_country": [
+        "KR"
+      ],
+      "original_language": "ko",
+      "original_name": "아는 형님",
+      "overview": "Male celebs play make-believe as high schoolers, welcoming star transfer students every week and engaging in battles of witty humor and slapstick.",
+      "popularity": 64.9896,
+      "poster_path": "/2jIi55JtYKJTL1km8qHMuUilOWo.jpg",
+      "first_air_date": "2015-12-05",
+      "name": "Men on a Mission",
+      "vote_average": 7.512,
+      "vote_count": 41
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cX6dzeKsBTTXHoG3uQUuhQbqyvq.jpg",
+      "genre_ids": [
+        18,
+        10765
+      ],
+      "id": 273160,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "The Beauty",
+      "overview": "The world of high fashion turns dark when international supermodels begin dying in gruesome and mysterious ways. FBI Agents Cooper Madsen and Jordan Bennett are sent to Paris to uncover the truth. As they delve deeper into the case, they uncover a sexually transmitted virus that transforms ordinary people into visions of physical perfection, but with terrifying consequences.",
+      "popularity": 69.6738,
+      "poster_path": "/tZTG2PPAukzksPkiQV9c4suIQXk.jpg",
+      "first_air_date": "2026-01-21",
+      "name": "The Beauty",
+      "vote_average": 5.8,
+      "vote_count": 41
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/14LzHqJrFcHk7ruMNCXpEkB0Thg.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 44006,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Chicago Fire",
+      "overview": "An edge-of-your-seat view into the lives of everyday heroes committed to one of America's noblest professions. For the firefighters, rescue squad and paramedics of Chicago Firehouse 51, no occupation is more stressful or dangerous, yet so rewarding and exhilarating. These courageous men and women are among the elite who forge headfirst into danger when everyone else is running the other way and whose actions make the difference between life and death.",
+      "popularity": 69.8251,
+      "poster_path": "/r915sk2JpthZSjHEgZKifWxgo6L.jpg",
+      "first_air_date": "2012-10-10",
+      "name": "Chicago Fire",
+      "vote_average": 8.404,
+      "vote_count": 2338
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6uPBHw488MUW6x51zZ2OCJo6Dgp.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 250307,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "The Pitt",
+      "overview": "The staff of Pittsburgh's Trauma Medical Center work around the clock to save lives in an overcrowded and underfunded emergency department.",
+      "popularity": 68.1614,
+      "poster_path": "/kvFSpESyBZMjaeOJDx7RS3P1jey.jpg",
+      "first_air_date": "2025-01-09",
+      "name": "The Pitt",
+      "vote_average": 8.71,
+      "vote_count": 436
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/gMMnf8VRg3Z98WaFmOLr9Jk8pIs.jpg",
+      "genre_ids": [
+        35,
+        10767
+      ],
+      "id": 63770,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "The Late Show with Stephen Colbert",
+      "overview": "Stephen Colbert brings his signature satire and comedy to The Late Show with Stephen Colbert, the #1 show in late night, where he talks with an eclectic mix of guests about what is new and relevant in the worlds of politics, entertainment, business, music, technology, and more. Featuring bandleader Jon Batiste with his band Stay Human, the Emmy Award-nominated show is broadcast from the historic Ed Sullivan Theater.",
+      "popularity": 59.8538,
+      "poster_path": "/9jkThAGYj2yp8jsS6Nriy5mzKFT.jpg",
+      "first_air_date": "2015-09-08",
+      "name": "The Late Show with Stephen Colbert",
+      "vote_average": 6.2,
+      "vote_count": 334
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/x2jNLrYw1s9i6kihEJqsBQgs9nR.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 62650,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Chicago Med",
+      "overview": "An emotional thrill ride through the day-to-day chaos of the city's most explosive hospital and the courageous team of doctors who hold it together. They will tackle unique new cases inspired by topical events, forging fiery relationships in the pulse-pounding pandemonium of the emergency room.",
+      "popularity": 55.0634,
+      "poster_path": "/9eym662FRJJb9wdgCiDKPDciZzf.jpg",
+      "first_air_date": "2015-11-17",
+      "name": "Chicago Med",
+      "vote_average": 8.283,
+      "vote_count": 1221
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rhp8vYG1sIFtqH3ETmHJuI5Z3Cb.jpg",
+      "genre_ids": [
+        80,
+        18
+      ],
+      "id": 58841,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Chicago P.D.",
+      "overview": "A riveting police drama about the men and women of the Chicago Police Department's District 21 who put it all on the line to serve and protect their community. District 21 is made up of two distinctly different groups: the uniformed cops who patrol the beat and go head-to-head with the city's street crimes and the Intelligence Unit that combats the city's major offenses - organized crime, drug trafficking, high profile murders and beyond.",
+      "popularity": 65.0316,
+      "poster_path": "/bez40PgT36RUu4gstD2A6GSM0tP.jpg",
+      "first_air_date": "2014-01-08",
+      "name": "Chicago P.D.",
+      "vote_average": 8.416,
+      "vote_count": 2528
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dfX2UaHVE5c7kLBFbgmEZJuy4Ev.jpg",
+      "genre_ids": [
+        10767,
+        35
+      ],
+      "id": 61818,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Late Night with Seth Meyers",
+      "overview": "Seth Meyers, who is \"Saturday Night Live's\" longest serving anchor on the show's wildly popular \"Weekend Update,\" takes over as host of NBC's \"Late Night\" — home to A-list celebrity guests, memorable comedy and the best in musical talent. As the Emmy Award-winning head writer for \"SNL,\" Meyers has established a reputation for sharp wit and perfectly timed comedy, and has gained fame for his spot-on jokes and satire. Meyers takes his departure from \"SNL\" to his new post at \"Late Night,\" as Jimmy Fallon moves to \"The Tonight Show\".",
+      "popularity": 54.3695,
+      "poster_path": "/jm95V8XjfvqmEhw0MN09wbg9Mi3.jpg",
+      "first_air_date": "2014-02-25",
+      "name": "Late Night with Seth Meyers",
+      "vote_average": 5.283,
+      "vote_count": 120
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ka4rcpCCBPAATLdQEn57qZQT8e4.jpg",
+      "genre_ids": [
+        18,
+        80,
+        9648
+      ],
+      "id": 40663,
+      "origin_country": [
+        "JP"
+      ],
+      "original_language": "ja",
+      "original_name": "相棒",
+      "overview": "Detective Ukyo Sugishita confronts crime on the basis of his own convictions. He has a partner that works for him in the Special Task Unit. For the first 7 seasons, Ukyo’s first partner is Kaoru Kameyama. He is a good-natured, hot-tempered, straightforward and somewhat scattered detective. Beginning in Season 8, Takeru Kanbe replaces Kameyama. Contrary to his predecessor, Takeru is a lanky, cool, conceited and confident detective. From Season 11 to Season 13, Ukyo’s partner is a young detective Toru Kai. Toru is a son of Deputy Director-General of The National Police Agency. But he became a detective by his own effort. And starting with Season 14, Ukyo’s current partner is Wataru Kaburagi, an elite bureaucrat who came to the Metropolitan Police Department on temporary assignment. As the first partner without any career of a police officer, he will face challenging cases together with Ukyo.",
+      "popularity": 54.0182,
+      "poster_path": "/8u8rCCeuBufMQ1VlGX0lruhDaPR.jpg",
+      "first_air_date": "2002-10-09",
+      "name": "AIBOU: Tokyo Detective Duo",
+      "vote_average": 7.6,
+      "vote_count": 19
+    }
+  ],
+  "total_pages": 64,
+  "total_results": 1277
+}

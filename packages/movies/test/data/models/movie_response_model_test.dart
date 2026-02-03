@@ -1,11 +1,9 @@
 import 'dart:io';
+
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:movies/movies.dart';
-import 'package:core/core.dart';
-import 'package:mocktail/mocktail.dart';
-
-import '../../helpers/http_helper.dart';
 
 void main() {
   setUpAll(() {
@@ -14,10 +12,10 @@ void main() {
     PaintingBinding.instance.imageCache.clearLiveImages();
   });
 
-  final tMovie = Movie(
+  final tMovie = const Movie(
     adult: false,
     backdropPath: '/path.jpg',
-    genreIds: const [1],
+    genreIds: [1],
     id: 1,
     originalTitle: 'Title',
     overview: 'Overview',
@@ -30,7 +28,7 @@ void main() {
     voteCount: 1,
   );
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return MaterialApp(
       home: Scaffold(body: body),
       routes: {
@@ -41,7 +39,7 @@ void main() {
   }
 
   testWidgets('should display movie information', (WidgetTester tester) async {
-    await tester.pumpWidget(_makeTestableWidget(MovieCard(tMovie)));
+    await tester.pumpWidget(makeTestableWidget(MovieCard(tMovie)));
 
     expect(find.text('Title'), findsOneWidget);
     expect(find.text('Overview'), findsOneWidget);
@@ -51,7 +49,7 @@ void main() {
   testWidgets('should navigate to detail page when tapped', (
     WidgetTester tester,
   ) async {
-    await tester.pumpWidget(_makeTestableWidget(MovieCard(tMovie)));
+    await tester.pumpWidget(makeTestableWidget(MovieCard(tMovie)));
 
     await tester.tap(find.byType(InkWell));
     await tester.pump();

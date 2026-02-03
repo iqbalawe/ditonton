@@ -1,14 +1,13 @@
 import 'dart:io';
 
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movies/movies.dart';
 
-import '../../helpers/test_helper.mocks.dart';
 import '../../helpers/http_helper.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockTopRatedCubit mockTopRatedCubit;
@@ -24,7 +23,7 @@ void main() {
     di.registerFactory<TopRatedCubit>(() => mockTopRatedCubit);
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return MaterialApp(home: body);
   }
 
@@ -38,7 +37,7 @@ void main() {
     when(mockTopRatedCubit.fetchTopRatedMovies()).thenAnswer((_) async {});
     when(mockTopRatedCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const TopRatedMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const TopRatedMoviesPage()));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
@@ -46,10 +45,10 @@ void main() {
   testWidgets('Page should display when data is loaded', (
     WidgetTester tester,
   ) async {
-    final tMovie = Movie(
+    final tMovie = const Movie(
       adult: false,
       backdropPath: '/path.jpg',
-      genreIds: const [1],
+      genreIds: [1],
       id: 1,
       originalTitle: 'Title',
       overview: 'Overview',
@@ -69,7 +68,7 @@ void main() {
     when(mockTopRatedCubit.fetchTopRatedMovies()).thenAnswer((_) async {});
     when(mockTopRatedCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const TopRatedMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const TopRatedMoviesPage()));
 
     expect(find.byType(ListView), findsOneWidget);
     expect(find.byType(MovieCard), findsOneWidget);
@@ -87,7 +86,7 @@ void main() {
     when(mockTopRatedCubit.fetchTopRatedMovies()).thenAnswer((_) async {});
     when(mockTopRatedCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const TopRatedMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const TopRatedMoviesPage()));
 
     expect(find.text('Error message'), findsOneWidget);
   });
@@ -102,7 +101,7 @@ void main() {
     when(mockTopRatedCubit.fetchTopRatedMovies()).thenAnswer((_) async {});
     when(mockTopRatedCubit.close()).thenAnswer((_) async {});
 
-    await tester.pumpWidget(_makeTestableWidget(const TopRatedMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const TopRatedMoviesPage()));
 
     expect(find.byType(SizedBox), findsOneWidget);
   });
