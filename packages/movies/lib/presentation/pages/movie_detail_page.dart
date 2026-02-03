@@ -73,10 +73,20 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                   await context
                                       .read<WatchlistStatusCubit>()
                                       .addWatchlist(movie);
+                                  await AnalyticsHelper.logWatchlistAction(
+                                    type: 'Movie',
+                                    title: movie.title,
+                                    isAdded: true,
+                                  );
                                 } else {
                                   await context
                                       .read<WatchlistStatusCubit>()
                                       .removeFromWatchlist(movie);
+                                  await AnalyticsHelper.logWatchlistAction(
+                                    type: 'Movie',
+                                    title: movie.title,
+                                    isAdded: false,
+                                  );
                                 }
                               },
                             );

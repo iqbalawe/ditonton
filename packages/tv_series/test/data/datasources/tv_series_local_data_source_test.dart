@@ -7,10 +7,10 @@ import '../../test_helper/test_helper.mocks.dart';
 
 void main() {
   late TVSeriesLocalDataSourceImpl dataSource;
-  late MockTVSeriesDatabaseHelper mockDatabaseHelper;
+  late MockDatabaseHelper mockDatabaseHelper;
 
   setUp(() {
-    mockDatabaseHelper = MockTVSeriesDatabaseHelper();
+    mockDatabaseHelper = MockDatabaseHelper();
     dataSource = TVSeriesLocalDataSourceImpl(
       databaseHelper: mockDatabaseHelper,
     );
@@ -63,7 +63,7 @@ void main() {
       'should return success message when remove from database is successful',
       () async {
         when(
-          mockDatabaseHelper.removeWatchlistTVSeries(tTVSeriesTable),
+          mockDatabaseHelper.removeWatchlist(1, isTVSeries: true),
         ).thenAnswer((_) async => 1);
 
         final result = await dataSource.removeWatchlist(tTVSeriesTable);
@@ -76,7 +76,7 @@ void main() {
       'should throw DatabaseException when remove from database is unsuccessful',
       () async {
         when(
-          mockDatabaseHelper.removeWatchlistTVSeries(tTVSeriesTable),
+          mockDatabaseHelper.removeWatchlist(1, isTVSeries: true),
         ).thenThrow(Exception());
 
         final call = dataSource.removeWatchlist(tTVSeriesTable);

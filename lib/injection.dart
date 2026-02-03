@@ -1,4 +1,6 @@
+import 'package:core/core.dart';
 import 'package:core/network/ssl_pinning.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 import 'package:movies/movies.dart';
@@ -11,21 +13,26 @@ Future<void> init() async {
 
   final secureClient = await SslPinning.client;
 
+  locator.registerLazySingleton(() => FirebaseCrashlytics.instance);
+
   locator.registerLazySingleton<http.Client>(() => secureClient);
 
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
-  locator.registerLazySingleton<TVSeriesDatabaseHelper>(
-    () => TVSeriesDatabaseHelper(),
-  );
 
   locator.registerLazySingleton<MovieRemoteDataSource>(
-    () => MovieRemoteDataSourceImpl(client: locator()),
+    () => MovieRemoteDataSourceImpl(
+      client: locator(),
+      crashlytics: FirebaseCrashlytics.instance,
+    ),
   );
   locator.registerLazySingleton<MovieLocalDataSource>(
     () => MovieLocalDataSourceImpl(databaseHelper: locator()),
   );
   locator.registerLazySingleton<TVSeriesRemoteDataSource>(
-    () => TVSeriesRemoteDataSourceImpl(client: locator()),
+    () => TVSeriesRemoteDataSourceImpl(
+      client: locator(),
+      crashlytics: FirebaseCrashlytics.instance,
+    ),
   );
   locator.registerLazySingleton<TVSeriesLocalDataSource>(
     () => TVSeriesLocalDataSourceImpl(databaseHelper: locator()),
@@ -54,6 +61,7 @@ Future<void> init() async {
   locator.registerLazySingleton(() => RemoveWatchlist(locator()));
   locator.registerLazySingleton(() => SaveWatchlist(locator()));
   locator.registerLazySingleton(() => SearchMovies(locator()));
+
   locator.registerLazySingleton(() => GetTVSeriesDetail(locator()));
   locator.registerLazySingleton(() => GetTVSeriesRecommendations(locator()));
   locator.registerLazySingleton(() => GetOnTheAirTVSeries(locator()));
@@ -79,6 +87,7 @@ Future<void> init() async {
       removeWatchlist: locator(),
     ),
   );
+
   locator.registerFactory(() => OnTheAirCubit(locator()));
   locator.registerFactory(() => PopularTVSeriesCubit(locator()));
   locator.registerFactory(() => TopRatedTVSeriesCubit(locator()));

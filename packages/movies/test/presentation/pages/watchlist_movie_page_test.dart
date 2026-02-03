@@ -24,7 +24,6 @@ void main() {
     return MaterialApp(
       home: BlocProvider<WatchlistMoviesCubit>(
         create: (context) => mockWatchlistMoviesCubit,
-        // PERBAIKAN DISINI: Bungkus body dengan Scaffold
         child: Scaffold(body: body),
       ),
     );

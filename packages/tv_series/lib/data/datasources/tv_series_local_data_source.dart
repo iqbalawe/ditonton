@@ -9,7 +9,7 @@ abstract class TVSeriesLocalDataSource {
 }
 
 class TVSeriesLocalDataSourceImpl implements TVSeriesLocalDataSource {
-  final TVSeriesDatabaseHelper databaseHelper;
+  final DatabaseHelper databaseHelper;
 
   TVSeriesLocalDataSourceImpl({required this.databaseHelper});
 
@@ -26,7 +26,7 @@ class TVSeriesLocalDataSourceImpl implements TVSeriesLocalDataSource {
   @override
   Future<String> removeWatchlist(TVSeriesTable tvSeries) async {
     try {
-      await databaseHelper.removeWatchlistTVSeries(tvSeries);
+      await databaseHelper.removeWatchlist(tvSeries.id, isTVSeries: true);
       return 'Removed from Watchlist';
     } catch (e) {
       throw DatabaseException(e.toString());

@@ -1,3 +1,6 @@
+import 'package:core/core.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:mockito/annotations.dart';
 import 'package:http/http.dart' as http;
@@ -20,6 +23,8 @@ import 'package:movies/movies.dart';
     RemoveWatchlist,
     GetWatchlistMovies,
     NavigatorObserver,
+    FirebaseCrashlytics,
+    FirebaseAnalytics,
   ],
   customMocks: [
     MockSpec<http.Client>(as: #MockHttpClient),

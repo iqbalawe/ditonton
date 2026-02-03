@@ -57,16 +57,12 @@ void main() {
   ) async {
     when(mockCubit.state).thenReturn(const SearchTVSeriesState.initial());
     when(mockCubit.stream).thenAnswer((_) => const Stream.empty());
-    // Stubbing method void
     when(mockCubit.onQueryChanged(any)).thenAnswer((_) async {});
 
     await tester.pumpWidget(makeTestableWidget(const SearchTVSeriesPage()));
-
-    // Masukkan text dan tekan tombol search keyboard
     await tester.enterText(find.byType(TextField), 'spiderman');
     await tester.testTextInput.receiveAction(TextInputAction.search);
 
-    // Verifikasi pemanggilan
     verify(mockCubit.onQueryChanged('spiderman')).called(1);
   });
 
@@ -90,9 +86,6 @@ void main() {
     ).thenAnswer((_) => Stream.value(SearchTVSeriesState.loaded([tTVSeries])));
 
     await tester.pumpWidget(makeTestableWidget(const SearchTVSeriesPage()));
-    // Tidak perlu mockNetworkImagesFor di sini karena TvSeriesCard biasanya handle placeholder/error,
-    // tapi kalau mau lebih aman tambahkan saja.
-
     expect(find.byType(ListView), findsOneWidget);
   });
 

@@ -15,6 +15,7 @@ void main() {
   late MockMovieDetailCubit mockMovieDetailCubit;
   late MockRecommendationsCubit mockRecommendationsCubit;
   late MockWatchlistStatusCubit mockWatchlistStatusCubit;
+  late MockFirebaseAnalytics mockAnalytics;
 
   setUpAll(() {
     HttpOverrides.global = MyHttpOverrides();
@@ -24,6 +25,16 @@ void main() {
     mockMovieDetailCubit = MockMovieDetailCubit();
     mockRecommendationsCubit = MockRecommendationsCubit();
     mockWatchlistStatusCubit = MockWatchlistStatusCubit();
+    mockAnalytics = MockFirebaseAnalytics();
+
+    AnalyticsHelper.setMockInstance(mockAnalytics);
+
+    when(
+      mockAnalytics.logEvent(
+        name: anyNamed('name'),
+        parameters: anyNamed('parameters'),
+      ),
+    ).thenAnswer((_) async {});
 
     final di = GetIt.instance;
     if (di.isRegistered<MovieDetailCubit>()) di.unregister<MovieDetailCubit>();

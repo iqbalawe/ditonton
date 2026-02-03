@@ -62,7 +62,7 @@ void main() {
     testWidgets('should display error icon when image failed to load', (
       tester,
     ) async {
-      // 1. Arrange
+      // Arrange
       await mockNetworkImagesFor(() async {
         await tester.pumpWidget(makeTestableWidget(TvSeriesCard(tTVSeries)));
 
@@ -76,11 +76,11 @@ void main() {
             'error',
           );
 
-          // 4. Act
+          // Act
           await tester.pumpWidget(makeTestableWidget(errorWidget));
         }
 
-        // 5. Assert
+        // Assert
         expect(find.byIcon(Icons.error), findsOneWidget);
       });
     });

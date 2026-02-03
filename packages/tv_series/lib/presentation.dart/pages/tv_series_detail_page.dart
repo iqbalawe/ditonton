@@ -49,10 +49,11 @@ class _TVSeriesDetailPageState extends State<TVSeriesDetailPage> {
                     posterPath: tvSeries.posterPath,
                     voteAverage: tvSeries.voteAverage,
                     genres: tvSeries.genres,
+                    isTVSeries: true,
                     seasonsList: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Seasons', style: heading6), // Heading
+                        Text('Seasons', style: heading6),
                         const SizedBox(height: 8),
                         SizedBox(
                           height: 150,
@@ -71,7 +72,6 @@ class _TVSeriesDetailPageState extends State<TVSeriesDetailPage> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        // Poster Season
                                         Expanded(
                                           child: ClipRRect(
                                             borderRadius: BorderRadius.circular(

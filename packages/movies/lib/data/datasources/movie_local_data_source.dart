@@ -26,7 +26,7 @@ class MovieLocalDataSourceImpl implements MovieLocalDataSource {
   @override
   Future<String> removeWatchlist(MovieTable movie) async {
     try {
-      await databaseHelper.removeWatchlist(movie);
+      await databaseHelper.removeWatchlist(movie.id, isTVSeries: false);
       return 'Removed from Watchlist';
     } catch (e) {
       throw DatabaseException(e.toString());

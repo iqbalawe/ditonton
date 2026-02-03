@@ -15,10 +15,16 @@ void main() {
 
   late MovieRemoteDataSourceImpl dataSource;
   late MockHttpClient mockHttpClient;
+  late MockFirebaseCrashlytics mockCrashlytics;
 
   setUp(() {
     mockHttpClient = MockHttpClient();
-    dataSource = MovieRemoteDataSourceImpl(client: mockHttpClient);
+    mockCrashlytics = MockFirebaseCrashlytics();
+
+    dataSource = MovieRemoteDataSourceImpl(
+      client: mockHttpClient,
+      crashlytics: mockCrashlytics,
+    );
   });
 
   group('get Now Playing Movies', () {
@@ -49,6 +55,30 @@ void main() {
         final call = dataSource.getNowPlayingMovies();
 
         expect(() => call, throwsA(isA<ServerException>()));
+      },
+    );
+
+    test(
+      'should throw ServerException and record error to crashlytics',
+      () async {
+        // ARRANGE
+        when(mockHttpClient.get(any)).thenThrow(Exception());
+        when(
+          mockCrashlytics.recordError(any, any, reason: anyNamed('reason')),
+        ).thenAnswer((_) async {});
+
+        // ACT
+        final call = dataSource.getNowPlayingMovies();
+
+        // ASSERT
+        expect(call, throwsA(isA<ServerException>()));
+        verify(
+          mockCrashlytics.recordError(
+            any,
+            any,
+            reason: 'Gagal getNowPlayingMovies',
+          ),
+        );
       },
     );
   });
@@ -83,6 +113,30 @@ void main() {
         expect(() => call, throwsA(isA<ServerException>()));
       },
     );
+
+    test(
+      'should throw ServerException and record error to crashlytics',
+      () async {
+        // ARRANGE
+        when(mockHttpClient.get(any)).thenThrow(Exception());
+        when(
+          mockCrashlytics.recordError(any, any, reason: anyNamed('reason')),
+        ).thenAnswer((_) async {});
+
+        // ACT
+        final call = dataSource.getPopularMovies();
+
+        // ASSERT
+        expect(call, throwsA(isA<ServerException>()));
+        verify(
+          mockCrashlytics.recordError(
+            any,
+            any,
+            reason: 'Gagal getPopularMovies',
+          ),
+        );
+      },
+    );
   });
 
   group('get Top Rated Movies', () {
@@ -112,6 +166,30 @@ void main() {
         final call = dataSource.getTopRatedMovies();
 
         expect(() => call, throwsA(isA<ServerException>()));
+      },
+    );
+
+    test(
+      'should throw ServerException and record error to crashlytics',
+      () async {
+        // ARRANGE
+        when(mockHttpClient.get(any)).thenThrow(Exception());
+        when(
+          mockCrashlytics.recordError(any, any, reason: anyNamed('reason')),
+        ).thenAnswer((_) async {});
+
+        // ACT
+        final call = dataSource.getTopRatedMovies();
+
+        // ASSERT
+        expect(call, throwsA(isA<ServerException>()));
+        verify(
+          mockCrashlytics.recordError(
+            any,
+            any,
+            reason: 'Gagal getTopRatedMovies',
+          ),
+        );
       },
     );
   });
@@ -145,6 +223,26 @@ void main() {
         final call = dataSource.getMovieDetail(tId);
 
         expect(() => call, throwsA(isA<ServerException>()));
+      },
+    );
+
+    test(
+      'should throw ServerException and record error to crashlytics',
+      () async {
+        // ARRANGE
+        when(mockHttpClient.get(any)).thenThrow(Exception());
+        when(
+          mockCrashlytics.recordError(any, any, reason: anyNamed('reason')),
+        ).thenAnswer((_) async {});
+
+        // ACT
+        final call = dataSource.getMovieDetail(tId);
+
+        // ASSERT
+        expect(call, throwsA(isA<ServerException>()));
+        verify(
+          mockCrashlytics.recordError(any, any, reason: 'Gagal getMovieDetail'),
+        );
       },
     );
   });
@@ -189,6 +287,30 @@ void main() {
         expect(() => call, throwsA(isA<ServerException>()));
       },
     );
+
+    test(
+      'should throw ServerException and record error to crashlytics',
+      () async {
+        // ARRANGE
+        when(mockHttpClient.get(any)).thenThrow(Exception());
+        when(
+          mockCrashlytics.recordError(any, any, reason: anyNamed('reason')),
+        ).thenAnswer((_) async {});
+
+        // ACT
+        final call = dataSource.getMovieRecommendations(tId);
+
+        // ASSERT
+        expect(call, throwsA(isA<ServerException>()));
+        verify(
+          mockCrashlytics.recordError(
+            any,
+            any,
+            reason: 'Gagal getMovieRecommendations',
+          ),
+        );
+      },
+    );
   });
 
   group('search movies', () {
@@ -226,6 +348,26 @@ void main() {
         final call = dataSource.searchMovies(tQuery);
 
         expect(() => call, throwsA(isA<ServerException>()));
+      },
+    );
+
+    test(
+      'should throw ServerException and record error to crashlytics',
+      () async {
+        // ARRANGE
+        when(mockHttpClient.get(any)).thenThrow(Exception());
+        when(
+          mockCrashlytics.recordError(any, any, reason: anyNamed('reason')),
+        ).thenAnswer((_) async {});
+
+        // ACT
+        final call = dataSource.searchMovies(tQuery);
+
+        // ASSERT
+        expect(call, throwsA(isA<ServerException>()));
+        verify(
+          mockCrashlytics.recordError(any, any, reason: 'Gagal searchMovies'),
+        );
       },
     );
   });

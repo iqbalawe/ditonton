@@ -1,7 +1,11 @@
 import 'package:about/about_page.dart';
 import 'package:core/core.dart';
+import 'package:ditonton/config/firebase_options.dart';
 import 'package:ditonton/presentation/pages/watchlist_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/movies.dart';
 import 'package:tv_series/tv_series.dart';
@@ -10,8 +14,16 @@ import 'injection.dart' as di;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await di.init();
 
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
   runApp(const MyApp());
 }
 
@@ -64,7 +76,7 @@ class MyApp extends StatelessWidget {
               builder: (_) => const WatchlistPage(),
               settings: settings,
             );
-          case AboutPage.routeName:
+          case aboutRoute:
             return MaterialPageRoute(
               builder: (_) => const AboutPage(),
               settings: settings,

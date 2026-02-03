@@ -48,7 +48,7 @@ void main() {
       'should return success message when remove from database is success',
       () async {
         when(
-          mockDatabaseHelper.removeWatchlist(testMovieTable),
+          mockDatabaseHelper.removeWatchlist(1, isTVSeries: false),
         ).thenAnswer((_) async => 1);
 
         final result = await dataSource.removeWatchlist(testMovieTable);
@@ -61,7 +61,7 @@ void main() {
       'should throw DatabaseException when remove from database is failed',
       () async {
         when(
-          mockDatabaseHelper.removeWatchlist(testMovieTable),
+          mockDatabaseHelper.removeWatchlist(1, isTVSeries: false),
         ).thenThrow(Exception());
 
         final call = dataSource.removeWatchlist(testMovieTable);

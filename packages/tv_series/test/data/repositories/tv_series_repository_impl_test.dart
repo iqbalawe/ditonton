@@ -321,7 +321,6 @@ void main() {
         final result = await repository.getTVSeriesRecommendations(tId);
         // assert
         verify(mockRemoteDataSource.getTVSeriesRecommendations(tId));
-        /* workaround to test List in Right. Issue: https://github.com/spebbe/dartz/issues/80 */
         final resultList = result.getOrElse(() => []);
         expect(resultList, equals(tTvSeriesList));
       },
@@ -336,7 +335,7 @@ void main() {
         ).thenThrow(ServerException());
         // act
         final result = await repository.getTVSeriesRecommendations(tId);
-        // assertbuild runner
+        // assert
         verify(mockRemoteDataSource.getTVSeriesRecommendations(tId));
         expect(result, equals(const Left(ServerFailure(''))));
       },
@@ -376,7 +375,6 @@ void main() {
         // act
         final result = await repository.searchTVSeries(tQuery);
         // assert
-        /* workaround to test List in Right. Issue: https://github.com/spebbe/dartz/issues/80 */
         final resultList = result.getOrElse(() => []);
         expect(resultList, tTvSeriesList);
       },

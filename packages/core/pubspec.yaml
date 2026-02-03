@@ -12,6 +12,7 @@ dependencies:
   cached_network_image: ^3.4.1
   dartz: ^0.10.1
   equatable: ^2.0.8
+  firebase_analytics: ^12.1.1
   flutter:
     sdk: flutter
   flutter_rating_bar: ^4.0.1
@@ -21,6 +22,7 @@ dependencies:
   json_annotation: ^4.9.0
   movies:
     path: ../movies
+  sqflite: ^2.4.2
   tv_series:
     path: ../tv_series
 

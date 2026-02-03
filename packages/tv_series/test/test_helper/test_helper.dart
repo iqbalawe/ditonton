@@ -1,3 +1,5 @@
+import 'package:core/core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:mockito/annotations.dart';
 import 'package:http/http.dart' as http;
@@ -8,7 +10,6 @@ import 'package:tv_series/tv_series.dart';
     TVSeriesRepository,
     TVSeriesRemoteDataSource,
     TVSeriesLocalDataSource,
-    TVSeriesDatabaseHelper,
     GetOnTheAirTVSeries,
     GetPopularTVSeries,
     GetTVSeriesDetail,
@@ -20,6 +21,8 @@ import 'package:tv_series/tv_series.dart';
     RemoveWatchlistTVSeries,
     SearchTVSeries,
     NavigatorObserver,
+    DatabaseHelper,
+    FirebaseCrashlytics,
   ],
   customMocks: [
     MockSpec<http.Client>(as: #MockHttpClient),
