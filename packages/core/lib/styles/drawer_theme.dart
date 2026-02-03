@@ -1,3 +1,3 @@
 import 'package:flutter/material.dart';
 
-final kDrawerTheme = DrawerThemeData(backgroundColor: Colors.grey.shade700);
+final drawerTheme = DrawerThemeData(backgroundColor: Colors.grey.shade700);

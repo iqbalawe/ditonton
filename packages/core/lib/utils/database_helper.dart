@@ -18,7 +18,6 @@ class DatabaseHelper {
     return _database;
   }
 
-  // Nama Tabel
   static const String _tblWatchlist = 'watchlist';
   static const String _tblWatchlistTVSeries = 'watchlist_tv_series';
 
